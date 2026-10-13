@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 
-import Home from '@/routes/Home.tsx'
+import Home from './routes/Home.tsx'
 
 export default function App() {
   return (

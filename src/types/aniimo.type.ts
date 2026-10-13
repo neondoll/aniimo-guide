@@ -1,9 +1,20 @@
-import type { AniimoFormId } from './aniimo-form.type'
-import type { ElementId } from './element.type';
+import type { ElementId } from './element.type.ts';
+import type { FormId } from './form.type.ts'
+import type { HomeAbilityId } from './home-ability.type.ts'
+
+export interface AniimoHomeAbilityAssignment {
+  id: HomeAbilityId;
+  level: number;
+}
+
+export interface AniimoForm {
+  form_id: FormId;
+  element_ids: ElementId[];
+  home_abilities: AniimoHomeAbilityAssignment[];
+}
 
 export interface Aniimo {
   no: string;
   name: string;
-  form_id: AniimoFormId;
-  element_ids: ElementId[];
+  forms: AniimoForm[];
 }

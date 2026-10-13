@@ -1,15 +1,18 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-import { useAniimoFormsStore } from '../store/aniimo-forms.store';
-import { useAniimosStore } from '../store/aniimos.store';
-import { useElementsStore } from '../store/elements.store';
+import { bootstrapData } from '../store/bootstrap'
 
 export function useBootstrapData() {
-  const fetchAniimoForms = useAniimoFormsStore((s) => s.fetchData);
-  const fetchAniimos = useAniimosStore((s) => s.fetchData);
-  const fetchElements = useElementsStore((s) => s.fetchData);
+  const [ready, setReady] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    void Promise.all([fetchElements(), fetchAniimoForms(), fetchAniimos()]);
-  }, [fetchAniimoForms, fetchAniimos, fetchElements]);
+    let cancelled = false;
+    bootstrapData()
+      .then(() => !cancelled && setReady(true))
+      .catch((e) => !cancelled && setError(e instanceof Error ? e.message : 'Unknown error'));
+    return () => { cancelled = true; };
+  }, []);
+
+  return { ready, error };
 }

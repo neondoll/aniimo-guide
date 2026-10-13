@@ -1,4 +1,4 @@
-import type { ElementIds } from '../enums/elements.enum';
+import type { ElementIds } from '../enums/elements.enum.ts';
 
 export type ElementId = (typeof ElementIds)[keyof typeof ElementIds];
 
