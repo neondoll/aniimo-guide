@@ -1,0 +1,179 @@
+import { FamilyIds } from "../src/enums/families.ts";
+import { HomeAbilityIds } from "../src/enums/home-abilities.ts";
+import type { Facility } from "../src/types/facility.ts";
+import type { PartialPersonality } from "../src/types/personality.ts";
+
+const PP = {
+  E: { EI: "E" } as PartialPersonality, I: { EI: "I" } as PartialPersonality,
+  S: { SN: "S" } as PartialPersonality, N: { SN: "N" } as PartialPersonality,
+  T: { TF: "T" } as PartialPersonality, F: { TF: "F" } as PartialPersonality,
+  J: { JP: "J" } as PartialPersonality, P: { JP: "P" } as PartialPersonality,
+} as const;
+
+export const facilities: Facility[] = [
+  {
+    id: "farmland",
+    name: "Пахотная земля",
+    // Grass — посев, Water — полив, Earth — вспашка, Dark — сбор урожая.
+    // Разные аниимо могут закрывать разные роли.
+    requires_abilities: [HomeAbilityIds.Grass, HomeAbilityIds.Water, HomeAbilityIds.Earth, HomeAbilityIds.Dark],
+    requires_families: [],
+  },
+  {
+    id: "woodland",
+    name: "Лесной массив",
+    requires_abilities: [HomeAbilityIds.Grass, HomeAbilityIds.Water, HomeAbilityIds.Earth, HomeAbilityIds.Dark],
+    requires_families: [],
+  },
+  {
+    id: "mine",
+    name: "Шахта",
+    requires_abilities: [HomeAbilityIds.Earth],
+    requires_families: [],
+    preferred_personality: PP.P,
+  },
+  {
+    id: "nimbus_bed",
+    name: "Дождливое ложе",
+    requires_abilities: [HomeAbilityIds.Leisure],
+    requires_families: [], // Iris | Nimbi
+    preferred_personality: PP.J,
+  },
+  {
+    id: "dewy_house",
+    name: "Дом росы",
+    requires_abilities: [HomeAbilityIds.Leisure],
+    requires_families: [], // Dewy
+    preferred_personality: PP.I,
+  },
+  {
+    id: "starfall_hammock",
+    name: "Гамак падающих звезд",
+    requires_abilities: [HomeAbilityIds.Leisure],
+    requires_families: [FamilyIds.Celestis],
+    preferred_personality: PP.F,
+  },
+  {
+    id: "tidewhisper_sandcastle",
+    name: "Песчаный замок «Шепот прилива»",
+    requires_abilities: [HomeAbilityIds.Leisure],
+    requires_families: [], // Shelly | Susuta
+    preferred_personality: PP.J,
+  },
+  {
+    id: "floral_windmill",
+    name: "Цветочная ветряная мельница",
+    requires_abilities: [HomeAbilityIds.Leisure],
+    requires_families: [], // Flutternym
+    preferred_personality: PP.N,
+  },
+  {
+    id: "well",
+    name: "Колодец",
+    requires_abilities: [HomeAbilityIds.Water],
+    requires_families: [],
+    preferred_personality: PP.F,
+  },
+  {
+    id: "carousel_mill",
+    name: "Карусельная мельница",
+    requires_abilities: [HomeAbilityIds.Wind],
+    requires_families: [],
+    preferred_personality: PP.T,
+  },
+  {
+    id: "crafting_table",
+    name: "Стол для рукоделия",
+    requires_abilities: [HomeAbilityIds.Artisanship],
+    requires_families: [],
+    preferred_personality: PP.J,
+  },
+  {
+    id: "jukebox_dryer",
+    name: "Сушилка-музыкальный автомат",
+    requires_abilities: [HomeAbilityIds.Dark],
+    requires_families: [],
+    preferred_personality: PP.N,
+  },
+  {
+    id: "claw_game_cooker",
+    name: "Плита-кран",
+    requires_abilities: [HomeAbilityIds.Fire],
+    requires_families: [],
+    preferred_personality: PP.S,
+  },
+  {
+    id: "joy_wheel_loom",
+    name: "Ткацкий станок «Колесо радости»",
+    requires_abilities: [HomeAbilityIds.Wind],
+    requires_families: [],
+    preferred_personality: PP.F,
+  },
+  {
+    id: "phonolfactory_table",
+    name: "Музыкально-обонятельный стол",
+    requires_abilities: [HomeAbilityIds.Perfumery],
+    requires_families: [],
+    preferred_personality: PP.I,
+  },
+  {
+    id: "bouncy_brew_keg",
+    name: "Пружинистая пивная бочка",
+    requires_abilities: [HomeAbilityIds.Water],
+    requires_families: [],
+    preferred_personality: PP.E,
+  },
+  {
+    id: "simmering_pot",
+    name: "Кастрюля для тушения",
+    requires_abilities: [HomeAbilityIds.Fire],
+    requires_families: [],
+    preferred_personality: PP.T,
+  },
+  {
+    id: "blazing_stove",
+    name: "Жаркая плита",
+    requires_abilities: [HomeAbilityIds.Fire],
+    requires_families: [],
+    preferred_personality: PP.N,
+  },
+  {
+    id: "woodworking_bench",
+    name: "Столярный верстак",
+    requires_abilities: [HomeAbilityIds.Artisanship],
+    requires_families: [],
+    preferred_personality: PP.E,
+  },
+  {
+    id: "chimney_kiln",
+    name: "Печь с дымоходом",
+    requires_abilities: [HomeAbilityIds.Fire],
+    requires_families: [],
+    preferred_personality: PP.S,
+  },
+  {
+    id: "pickling_jar",
+    name: "Банка для маринования",
+    requires_abilities: [HomeAbilityIds.Dark],
+    requires_families: [],
+    preferred_personality: PP.P,
+  },
+  { id: "aniipod_maker", name: "Аниподер", requires_abilities: [HomeAbilityIds.Lightning], requires_families: [] },
+  {
+    id: "dance_pad_polisher",
+    name: "Полировальный танцпол",
+    requires_abilities: [HomeAbilityIds.Lightning],
+    requires_families: [],
+  },
+  { id: "crackle_power_pole", name: "Crackle Power Pole", requires_abilities: [], requires_families: [] },
+  {
+    id: "crackle_generator",
+    name: "Генератор искр",
+    requires_abilities: [HomeAbilityIds.Lightning],
+    requires_families: [],
+  },
+  { id: "heat_furnace", name: "Отопительная печь", requires_abilities: [HomeAbilityIds.Fire], requires_families: [] },
+  { id: "cooling_unit", name: "Охлаждающий блок", requires_abilities: [HomeAbilityIds.Ice], requires_families: [] },
+  { id: "sunlamp", name: "Солнечная лампа", requires_abilities: [HomeAbilityIds.Light], requires_families: [] },
+  { id: "hatchinator", name: "Hatchinator", requires_abilities: [], requires_families: [] },
+];

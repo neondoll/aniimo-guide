@@ -1,10 +1,13 @@
-import { useAniimosStore } from './aniimos.store';
-import { useElementsStore } from './elements.store';
-import { useFormsStore } from './forms.store';
-import { useHomeAbilitiesStore } from './home-abilities.store';
+import { useAniimosStore } from "./aniimos.store";
+import { useElementsStore } from "./elements.store";
+import { useFacilitiesStore } from "./facilities.store";
+import { useFamiliesStore } from "./families.store";
+import { useFormsStore } from "./forms.store";
+import { useHomeAbilitiesStore } from "./home-abilities.store";
+import { useRecommendationsStore } from "./recommendations.store";
 
 const META_URL = `${import.meta.env.BASE_URL}data/meta.json`;
-const META_CACHE_KEY = 'aniimo-guide:meta-generated';
+const META_CACHE_KEY = "aniimo-guide:meta-generated";
 
 interface Meta {
   generatedAt: string;
@@ -13,35 +16,40 @@ interface Meta {
 
 async function fetchMeta(): Promise<Meta | null> {
   try {
-    const res = await fetch(META_URL, { cache: 'no-cache' });
+    const res = await fetch(META_URL, { cache: "no-cache" });
+
     if (!res.ok) return null;
+
     return (await res.json()) as Meta;
-  } catch {
+  }
+  catch {
     return null;
   }
 }
 
 export async function bootstrapData(): Promise<void> {
   const meta = await fetchMeta();
-  const cachedGeneration = localStorage.getItem(META_CACHE_KEY);
-
-  // Если meta недоступна (offline) — работаем с тем, что есть в кэше.
-  // Если meta есть и её generation отличается от закэшированной — форсим рефетч.
-  const isStale = meta !== null && meta.generatedAt !== cachedGeneration;
+  const cached = localStorage.getItem(META_CACHE_KEY);
+  const isStale = meta !== null && meta.generatedAt !== cached;
 
   await Promise.all([
     useElementsStore.getState().fetchData(isStale),
     useFormsStore.getState().fetchData(isStale),
     useHomeAbilitiesStore.getState().fetchData(isStale),
+    useFamiliesStore.getState().fetchData(isStale),
+    useFacilitiesStore.getState().fetchData(isStale),
     useAniimosStore.getState().fetchData(isStale),
+    useRecommendationsStore.getState().fetchData(isStale),
   ]);
 
-  // Фиксируем новую генерацию только если все категории загрузились без ошибок.
   const anyError =
     useElementsStore.getState().error ||
     useFormsStore.getState().error ||
     useHomeAbilitiesStore.getState().error ||
-    useAniimosStore.getState().error;
+    useFamiliesStore.getState().error ||
+    useFacilitiesStore.getState().error ||
+    useAniimosStore.getState().error ||
+    useRecommendationsStore.getState().error;
 
   if (meta && !anyError) {
     localStorage.setItem(META_CACHE_KEY, meta.generatedAt);

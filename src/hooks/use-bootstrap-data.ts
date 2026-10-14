@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { bootstrapData } from '../store/bootstrap'
+import { bootstrapData } from "../store/bootstrap";
 
 export function useBootstrapData() {
   const [ready, setReady] = useState(false);
@@ -8,10 +8,14 @@ export function useBootstrapData() {
 
   useEffect(() => {
     let cancelled = false;
+
     bootstrapData()
       .then(() => !cancelled && setReady(true))
-      .catch((e) => !cancelled && setError(e instanceof Error ? e.message : 'Unknown error'));
-    return () => { cancelled = true; };
+      .catch((e) => !cancelled && setError(e instanceof Error ? e.message : "Unknown error"));
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return { ready, error };
