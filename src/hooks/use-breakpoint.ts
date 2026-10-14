@@ -17,17 +17,20 @@ const screens = {
  * @returns A boolean indicating whether the viewport size applies.
  */
 export const useBreakpoint = (size: "sm" | "md" | "lg" | "xl" | "2xl") => {
-  const [matches, setMatches] = useState(typeof window !== "undefined" ? window.matchMedia(`(min-width: ${screens[size]})`).matches : true);
+  const [matches, setMatches] = useState(() => {
+    if (typeof window === 'undefined') return true;
+
+    return window.matchMedia(`(min-width: ${screens[size]})`).matches;
+  });
 
   useEffect(() => {
     const breakpoint = window.matchMedia(`(min-width: ${screens[size]})`);
 
-    setMatches(breakpoint.matches);
-
     const handleChange = (value: MediaQueryListEvent) => setMatches(value.matches);
 
-    breakpoint.addEventListener("change", handleChange);
-    return () => breakpoint.removeEventListener("change", handleChange);
+    breakpoint.addEventListener('change', handleChange);
+
+    return () => breakpoint.removeEventListener('change', handleChange);
   }, [size]);
 
   return matches;

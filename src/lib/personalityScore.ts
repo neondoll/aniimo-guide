@@ -1,25 +1,20 @@
 import type { AniimoNo } from "../enums/aniimos.ts";
 import type { FormId } from "../enums/forms.ts";
 import type { Personality } from "../types/personality";
-import type { Axis, FormTraitProfile, Priority } from "../types/recommendations";
+import type { PersonalitySide, SideScores } from "../types/recommendations";
 
-const AXIS_SIDES: Record<Axis, [string, string]> = { EI: ["E", "I"], SN: ["S", "N"], TF: ["T", "F"], JP: ["J", "P"] };
-
-const WEIGHT: Record<Priority, number> = { high: 3, medium: 2, low: 1 };
-
-export function scorePersonality(p: Partial<Personality>, traits: FormTraitProfile): number {
+/**
+ * Оценка того, насколько целевая форма хороша для характера:
+ * суммируем уровни способностей, поддерживающих каждую заданную черту.
+ * Штрафов нет — несовпадающие черты дают 0.
+ */
+export function scoreEvolution(p: Partial<Personality>, sideScores: SideScores): number {
   let score = 0;
 
-  for (const axis of Object.keys(AXIS_SIDES) as Axis[]) {
-    const votes = traits[axis];
+  for (const side of Object.values(p)) {
+    if (!side) continue;
 
-    if (!votes) continue;
-
-    const actual = p[axis];
-
-    if (!actual) continue;
-
-    for (const v of votes) score += v.side === actual ? WEIGHT[v.priority] : -WEIGHT[v.priority];
+    score += sideScores[side as PersonalitySide] ?? 0;
   }
 
   return score;
@@ -34,18 +29,27 @@ export interface BranchScore {
 
 export function rankBranches(
   personality: Partial<Personality>,
-  branches: Array<{ to_no: AniimoNo; to_form_id: FormId; target_traits: FormTraitProfile }>,
+  branches: Array<{ to_no: AniimoNo; to_form_id: FormId; target_side_scores: SideScores }>,
 ): BranchScore[] {
   const scored = branches.map((b) => ({
     to_no: b.to_no,
     to_form_id: b.to_form_id,
-    score: scorePersonality(personality, b.target_traits),
+    score: scoreEvolution(personality, b.target_side_scores),
     recommended: false,
   }));
 
+  if (scored.length === 0) return scored;
+
   scored.sort((a, b) => b.score - a.score);
 
-  if (scored[0]) scored[0].recommended = true;
+  // Топ может быть не один — все ветки с максимальным счётом помечаем рекомендованными.
+  const top = scored[0].score;
+
+  // Если топ равен 0 — значит ни одна из веток не даёт преимуществ
+  // под выбранный характер. Ничего не подсвечиваем, чтобы не вводить в заблуждение.
+  if (top > 0) {
+    for (const s of scored) if (s.score === top) s.recommended = true;
+  }
 
   return scored;
 }

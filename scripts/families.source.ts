@@ -12,7 +12,11 @@ export const families: Family[] = [
   // 005 - Селестис · Стелларис
   { id: FamilyIds.Celestis, name: "Селестис", member_nos: [AniimoNos.Celestis, AniimoNos.Stellarys] },
   // 007 - Чайкуша · Кликуша · Крикуша · Каркуша
-  { id: FamilyIds.Chirpi, name: "Чайкуша", member_nos: [AniimoNos.Chirpi] },
+  {
+    id: FamilyIds.Chirpi,
+    name: "Чайкуша",
+    member_nos: [AniimoNos.Chirpi, AniimoNos.Tromber, AniimoNos.Cornet, AniimoNos.Tubster],
+  },
   // 020 - Бормотун · Ведьмун · Топотун
   { id: FamilyIds.Hummin, name: "Бормотун", member_nos: [AniimoNos.Hummin, AniimoNos.Hexxin, AniimoNos.Tuckin] },
   // 047 - Белкулак · Хвостобой

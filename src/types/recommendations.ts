@@ -5,6 +5,10 @@ import type { HomeAbilityId } from "../enums/home-abilities.ts";
 
 export type Priority = "high" | "medium" | "low";
 export type Axis = "EI" | "SN" | "TF" | "JP";
+export type PersonalitySide = 'E' | 'I' | 'S' | 'N' | 'T' | 'F' | 'J' | 'P';
+
+/** Максимальный уровень способности формы, поддерживающей эту букву. */
+export type SideScores = Partial<Record<PersonalitySide, number>>;
 
 export interface TraitVote {
   side: string;
@@ -26,6 +30,7 @@ export interface EvolutionBranch {
   to_form_id: FormId;
   /** Профиль целевой формы — основа для рантайм-скора. */
   target_traits: FormTraitProfile;
+  target_side_scores: SideScores;
 }
 
 export interface UpgradeSuggestion {
@@ -48,6 +53,7 @@ export interface FormRecommendation {
   is_rare: boolean;
   /** Профиль по характеру для этой формы. */
   traits: FormTraitProfile;
+  side_scores: SideScores;
   /** Строения, на которых эта форма может работать. */
   facility_matches: FacilityMatch[];
   /** Для нефинальных — куда можно эволюционировать, с портретом целевой формы. */

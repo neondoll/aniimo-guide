@@ -1,38 +1,38 @@
-import { NavLink, Route, Routes } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 
-import { useBootstrapData } from "./hooks/use-bootstrap-data";
-import { AniimosPage } from "./pages/AniimosPage";
-import { AniimoDetailPage } from "./pages/AniimoDetailPage";
-import { RecommendationsPage } from "./pages/RecommendationsPage";
+import { useBootstrapData } from '@/hooks/use-bootstrap-data';
+import { AboutPage } from '@/pages/AboutPage';
+import { AniimoDetailPage } from '@/pages/AniimoDetailPage';
+import { AniimosPage } from '@/pages/AniimosPage';
+import { ElementsPage } from '@/pages/ElementsPage';
+import { EvolutionToolPage } from '@/pages/EvolutionToolPage';
+import { FacilitiesPage } from '@/pages/FacilitiesPage';
+import { HomeAbilitiesPage } from '@/pages/HomeAbilitiesPage';
+import { HeaderNavigation } from '@/components/HeaderNavigation.tsx'
 
 export default function App() {
   const { ready, error } = useBootstrapData();
 
-  if (error) {
-    return <div className="p-6 text-red-600">Ошибка загрузки данных: {error}</div>;
-  }
+  if (error) return <div className="p-6 text-red-600">Ошибка загрузки данных: {error}</div>;
 
-  if (!ready) {
-    return <div className="p-6">Загрузка…</div>;
-  }
+  if (!ready) return <div className="p-6">Загрузка…</div>;
 
   return (
     <>
-      <nav className="p-4 border-b flex gap-4">
-        <NavLink to="/aniimos" className={({ isActive }) => isActive ? "font-bold" : ""}>
-          Аниимо
-        </NavLink>
-        <NavLink to="/recommendations" className={({ isActive }) => isActive ? "font-bold" : ""}>
-          Рекомендации
-        </NavLink>
-      </nav>
+      <HeaderNavigation />
 
-      <Routes>
-        <Route path="/" element={<AniimosPage  />} />
-        <Route path="/aniimos" element={<AniimosPage />} />
-        <Route path="/aniimos/:no" element={<AniimoDetailPage />} />
-        <Route path="/recommendations" element={<RecommendationsPage />} />
-      </Routes>
+      <main>
+        <Routes>
+          <Route path="/" element={<AniimosPage />} />
+          <Route path="/aniimos" element={<AniimosPage />} />
+          <Route path="/aniimos/:no" element={<AniimoDetailPage />} />
+          <Route path="/elements" element={<ElementsPage />} />
+          <Route path="/home-abilities" element={<HomeAbilitiesPage />} />
+          <Route path="/facilities" element={<FacilitiesPage />} />
+          <Route path="/tools/evolution" element={<EvolutionToolPage />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </main>
     </>
   );
 }

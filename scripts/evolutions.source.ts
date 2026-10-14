@@ -25,6 +25,17 @@ export const evolutions: EvolutionSource[] = [
   // 005 → 006
   { from_no: AniimoNos.Celestis, from_form_id: FormIds.Base, to_no: AniimoNos.Stellarys, to_form_id: FormIds.Base },
 
+  // 007 → 008 | 009
+  { from_no: AniimoNos.Chirpi, from_form_id: FormIds.Base, to_no: AniimoNos.Tromber, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Chirpi, from_form_id: FormIds.Base, to_no: AniimoNos.Cornet, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Chirpi, from_form_id: FormIds.Base, to_no: AniimoNos.Tubster, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Chirpi, from_form_id: FormIds.Beach, to_no: AniimoNos.Tromber, to_form_id: FormIds.Beach },
+  { from_no: AniimoNos.Chirpi, from_form_id: FormIds.Beach, to_no: AniimoNos.Cornet, to_form_id: FormIds.Beach },
+  { from_no: AniimoNos.Chirpi, from_form_id: FormIds.Beach, to_no: AniimoNos.Tubster, to_form_id: FormIds.Beach },
+  { from_no: AniimoNos.Chirpi, from_form_id: FormIds.Highland, to_no: AniimoNos.Tromber, to_form_id: FormIds.Highland },
+  { from_no: AniimoNos.Chirpi, from_form_id: FormIds.Highland, to_no: AniimoNos.Cornet, to_form_id: FormIds.Highland },
+  { from_no: AniimoNos.Chirpi, from_form_id: FormIds.Highland, to_no: AniimoNos.Tubster, to_form_id: FormIds.Highland },
+
   // 020 → 021 | 022
   { from_no: AniimoNos.Hummin, from_form_id: FormIds.Base, to_no: AniimoNos.Hexxin, to_form_id: FormIds.Base },
   { from_no: AniimoNos.Hummin, from_form_id: FormIds.Base, to_no: AniimoNos.Tuckin, to_form_id: FormIds.Base },

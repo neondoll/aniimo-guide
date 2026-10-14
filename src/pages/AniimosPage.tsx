@@ -1,13 +1,16 @@
-import { useMemo, type ReactNode } from "react";
-import { Link } from "react-router-dom";
+import { useMemo } from 'react';
+import { Link } from 'react-router-dom';
 
-import { Icon } from "../components/Icon";
-import type { FamilyId } from "../enums/families";
-import { useAniimosStore } from "../store/aniimos.store";
-import { useElementsStore } from "../store/elements.store";
-import { useFamiliesStore } from "../store/families.store";
-import { useFormsStore } from "../store/forms.store";
-import { useHomeAbilitiesStore } from "../store/home-abilities.store";
+import { Badge, Tooltip } from '@/components/base';
+import { Card } from '@/components/Card';
+import { Icon } from '@/components/Icon';
+import type { FamilyId } from '@/enums/families'
+import { assetUrl } from '@/lib/assets'
+import { useAniimosStore } from '@/store/aniimos.store';
+import { useElementsStore } from '@/store/elements.store';
+import { useFamiliesStore } from '@/store/families.store';
+import { useFormsStore } from '@/store/forms.store';
+import { useHomeAbilitiesStore } from '@/store/home-abilities.store';
 
 export function AniimosPage() {
   const aniimos = useAniimosStore((s) => s.data);
@@ -38,78 +41,85 @@ export function AniimosPage() {
   }, [aniimos]);
 
   return (
-    <div className="p-6 space-y-8">
-      <h1 className="text-2xl font-bold">Аниимо</h1>
+    <div className="p-6 mx-auto space-y-8 max-w-6xl">
+      <h1 className="text-3xl font-bold text-primary">Аниимо</h1>
 
       {byFamily.map(([familyId, members]) => {
         const family = familyById.get(familyId);
 
         return (
           <section key={familyId}>
-            <h2 className="text-xl font-semibold">
-              {family?.name ?? familyId}
-              <span className="ml-2 text-sm text-slate-500">#{familyId} · {members.length} вид(ов)</span>
-            </h2>
+            <div className="flex gap-3 items-center mb-4">
+              <h2 className="text-xl font-semibold text-primary">{family?.name ?? familyId}</h2>
+              <Badge color="gray" size="sm">#{familyId} · {members.length} вид(ов)</Badge>
+            </div>
 
-            <div className="mt-3 grid gap-4 md:grid-cols-2">
+            <div className="grid gap-4 md:grid-cols-2">
               {members.map((a) => (
-                <article key={a.no} className="border rounded p-4">
-                  <header className="flex items-baseline justify-between">
-                    <h3 className="font-semibold">
-                      <Link to={`/aniimos/${a.no}`} className="hover:underline">#{a.no} {a.name}</Link>
+                <Card key={a.no} className="p-4 transition-shadow hover:shadow-md">
+                  <header className="flex justify-between items-baseline mb-3">
+                    <h3 className="text-lg font-semibold text-primary">
+                      <Link className="transition-colors hover:text-brand-600" to={`/aniimos/${a.no}`}>
+                        #{a.no} {a.name}
+                      </Link>
                     </h3>
 
-                    <span className="text-xs text-slate-500">форм: {a.forms.length}</span>
+                    <Badge color="gray" size="sm">форм: {a.forms.length}</Badge>
                   </header>
 
-                  <ul className="mt-3 space-y-3">
+                  <ul className="space-y-3">
                     {a.forms.map((f) => {
                       const formInfo = formById.get(f.form_id);
 
                       return (
-                        <li key={f.form_id} className="border-l-2 border-slate-200 pl-3 flex gap-3">
+                        <li className="flex gap-3 pl-3 border-l-2 border-gray-200" key={f.form_id}>
                           {f.image && (
                             <img
-                              src={`${import.meta.env.BASE_URL}${f.image}`}
                               alt=""
-                              className="w-16 h-16 object-contain shrink-0"
+                              className="object-contain shrink-0 w-16 h-16"
+                              src={assetUrl(f.image)}
                             />
                           )}
 
-                          <div className="min-w-0">
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <span className="font-medium">{formInfo?.name ?? f.form_id}</span>
-                              {f.is_final && <Badge color="emerald">финал</Badge>}
-                              {formInfo?.is_rare && <Badge color="violet">редкий</Badge>}
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-wrap gap-2 items-center mb-1">
+                              <span className="text-sm font-medium text-primary">{formInfo?.name ?? f.form_id}</span>
+                              {f.is_final && <Badge color="success" size="sm">финал</Badge>}
+                              {formInfo?.is_rare && <Badge color="purple" size="sm">редкий</Badge>}
                             </div>
 
-                            <div className="text-sm text-slate-600 mt-1 flex flex-wrap items-center gap-x-2 gap-y-1">
-                              <span className="text-slate-400">Элементы:</span>
+                            <div className="flex flex-wrap gap-x-2 gap-y-1 items-center text-sm text-secondary">
+                              <span className="text-tertiary">Элементы:</span>
 
                               {f.element_ids.map((id) => {
                                 const el = elementById.get(id);
 
                                 return el ? (
-                                  <span key={id} className="inline-flex items-center gap-1">
-                                    <Icon src={el.icon} alt={el.name} size={16} />
-                                    {el.name}
-                                  </span>
+                                  <Tooltip key={id} title={el.name}>
+                                    <span className="inline-flex gap-1 items-center">
+                                      <Icon src={el.icon} alt={el.name} size={16} />
+                                      {el.name}
+                                    </span>
+                                  </Tooltip>
                                 ) : (
                                   <span key={id}>{id}</span>
                                 );
                               })}
                             </div>
 
-                            <div className="text-sm text-slate-600 flex flex-wrap items-center gap-x-2 gap-y-1">
-                              <span className="text-slate-400">Способности:</span>
+                            <div className="flex flex-wrap gap-x-2 gap-y-1 items-center text-sm text-secondary">
+                              <span className="text-tertiary">Способности:</span>
+
                               {f.home_abilities.map((ha) => {
                                 const ab = homeAbilityById.get(ha.id);
 
                                 return ab ? (
-                                  <span key={ha.id} className="inline-flex items-center gap-1">
-                                    <Icon src={ab.icon} alt={ab.name} size={16} />
-                                    {ab.name} ур.{ha.level}
-                                  </span>
+                                  <Tooltip key={ha.id} title={`${ab.name} · уровень ${ha.level}`}>
+                                    <span className="inline-flex gap-1 items-center">
+                                      <Icon src={ab.icon} alt={ab.name} size={16} />
+                                      {ab.name} ур.{ha.level}
+                                    </span>
+                                  </Tooltip>
                                 ) : (
                                   <span key={ha.id}>{ha.id} ур.{ha.level}</span>
                                 );
@@ -120,7 +130,7 @@ export function AniimosPage() {
                       );
                     })}
                   </ul>
-                </article>
+                </Card>
               ))}
             </div>
           </section>
@@ -128,12 +138,4 @@ export function AniimosPage() {
       })}
     </div>
   );
-}
-
-function Badge({ color, children }: { color: "emerald" | "violet"; children: ReactNode }) {
-  const cls = color === "emerald"
-    ? "bg-emerald-100 text-emerald-700"
-    : "bg-violet-100 text-violet-700";
-
-  return <span className={`text-xs px-1.5 py-0.5 rounded ${cls}`}>{children}</span>;
 }

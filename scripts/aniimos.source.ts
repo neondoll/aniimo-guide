@@ -155,6 +155,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("005-base.webp"),
   },
   // --- 006 - Стелларис ---
   {
@@ -163,6 +164,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("006-base.webp"),
   },
   {
     no: AniimoNos.Stellarys,
@@ -174,6 +176,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Water, level: 2 },
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
+    image: image("006-rainstorm.webp"),
   },
   {
     no: AniimoNos.Stellarys,
@@ -185,6 +188,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 3 },
       { id: HomeAbilityIds.Leisure, level: 4 },
     ],
+    image: image("006-prismana.webp"),
   },
   // --- 007 - Чайкуша ---
   {
@@ -193,6 +197,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }],
+    image: image("007-base.webp"),
   },
   {
     no: AniimoNos.Chirpi,
@@ -200,6 +205,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Beach,
     element_ids: [ElementIds.Wind, ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Water, level: 1 }],
+    image: image("007-beach.webp"),
   },
   {
     no: AniimoNos.Chirpi,
@@ -207,6 +213,90 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Wind, ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Grass, level: 1 }],
+    image: image("007-highland.webp"),
+  },
+  // --- 008 - Кликуша ---
+  {
+    no: AniimoNos.Tromber,
+    name: "Кликуша",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }],
+    image: image("008-base.webp"),
+  },
+  {
+    no: AniimoNos.Tromber,
+    name: "Кликуша",
+    form_id: FormIds.Beach,
+    element_ids: [ElementIds.Wind, ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Water, level: 2 }],
+    image: image("008-beach.webp"),
+  },
+  {
+    no: AniimoNos.Tromber,
+    name: "Кликуша",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Wind, ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
+    image: image("008-highland.webp"),
+  },
+  // --- 009 - Крикуша ---
+  {
+    no: AniimoNos.Cornet,
+    name: "Крикуша",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }],
+    image: image("009-base.webp"),
+  },
+  {
+    no: AniimoNos.Cornet,
+    name: "Крикуша",
+    form_id: FormIds.Beach,
+    element_ids: [ElementIds.Wind, ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Water, level: 2 }],
+    image: image("009-beach.webp"),
+  },
+  {
+    no: AniimoNos.Cornet,
+    name: "Крикуша",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Wind, ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 4 }, { id: HomeAbilityIds.Lightning, level: 3 }],
+    image: image("009-prismana.webp"),
+  },
+  {
+    no: AniimoNos.Cornet,
+    name: "Крикуша",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Wind, ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
+    image: image("009-highland.webp"),
+  },
+  // --- 010 - Каркуша ---
+  {
+    no: AniimoNos.Tubster,
+    name: "Каркуша",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }],
+    image: image("010-base.webp"),
+  },
+  {
+    no: AniimoNos.Tubster,
+    name: "Каркуша",
+    form_id: FormIds.Beach,
+    element_ids: [ElementIds.Wind, ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Water, level: 2 }],
+    image: image("010-beach.webp"),
+  },
+  {
+    no: AniimoNos.Tubster,
+    name: "Каркуша",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Wind, ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
+    image: image("010-highland.webp"),
   },
   // --- 020 - Бормотун ---
   {

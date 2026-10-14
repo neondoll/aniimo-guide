@@ -48,7 +48,8 @@ export const useClipboard = (): UseClipboardReturnType => {
       setTimeout(() => setCopied(false), DEFAULT_TIMEOUT);
 
       return success ? { success: true } : { success: false, error: new Error("execCommand returned false") };
-    } catch (err) {
+    }
+    catch (err) {
       return {
         success: false,
         error: err instanceof Error ? err : new Error("Fallback copy failed"),
@@ -65,7 +66,8 @@ export const useClipboard = (): UseClipboardReturnType => {
         setTimeout(() => setCopied(false), DEFAULT_TIMEOUT);
 
         return { success: true };
-      } catch (err) {
+      }
+      catch {
         // If modern method fails, try fallback
         return fallback(text, id);
       }

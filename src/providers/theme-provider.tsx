@@ -13,9 +13,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const useTheme = (): ThemeContextType => {
   const context = useContext(ThemeContext);
 
-  if (context === undefined) {
-    throw new Error("useTheme must be used within a ThemeProvider");
-  }
+  if (context === undefined) throw new Error("useTheme must be used within a ThemeProvider");
 
   return context;
 };
@@ -43,8 +41,10 @@ export const ThemeProvider = ({ children, defaultTheme = "system", storageKey = 
   const [theme, setTheme] = useState<Theme>(() => {
     if (typeof window !== "undefined") {
       const savedTheme = localStorage.getItem(storageKey) as Theme | null;
+      
       return savedTheme || defaultTheme;
     }
+    
     return defaultTheme;
   });
 
@@ -69,14 +69,13 @@ export const ThemeProvider = ({ children, defaultTheme = "system", storageKey = 
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
 
     const handleChange = () => {
-      if (theme === "system") {
-        applyTheme();
-      }
+      if (theme === "system") applyTheme();
     };
 
     mediaQuery.addEventListener("change", handleChange);
+    
     return () => mediaQuery.removeEventListener("change", handleChange);
-  }, [theme]);
+  }, [darkModeClass, storageKey, theme]);
 
   return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 };

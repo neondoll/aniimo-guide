@@ -1,7 +1,9 @@
 import type { FamilyId } from "../../src/enums/families.ts";
 import type { AniimoForm } from "../../src/types/aniimo.ts";
 import type { Facility } from "../../src/types/facility.ts";
-import type { Axis, FacilityMatch, FormTraitProfile, Priority } from "../../src/types/recommendations.ts";
+import type {
+  Axis, FacilityMatch, FormTraitProfile, PersonalitySide, SideScores, TraitVote,
+} from "../../src/types/recommendations.ts";
 
 const AXIS_SIDES: Record<Axis, [string, string]> = { EI: ["E", "I"], SN: ["S", "N"], TF: ["T", "F"], JP: ["J", "P"] };
 
@@ -43,17 +45,13 @@ export function computeFormTraits(form: AniimoForm, facilities: Facility[], fami
 
     if (l === 0 && r === 0) continue;
 
-    if (l === r) {
-      profile[axis] = [
-        { side: left, priority: "medium" },
-        { side: right, priority: "medium" },
-      ];
-    }
-    else {
-      const [winner, winLevel] = l > r ? [left, l] : [right, r];
-      const priority: Priority = winLevel === maxLevel ? "high" : "low";
-      profile[axis] = [{ side: winner, priority }];
-    }
+    const list: TraitVote[] = [];
+
+    if (l > 0) list.push({ side: left, priority: l === maxLevel ? 'high' : 'low' });
+
+    if (r > 0) list.push({ side: right, priority: r === maxLevel ? 'high' : 'low' });
+
+    profile[axis] = list;
   }
 
   return profile;
@@ -84,4 +82,28 @@ export function computeFacilityMatches(form: AniimoForm, facilities: Facility[],
   matches.sort((x, y) => x.facility_name.localeCompare(y.facility_name));
 
   return matches;
+}
+
+export function computeSideScores(form: AniimoForm, facilities: Facility[], familyId: FamilyId): SideScores {
+  const scores: SideScores = {};
+
+  for (const ha of form.home_abilities) {
+    for (const f of facilities) {
+      if (!f.requires_abilities.includes(ha.id)) continue;
+
+      if (!passesFamilyFilter(f, familyId)) continue;
+
+      if (!f.preferred_personality) continue;
+
+      for (const side of Object.values(f.preferred_personality)) {
+        if (!side) continue;
+
+        const key = side as PersonalitySide;
+
+        if ((scores[key] ?? 0) < ha.level) scores[key] = ha.level;
+      }
+    }
+  }
+
+  return scores;
 }

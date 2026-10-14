@@ -1,4 +1,4 @@
-import { computeFormTraits, computeFacilityMatches } from "./traits.ts";
+import { computeFormTraits, computeFacilityMatches, computeSideScores } from "./traits.ts";
 import { computeUpgradeSuggestions } from "./upgrade.ts";
 import type { Aniimo } from "../../src/types/aniimo.ts";
 import type { Facility } from "../../src/types/facility.ts";
@@ -25,6 +25,7 @@ export function buildRecommendations({ aniimos, facilities, rareFormIds }: Build
         is_final: form.is_final,
         is_rare: rareFormIds.has(form.form_id),
         traits: computeFormTraits(form, facilities, a.family_id),
+        side_scores: computeSideScores(form, facilities, a.family_id),
         facility_matches: computeFacilityMatches(form, facilities, a.family_id),
         evolution_branches: [],
         upgrade_suggestions: [],
@@ -40,9 +41,14 @@ export function buildRecommendations({ aniimos, facilities, rareFormIds }: Build
       const key = `${a.no}:${form.form_id}`;
 
       forms[key].evolution_branches = form.evolves_to.map((edge) => {
-        const targetKey = `${edge.to_no}:${edge.to_form_id}`;
+        const target = forms[`${edge.to_no}:${edge.to_form_id}`];
 
-        return { to_no: edge.to_no, to_form_id: edge.to_form_id, target_traits: forms[targetKey]?.traits ?? {} };
+        return {
+          to_no: edge.to_no,
+          to_form_id: edge.to_form_id,
+          target_traits: target?.traits ?? {},
+          target_side_scores: target?.side_scores ?? {},
+        };
       });
     }
   }
