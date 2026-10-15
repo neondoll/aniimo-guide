@@ -17,8 +17,12 @@ export const families: Family[] = [
     name: "Чайкуша",
     member_nos: [AniimoNos.Chirpi, AniimoNos.Tromber, AniimoNos.Cornet, AniimoNos.Tubster],
   },
+  // 017 - Пушинка · Турбо · Дрипл
+  { id: FamilyIds.Nimbi, name: "Пушинка", member_nos: [AniimoNos.Nimbi, AniimoNos.Turbo, AniimoNos.Dreaple] },
   // 020 - Бормотун · Ведьмун · Топотун
   { id: FamilyIds.Hummin, name: "Бормотун", member_nos: [AniimoNos.Hummin, AniimoNos.Hexxin, AniimoNos.Tuckin] },
+  // 038 - Отдушечка · Фрагрансье
+  { id: FamilyIds.Dewy, name: "Отдушечка", member_nos: [AniimoNos.Dewy, AniimoNos.Fragrancier] },
   // 047 - Белкулак · Хвостобой
   { id: FamilyIds.Squarrel, name: "Белкулак", member_nos: [AniimoNos.Squarrel, AniimoNos.Squashel] },
   // 056 - Балитл · Валитл · Камнюс

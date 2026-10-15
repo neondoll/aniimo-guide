@@ -11,6 +11,7 @@ export interface AniimoFormSource {
   element_ids: ElementId[];
   home_abilities: HomeAbilityAssignment[];
   image?: string;
+  season?: number;
 }
 
 const image = (value: string) => `images/aniimos/${value}`;
@@ -147,6 +148,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
     image: image("004-prismana.webp"),
+    season: 1,
   },
   // --- 005 - Селестис ---
   {
@@ -298,6 +300,109 @@ export const aniimos: AniimoFormSource[] = [
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
     image: image("010-highland.webp"),
   },
+  // --- 017 - Пушинка ---
+  {
+    no: AniimoNos.Nimbi,
+    name: "Пушинка",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("017-base.webp"),
+  },
+  {
+    no: AniimoNos.Nimbi,
+    name: "Пушинка",
+    form_id: FormIds.Rainstorm,
+    element_ids: [ElementIds.Wind, ElementIds.Lightning],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 1 },
+      { id: HomeAbilityIds.Lightning, level: 1 },
+      { id: HomeAbilityIds.Leisure, level: 1 },
+    ],
+    image: image("017-rainstorm.webp"),
+  },
+  {
+    no: AniimoNos.Nimbi,
+    name: "Пушинка",
+    form_id: FormIds.Cloudmist,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("017-cloudmist.webp"),
+  },
+  {
+    no: AniimoNos.Nimbi,
+    name: "Пушинка",
+    form_id: FormIds.Plateau,
+    element_ids: [ElementIds.Wind, ElementIds.Ice],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 1 },
+      { id: HomeAbilityIds.Ice, level: 1 },
+      { id: HomeAbilityIds.Leisure, level: 1 },
+    ],
+    image: image("017-plateau.webp"),
+  },
+  // --- 018 - Турбо ---
+  {
+    no: AniimoNos.Turbo,
+    name: "Турбо",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("018-base.webp"),
+  },
+  {
+    no: AniimoNos.Turbo,
+    name: "Турбо",
+    form_id: FormIds.Rainstorm,
+    element_ids: [ElementIds.Wind, ElementIds.Lightning],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 3 },
+      { id: HomeAbilityIds.Lightning, level: 2 },
+      { id: HomeAbilityIds.Leisure, level: 3 },
+    ],
+    image: image("018-rainstorm.webp"),
+  },
+  {
+    no: AniimoNos.Turbo,
+    name: "Турбо",
+    form_id: FormIds.Cloudmist,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("018-cloudmist.webp"),
+  },
+  {
+    no: AniimoNos.Turbo,
+    name: "Турбо",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Wind, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 4 },
+      { id: HomeAbilityIds.Dark, level: 3 },
+      { id: HomeAbilityIds.Leisure, level: 4 },
+    ],
+    image: image("018-prismana.webp"),
+  },
+  {
+    no: AniimoNos.Turbo,
+    name: "Турбо",
+    form_id: FormIds.Plateau,
+    element_ids: [ElementIds.Wind, ElementIds.Ice],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 3 },
+      { id: HomeAbilityIds.Ice, level: 2 },
+      { id: HomeAbilityIds.Leisure, level: 3 },
+    ],
+    image: image("018-plateau.webp"),
+  },
+  // --- 019 - Дрипл ---
+  {
+    no: AniimoNos.Dreaple,
+    name: "Дрипл",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Dark],
+    home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("019-base.webp"),
+  },
   // --- 020 - Бормотун ---
   {
     no: AniimoNos.Hummin,
@@ -366,6 +471,32 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
   },
+  // --- 038 - Отдушечка ---
+  {
+    no: AniimoNos.Dewy,
+    name: "Отдушечка",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Dark, level: 1 },
+      { id: HomeAbilityIds.Leisure, level: 1 },
+      { id: HomeAbilityIds.Perfumery, level: 1 },
+    ],
+    image: image("038-base.webp"),
+  },
+  // --- 039 - Фрагрансье ---
+  {
+    no: AniimoNos.Fragrancier,
+    name: "Фрагрансье",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Dark, level: 3 },
+      { id: HomeAbilityIds.Leisure, level: 3 },
+      { id: HomeAbilityIds.Perfumery, level: 3 },
+    ],
+    image: image("039-base.webp"),
+  },
   // --- 047 - Белкулак ---
   {
     no: AniimoNos.Squarrel,
@@ -430,6 +561,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 3 },
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
+    season: 1,
   },
   // --- 058 - Камнюс ---
   {

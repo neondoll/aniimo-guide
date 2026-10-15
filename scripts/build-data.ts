@@ -2,17 +2,15 @@ import * as fs from "fs";
 import * as path from "path";
 import { z } from "zod";
 
-import { aniimos } from "./aniimos.source.ts";
+import { type AniimoFormSource, aniimos } from "./aniimos.source.ts";
 import { elements } from "./elements.source.ts";
 import { evolutions } from "./evolutions.source.ts";
 import { facilities } from "./facilities.source.ts";
 import { families } from "./families.source.ts";
 import { forms } from "./forms.source.ts";
 import { homeAbilities } from "./home-abilities.source.ts";
-
 import { buildRecommendations } from "./recommendations/build.ts";
-
-import type { AniimoFormSource } from "./aniimos.source.ts";
+import { compareByOrder, ELEMENT_ORDER, HOME_ABILITY_ORDER } from '../src/constants/sorting.ts'
 import type { AniimoNo } from "../src/enums/aniimos.ts";
 import type { FamilyId } from "../src/enums/families.ts";
 import type { Aniimo, AniimoForm } from "../src/types/aniimo.ts";
@@ -37,6 +35,7 @@ const AniimoSourceSchema = z.object({
   element_ids: z.array(z.string()).min(1),
   home_abilities: z.array(HomeAbilityAssignmentSchema),
   image: z.string().optional(),
+  season: z.number().int().min(1).optional(),
 });
 const FamilySchema = z.object({
   id: z.string().regex(/^\d{3}$/),
@@ -272,12 +271,11 @@ function mergeAniimos(rows: AniimoFormSource[], familiesList: typeof families): 
     entry.forms.push({
       form_id: row.form_id,
       element_ids: row.element_ids,
-      home_abilities: [...row.home_abilities].sort(
-        (x, y) => y.level - x.level || x.id.localeCompare(y.id),
-      ),
+      home_abilities: [...row.home_abilities].sort((x, y) => compareByOrder(HOME_ABILITY_ORDER, x.id, y.id)),
       evolves_to,
       is_final: evolves_to.length === 0,
       ...(row.image ? { image: row.image } : {}),
+      ...(row.season !== undefined ? { season: row.season } : {}),
     });
   }
 
@@ -306,13 +304,15 @@ function main() {
   const mergedAniimos = mergeAniimos(aniimos, families);
   const rareFormIds = new Set(forms.filter((f) => f.is_rare).map((f) => f.id));
   const recommendations = buildRecommendations({ aniimos: mergedAniimos, facilities, rareFormIds });
+  const sortedElements = [...elements].sort((a, b) => compareByOrder(ELEMENT_ORDER, a.id, b.id));
+  const sortedHomeAbilities = [...homeAbilities].sort((a, b) => compareByOrder(HOME_ABILITY_ORDER, a.id, b.id));
 
   write("aniimos", mergedAniimos);
-  write("elements", elements);
+  write("elements", sortedElements);
   write("facilities", facilities);
   write("families", families);
   write("forms", forms);
-  write("home-abilities", homeAbilities);
+  write("home-abilities", sortedHomeAbilities);
   write("recommendations", recommendations);
   write("meta", {
     generatedAt: new Date().toISOString(),

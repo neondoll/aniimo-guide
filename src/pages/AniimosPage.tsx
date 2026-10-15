@@ -86,6 +86,7 @@ export function AniimosPage() {
                               <span className="text-sm font-medium text-primary">{formInfo?.name ?? f.form_id}</span>
                               {f.is_final && <Badge color="success" size="sm">финал</Badge>}
                               {formInfo?.is_rare && <Badge color="purple" size="sm">редкий</Badge>}
+                              {f.season !== undefined && <Badge color="warning" size="sm">Сезон {f.season}</Badge>}
                             </div>
 
                             <div className="flex flex-wrap gap-x-2 gap-y-1 items-center text-sm text-secondary">

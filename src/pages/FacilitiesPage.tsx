@@ -26,35 +26,39 @@ export function FacilitiesPage() {
             {f.description && <div className="text-sm text-secondary">{f.description}</div>}
 
             {f.requires_abilities.length > 0 && (
-              <div className="text-sm text-secondary">
-                <span className="text-tertiary">Требуемые способности:</span>{' '}
-                {f.requires_abilities.map((id) => {
-                  const ab = homeAbilityById.get(id);
+              <div className="flex flex-wrap gap-2 items-center text-sm text-secondary">
+                <span className="shrink-0 text-tertiary">Требуемые способности:</span>
 
-                  return (
-                    <span key={id} className="inline-flex gap-1 items-center mr-2">
+                <div className="flex flex-wrap gap-2 items-center">
+                  {f.requires_abilities.map((id) => {
+                    const ab = homeAbilityById.get(id);
+
+                    return (
+                      <span key={id} className="inline-flex gap-1 items-center">
                       {ab?.icon && <Icon src={ab.icon} alt={ab.name} size={16} />}
-                      {ab?.name ?? id}
+                        {ab?.name ?? id}
                     </span>
-                  );
-                })}
+                    );
+                  })}
+                </div>
               </div>
             )}
 
             {f.requires_families.length > 0 && (
-              <div className="text-sm text-secondary">
-                <span className="text-tertiary">Только семейства:</span>{' '}
-                {f.requires_families.map((famId) => (
-                  <Badge className="mr-1" color="purple" key={famId} size="sm">
-                    {familyById.get(famId)?.name ?? famId}
-                  </Badge>
-                ))}
+              <div className="flex flex-wrap gap-2 items-center text-sm text-secondary">
+                <span className="shrink-0 text-tertiary">Только семейства:</span>
+
+                <div className="flex flex-wrap gap-1 items-center">
+                  {f.requires_families.map((famId) => (
+                    <Badge color="purple" key={famId} size="sm">{familyById.get(famId)?.name ?? famId}</Badge>
+                  ))}
+                </div>
               </div>
             )}
 
             {f.preferred_personality && (
-              <div className="flex gap-2 items-center text-sm text-secondary">
-                <span className="text-tertiary">Предпочтение:</span>
+              <div className="flex flex-wrap gap-2 items-center text-sm text-secondary">
+                <span className="shrink-0 text-tertiary">Предпочтение:</span>
 
                 <div className="flex flex-wrap gap-1.5 items-center">
                   {(['EI', 'SN', 'TF', 'JP'] as const).map((axis) => {

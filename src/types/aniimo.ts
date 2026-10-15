@@ -23,6 +23,8 @@ export interface AniimoForm {
   evolves_to: EvolutionEdge[];
   is_final: boolean;
   image?: string;
+  /** Номер сезона, если форма сезонная. Например, 1 для «Сувениров 1-го сезона». */
+  season?: number;
 }
 
 export interface Aniimo {

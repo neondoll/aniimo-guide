@@ -14,8 +14,6 @@ export const facilities: Facility[] = [
   {
     id: "farmland",
     name: "Пахотная земля",
-    // Grass — посев, Water — полив, Earth — вспашка, Dark — сбор урожая.
-    // Разные аниимо могут закрывать разные роли.
     requires_abilities: [HomeAbilityIds.Grass, HomeAbilityIds.Water, HomeAbilityIds.Earth, HomeAbilityIds.Dark],
     requires_families: [],
   },
@@ -36,14 +34,14 @@ export const facilities: Facility[] = [
     id: "nimbus_bed",
     name: "Дождливое ложе",
     requires_abilities: [HomeAbilityIds.Leisure],
-    requires_families: [], // Iris | Nimbi
+    requires_families: [FamilyIds.Nimbi], // Iris | Nimbi
     preferred_personality: PP.J,
   },
   {
     id: "dewy_house",
     name: "Дом росы",
     requires_abilities: [HomeAbilityIds.Leisure],
-    requires_families: [], // Dewy
+    requires_families: [FamilyIds.Dewy],
     preferred_personality: PP.I,
   },
   {

@@ -51,6 +51,7 @@ export interface FormRecommendation {
   form_id: FormId;
   is_final: boolean;
   is_rare: boolean;
+  season?: number;
   /** Профиль по характеру для этой формы. */
   traits: FormTraitProfile;
   side_scores: SideScores;

@@ -96,6 +96,7 @@ export function AniimoDetailPage() {
                     <div className="flex flex-wrap gap-2">
                       {form.is_final && <Badge color="success">финал</Badge>}
                       {formById.get(form.form_id)?.is_rare && <Badge color="purple">редкий</Badge>}
+                      {form.season !== undefined && <Badge color="warning">Сезон {form.season}</Badge>}
                     </div>
                   </div>
                 </div>

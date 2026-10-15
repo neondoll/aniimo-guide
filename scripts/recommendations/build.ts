@@ -24,6 +24,7 @@ export function buildRecommendations({ aniimos, facilities, rareFormIds }: Build
         form_id: form.form_id,
         is_final: form.is_final,
         is_rare: rareFormIds.has(form.form_id),
+        ...(form.season !== undefined ? { season: form.season } : {}),
         traits: computeFormTraits(form, facilities, a.family_id),
         side_scores: computeSideScores(form, facilities, a.family_id),
         facility_matches: computeFacilityMatches(form, facilities, a.family_id),
