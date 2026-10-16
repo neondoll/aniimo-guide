@@ -15,7 +15,8 @@ import type { AniimoNo } from "../src/enums/aniimos.ts";
 import type { FamilyId } from "../src/enums/families.ts";
 import type { Aniimo, AniimoForm } from "../src/types/aniimo.ts";
 
-const outputDir = path.resolve("public/data");
+const ID_REGEX = /^[A-Za-z0-9][A-Za-z0-9_-]*$/;
+const OUTPUT_DIR = path.resolve("public/data");
 
 /* ───────────────────────── Zod-схемы ───────────────────────── */
 
@@ -28,26 +29,27 @@ const HomeAbilitySchema = z.object({
   icon: z.string().min(1),
 });
 const HomeAbilityAssignmentSchema = z.object({ id: z.string(), level: z.number().int().min(1).max(4) });
-const AniimoSourceSchema = z.object({
-  no: z.string().regex(/^\d{3}$/),
-  name: z.string().min(1),
-  form_id: z.string(),
-  element_ids: z.array(z.string()).min(1),
-  home_abilities: z.array(HomeAbilityAssignmentSchema),
-  image: z.string().optional(),
-  season: z.number().int().min(1).optional(),
-});
-const FamilySchema = z.object({
-  id: z.string().regex(/^\d{3}$/),
-  name: z.string().min(1),
-  member_nos: z.array(z.string().regex(/^\d{3}$/)).min(1),
-});
 const PartialPersonalitySchema = z.object({
   EI: z.enum(["E", "I"]).optional(),
   SN: z.enum(["S", "N"]).optional(),
   TF: z.enum(["T", "F"]).optional(),
   JP: z.enum(["J", "P"]).optional(),
 }).strict();
+const AniimoSourceSchema = z.object({
+  no: z.string().regex(ID_REGEX),
+  name: z.string().min(1),
+  form_id: z.string(),
+  element_ids: z.array(z.string()).min(1),
+  home_abilities: z.array(HomeAbilityAssignmentSchema),
+  image: z.string().optional(),
+  season: z.number().int().min(1).optional(),
+  fixed_personality: PartialPersonalitySchema.optional(),
+});
+const FamilySchema = z.object({
+  id: z.string().regex(ID_REGEX),
+  name: z.string().min(1),
+  member_nos: z.array(z.string().regex(ID_REGEX)).min(1),
+});
 const FacilitySchema = z.object({
   id: z.string(),
   name: z.string().min(1),
@@ -57,9 +59,9 @@ const FacilitySchema = z.object({
   preferred_personality: PartialPersonalitySchema.optional(),
 });
 const EvolutionSchema = z.object({
-  from_no: z.string().regex(/^\d{3}$/),
+  from_no: z.string().regex(ID_REGEX),
   from_form_id: z.string(),
-  to_no: z.string().regex(/^\d{3}$/),
+  to_no: z.string().regex(ID_REGEX),
   to_form_id: z.string(),
   requires_personality: PartialPersonalitySchema.optional(),
 });
@@ -151,6 +153,32 @@ function validate() {
     }
 
     adj.get(from)!.push(to);
+  }
+
+  const formsByKey = new Map(aniimos.map((a) => [`${a.no}:${a.form_id}`, a]));
+
+  for (const e of evolutions) {
+    if (!e.requires_personality) continue;
+
+    const target = formsByKey.get(`${e.to_no}:${e.to_form_id}`);
+
+    if (!target) continue; // уже отловлено выше
+
+    const fixed = target.fixed_personality;
+
+    if (!fixed) {
+      throw new Error(
+        `Эволюция в #${e.to_no}:${e.to_form_id} требует характер, но у целевой формы нет fixed_personality`,
+      );
+    }
+
+    for (const [axis, side] of Object.entries(e.requires_personality)) {
+      if (fixed[axis as keyof typeof fixed] !== side) {
+        throw new Error(
+          `Эволюция в #${e.to_no}:${e.to_form_id}: requires_personality.${axis}=${side} не совпадает с fixed_personality.${axis}=${fixed[axis as keyof typeof fixed]}`,
+        );
+      }
+    }
   }
 
   const WHITE = 0, GRAY = 1, BLACK = 2;
@@ -276,6 +304,7 @@ function mergeAniimos(rows: AniimoFormSource[], familiesList: typeof families): 
       is_final: evolves_to.length === 0,
       ...(row.image ? { image: row.image } : {}),
       ...(row.season !== undefined ? { season: row.season } : {}),
+      ...(row.fixed_personality ? { fixed_personality: row.fixed_personality } : {}),
     });
   }
 
@@ -290,14 +319,14 @@ function mergeAniimos(rows: AniimoFormSource[], familiesList: typeof families): 
 /* ───────────────────────── Запись ───────────────────────── */
 
 function write(name: string, data: unknown) {
-  const file = path.join(outputDir, `${name}.json`);
+  const file = path.join(OUTPUT_DIR, `${name}.json`);
   fs.writeFileSync(file, JSON.stringify(data, null, 2));
   console.log(`✅ ${file}`);
 }
 
 function main() {
   console.log("Начинаем генерацию статических данных...");
-  fs.mkdirSync(outputDir, { recursive: true });
+  fs.mkdirSync(OUTPUT_DIR, { recursive: true });
 
   validate();
 

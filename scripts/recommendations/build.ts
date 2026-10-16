@@ -25,6 +25,7 @@ export function buildRecommendations({ aniimos, facilities, rareFormIds }: Build
         is_final: form.is_final,
         is_rare: rareFormIds.has(form.form_id),
         ...(form.season !== undefined ? { season: form.season } : {}),
+        ...(form.fixed_personality ? { fixed_personality: form.fixed_personality } : {}),
         traits: computeFormTraits(form, facilities, a.family_id),
         side_scores: computeSideScores(form, facilities, a.family_id),
         facility_matches: computeFacilityMatches(form, facilities, a.family_id),
@@ -49,6 +50,7 @@ export function buildRecommendations({ aniimos, facilities, rareFormIds }: Build
           to_form_id: edge.to_form_id,
           target_traits: target?.traits ?? {},
           target_side_scores: target?.side_scores ?? {},
+          ...(edge.requires_personality ? { requires_personality: edge.requires_personality } : {}),
         };
       });
     }

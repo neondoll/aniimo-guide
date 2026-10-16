@@ -34,7 +34,7 @@ export const facilities: Facility[] = [
     id: "nimbus_bed",
     name: "Дождливое ложе",
     requires_abilities: [HomeAbilityIds.Leisure],
-    requires_families: [FamilyIds.Nimbi], // Iris | Nimbi
+    requires_families: [FamilyIds.Iris, FamilyIds.Nimbi],
     preferred_personality: PP.J,
   },
   {
@@ -55,14 +55,14 @@ export const facilities: Facility[] = [
     id: "tidewhisper_sandcastle",
     name: "Песчаный замок «Шепот прилива»",
     requires_abilities: [HomeAbilityIds.Leisure],
-    requires_families: [], // Shelly | Susuta
+    requires_families: [FamilyIds.Susuta, FamilyIds.Shelly],
     preferred_personality: PP.J,
   },
   {
     id: "floral_windmill",
     name: "Цветочная ветряная мельница",
     requires_abilities: [HomeAbilityIds.Leisure],
-    requires_families: [], // Flutternym
+    requires_families: [FamilyIds.Flutternym],
     preferred_personality: PP.N,
   },
   {

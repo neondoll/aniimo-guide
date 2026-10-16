@@ -17,14 +17,56 @@ export const families: Family[] = [
     name: "Чайкуша",
     member_nos: [AniimoNos.Chirpi, AniimoNos.Tromber, AniimoNos.Cornet, AniimoNos.Tubster],
   },
+  // 011 - Ирис · Ирисаль · Ирисалис
+  { id: FamilyIds.Iris, name: "Ирис", member_nos: [AniimoNos.Iris, AniimoNos.Irisal, AniimoNos.Irisalis] },
   // 017 - Пушинка · Турбо · Дрипл
   { id: FamilyIds.Nimbi, name: "Пушинка", member_nos: [AniimoNos.Nimbi, AniimoNos.Turbo, AniimoNos.Dreaple] },
   // 020 - Бормотун · Ведьмун · Топотун
   { id: FamilyIds.Hummin, name: "Бормотун", member_nos: [AniimoNos.Hummin, AniimoNos.Hexxin, AniimoNos.Tuckin] },
+  // 026 - Искорка · Пламерион
+  { id: FamilyIds.Sparki, name: "Искорка", member_nos: [AniimoNos.Sparki, AniimoNos.Flamerion] },
+  // 028 - Бояка · Миражекрыл · Снокрыл
+  {
+    id: FamilyIds.Flutternym,
+    name: "Бояка",
+    member_nos: [AniimoNos.Flutternym, AniimoNos.Gracewing, AniimoNos.Somniwing],
+  },
+  // 033 - Бутоносец · Шпагошип · Мироцвет
+  {
+    id: FamilyIds.Budsquire,
+    name: "Бутоносец",
+    member_nos: [AniimoNos.Budsquire, AniimoNos.Thornblade, AniimoNos.Melloblum],
+  },
   // 038 - Отдушечка · Фрагрансье
   { id: FamilyIds.Dewy, name: "Отдушечка", member_nos: [AniimoNos.Dewy, AniimoNos.Fragrancier] },
+  // 040 - Когтис · Игнитис · Фульминтис
+  { id: FamilyIds.Wisptis, name: "Когтис", member_nos: [AniimoNos.Wisptis, AniimoNos.Ignitis, AniimoNos.Fulmintis] },
+  // 042 - Костесвод · Фенрир · Глинсера
+  { id: FamilyIds.Bonesky, name: "Костесвод", member_nos: [AniimoNos.Bonesky, AniimoNos.Fenrier, AniimoNos.Glynsera] },
+  // 045 - Вольт · Разряд
+  { id: FamilyIds.Bolty, name: "Вольт", member_nos: [AniimoNos.Bolty, AniimoNos.Blazen] },
   // 047 - Белкулак · Хвостобой
   { id: FamilyIds.Squarrel, name: "Белкулак", member_nos: [AniimoNos.Squarrel, AniimoNos.Squashel] },
+  // 049 - Стесняша · Ныряша · Нимфея · Пухлея
+  {
+    id: FamilyIds.Susuta,
+    name: "Стесняша",
+    member_nos: [AniimoNos.Susuta, AniimoNos.Popota, AniimoNos.Piopiota, AniimoNos.Panpanta],
+  },
+  // 053 - Шелли · Шелдон · Шерро
+  { id: FamilyIds.Shelly, name: "Шелли", member_nos: [AniimoNos.Shelly, AniimoNos.Sheldon, AniimoNos.Sherro] },
   // 056 - Балитл · Валитл · Камнюс
   { id: FamilyIds.Baleetle, name: "Балитл", member_nos: [AniimoNos.Baleetle, AniimoNos.Waleetle, AniimoNos.Bouldus] },
+  // 070 - Камешек · Лавазар · Магмарекс · Камнеспин · Шахтоспин
+  {
+    id: FamilyIds.Pebbling,
+    name: "Камешек",
+    member_nos: [AniimoNos.Pebbling, AniimoNos.Lavazar, AniimoNos.Magmarex, AniimoNos.Geodeback, AniimoNos.Minespine],
+  },
+  // 077 - Лампадка · Лучина · Сияша
+  { id: FamilyIds.Bulbly, name: "Лампадка", member_nos: [AniimoNos.Bulbly, AniimoNos.Veilfloat, AniimoNos.Luminelle] },
+  // 11001 - Дух дружбы
+  { id: FamilyIds.Sparkelf, name: "Дух дружбы", member_nos: [AniimoNos.Sparkelf] },
+  // 99998 - Гелион
+  { id: FamilyIds.Helion, name: "Гелион", member_nos: [AniimoNos.Helion] },
 ];

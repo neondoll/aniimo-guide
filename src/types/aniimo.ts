@@ -25,6 +25,8 @@ export interface AniimoForm {
   image?: string;
   /** Номер сезона, если форма сезонная. Например, 1 для «Сувениров 1-го сезона». */
   season?: number;
+  /** Черты, которые жёстко закреплены за формой и не могут быть изменены. */
+  fixed_personality?: PartialPersonality;
 }
 
 export interface Aniimo {

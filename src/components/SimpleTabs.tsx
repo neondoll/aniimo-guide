@@ -1,4 +1,4 @@
-import { useState, type ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 import { cx } from '@/utils/cx';
 
@@ -11,12 +11,11 @@ interface TabItem {
 
 interface SimpleTabsProps {
   items: TabItem[];
-  initialId?: string;
+  activeId: string;
+  onChange: (id: string) => void;
 }
 
-export function SimpleTabs({ items, initialId }: SimpleTabsProps) {
-  const [activeId, setActiveId] = useState(initialId ?? items[0]?.id ?? '');
-
+export function SimpleTabs({ items, activeId, onChange }: SimpleTabsProps) {
   return (
     <div>
       <div className="flex overflow-x-auto gap-1 border-b border-secondary" role="tablist">
@@ -33,7 +32,7 @@ export function SimpleTabs({ items, initialId }: SimpleTabsProps) {
                   : 'text-tertiary border-transparent hover:text-secondary',
               )}
               key={item.id}
-              onClick={() => setActiveId(item.id)}
+              onClick={() => onChange(item.id)}
               role="tab"
               type="button"
             >

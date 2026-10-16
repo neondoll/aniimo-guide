@@ -1,13 +1,14 @@
 import { type ReactNode, useMemo, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { Badge, Tooltip } from '@/components/base';
 import { Card } from '@/components/Card';
 import { Icon } from '@/components/Icon';
 import { SimpleTabs } from '@/components/SimpleTabs'
-import { TraitPills } from '@/components/TraitPills';
+import { PreferredPersonalityPills, RequiredPersonalityPills, TraitAxisPills } from '@/components/TraitAxisPills'
+import type { FormId } from '@/enums/forms'
 import { assetUrl } from '@/lib/assets';
-import { rankBranches, type BranchScore } from '@/lib/personalityScore';
+import { rankBranches } from '@/lib/personalityScore';
 import { useAniimosStore } from '@/store/aniimos.store';
 import { useElementsStore } from '@/store/elements.store';
 import { useFamiliesStore } from '@/store/families.store';
@@ -17,8 +18,20 @@ import { useRecommendationsStore } from '@/store/recommendations.store';
 import type { Personality } from '@/types/personality';
 import { cx } from '@/utils/cx'
 
+/** Разбирает «001» → { no: '001' }; «001-base» → { no: '001', formId: 'base' }. */
+function parseSlug(slug: string | undefined): { no: string; formId?: string } {
+  if (!slug) return { no: '' };
+
+  const idx = slug.lastIndexOf('-');
+
+  if (idx === -1) return { no: slug };
+
+  return { no: slug.slice(0, idx), formId: slug.slice(idx + 1) };
+}
+
 export function AniimoDetailPage() {
-  const { no } = useParams<{ no: string }>();
+  const navigate = useNavigate();
+  const { slug } = useParams<{ slug: string }>();
 
   const aniimos = useAniimosStore((s) => s.data);
   const elements = useElementsStore((s) => s.data);
@@ -28,7 +41,7 @@ export function AniimoDetailPage() {
   const recommendations = useRecommendationsStore((s) => s.data.forms);
 
   const [personality, setPersonality] = useState<Partial<Personality>>({});
-  const personalityComplete = Object.keys(personality).length === 4;
+  // const personalityComplete = Object.keys(personality).length === 4;
 
   const aniimoByNo = useMemo(() => new Map(aniimos.map((a) => [a.no, a])), [aniimos]);
   const elementById = useMemo(() => new Map(elements.map((e) => [e.id, e])), [elements]);
@@ -36,7 +49,28 @@ export function AniimoDetailPage() {
   const formById = useMemo(() => new Map(forms.map((f) => [f.id, f])), [forms]);
   const homeAbilityById = useMemo(() => new Map(homeAbilities.map((a) => [a.id, a])), [homeAbilities]);
 
+  const { no, formId: formFromUrl } = useMemo(() => parseSlug(slug), [slug]);
   const aniimo = useMemo(() => aniimos.find((a) => a.no === no), [aniimos, no]);
+
+  const activeFormId = useMemo(() => {
+    if (!aniimo) return '';
+
+    const ids = new Set(aniimo.forms.map((f) => f.form_id));
+
+    if (formFromUrl && ids.has(formFromUrl as FormId)) return formFromUrl;
+
+    return (
+      aniimo.forms.find((f) => f.form_id === 'base')?.form_id ??
+      aniimo.forms[0]?.form_id ??
+      ''
+    );
+  }, [aniimo, formFromUrl]);
+
+  const handleTabChange = (id: string) => {
+    if (!aniimo) return;
+
+    navigate(`/aniimos/${aniimo.no}-${id}`, { replace: true });
+  };
 
   if (!aniimo) {
     return (
@@ -67,21 +101,17 @@ export function AniimoDetailPage() {
         <Link className="text-sm text-brand-600 hover:underline" to="/aniimos">← к списку</Link>
       </div>
 
-      <PersonalityForm value={personality} onChange={setPersonality} />
+      {aniimo.forms.some((a) => !a.is_final) && (
+        <PersonalityForm value={personality} onChange={setPersonality} />
+      )}
 
       <SimpleTabs
-        initialId={sortedForms[0]?.form_id}
+        activeId={activeFormId}
+        onChange={handleTabChange}
         items={sortedForms.map((form) => {
           const key = `${aniimo.no}:${form.form_id}`;
           const rec = recommendations[key];
-          const branches: BranchScore[] = rec && personalityComplete
-            ? rankBranches(personality, rec.evolution_branches)
-            : (rec?.evolution_branches ?? []).map((b) => ({
-              to_no: b.to_no,
-              to_form_id: b.to_form_id,
-              score: 0,
-              recommended: false,
-            }));
+          const branches = rec ? rankBranches(personality, rec.evolution_branches) : [];
 
           return {
             id: form.form_id,
@@ -135,29 +165,42 @@ export function AniimoDetailPage() {
                   </Field>
                 </div>
 
+                {rec?.fixed_personality && (
+                  <Field label="Фиксированные черты характера">
+                    <TraitAxisPills fixed={rec.fixed_personality} fixedOnly />
+                  </Field>
+                )}
+
                 <Field label="Рекомендуемые черты характера">
-                  {rec ? <TraitPills traits={rec.traits} /> : <span className="text-tertiary">—</span>}
+                  <TraitAxisPills traits={rec?.traits} fixed={rec?.fixed_personality} />
                 </Field>
 
                 <Field label="Строения">
                   {rec && rec.facility_matches.length > 0 ? (
-                    <ul className="space-y-1">
+                    <ul className="space-y-1.5">
                       {rec.facility_matches.map((m) => (
-                        <li key={m.facility_id} className="text-sm text-secondary">
-                          <span className="font-medium text-primary">{m.facility_name}</span>:{' '}
+                        <li className="flex flex-wrap gap-2 items-center text-sm text-secondary" key={m.facility_id}>
+                          <span className="font-medium text-primary">{m.facility_name}</span>
 
                           {m.covers.map((c) => {
                             const ab = homeAbilityById.get(c.ability_id);
 
                             return (
-                              <Tooltip key={c.ability_id} title={`${ab?.name ?? c.ability_id} · уровень ${c.level}`}>
-                                <span className="inline-flex gap-1 items-center mr-2">
+                              <Tooltip title={`${ab?.name ?? c.ability_id} · уровень ${c.level}`} key={c.ability_id}>
+                                <span className="inline-flex gap-1 items-center">
                                   {ab?.icon && <Icon src={ab.icon} alt={ab.name} size={14} />}
                                   {ab?.name ?? c.ability_id} ({c.level})
                                 </span>
                               </Tooltip>
                             );
                           })}
+
+                          {m.preferred_personality && (
+                            <>
+                              <span className="text-tertiary">·</span>
+                              <PreferredPersonalityPills personality={m.preferred_personality} />
+                            </>
+                          )}
                         </li>
                       ))}
                     </ul>
@@ -170,22 +213,40 @@ export function AniimoDetailPage() {
                   {branches.length === 0 ? (
                     <span className="text-tertiary">финальная форма</span>
                   ) : (
-                    <ul className="space-y-1">
+                    <ul className="space-y-1.5">
                       {branches.map((b) => {
                         const target = aniimoByNo.get(b.to_no);
                         const targetFormName = formById.get(b.to_form_id)?.name ?? b.to_form_id;
+                        const locked = !b.available && !b.unknown;
+                        const unknown = b.unknown;
 
                         return (
                           <li
-                            className={b.recommended ? 'font-bold text-brand-700' : 'text-secondary'}
+                            className={cx(
+                              'flex flex-wrap gap-2 items-center',
+                              locked && 'opacity-50',
+                              b.recommended && 'font-bold text-emerald-700',
+                            )}
                             key={`${b.to_no}:${b.to_form_id}`}
                           >
-                            →{' '}
-                            <Link className="hover:underline" to={`/aniimos/${b.to_no}`}>
+                            <span className="text-tertiary">{locked ? '🔒' : '→'}</span>
+
+                            <Link className="hover:underline" to={`/aniimos/${b.to_no}-${b.to_form_id}`}>
                               #{b.to_no} {target?.name ?? b.to_no}
-                            </Link>{' '}
-                            ({targetFormName})
-                            {personalityComplete && <> · score {b.score}</>}
+                            </Link>
+
+                            <span className="text-secondary">({targetFormName})</span>
+
+                            {b.requires_personality && (
+                              <RequiredPersonalityPills personality={b.requires_personality} />
+                            )}
+
+                            {b.available && b.score > 0 && (
+                              <span className="text-xs text-tertiary">score {b.score}</span>
+                            )}
+
+                            {locked && <span className="text-xs text-red-600">характер не подходит</span>}
+                            {unknown && <span className="text-xs text-amber-600">выберите больше черт</span>}
                           </li>
                         );
                       })}
@@ -215,7 +276,7 @@ export function AniimoDetailPage() {
                               return (
                                 <span key={`${b.no}:${b.form_id}`}>
                                   {i > 0 && ', '}
-                                  <Link className="hover:underline" to={`/aniimos/${b.no}`}>
+                                  <Link className="hover:underline" to={`/aniimos/${b.no}-${b.form_id}`}>
                                     #{b.no} {target?.name ?? b.no}
                                   </Link>{' '}
                                   ({targetFormName}, {b.level})

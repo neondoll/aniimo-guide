@@ -3,6 +3,7 @@ import { type ElementId, ElementIds } from "../src/enums/elements.ts";
 import { type FormId, FormIds } from "../src/enums/forms.ts";
 import { HomeAbilityIds } from "../src/enums/home-abilities.ts";
 import type { HomeAbilityAssignment } from "../src/types/aniimo.ts";
+import type { PartialPersonality } from '../src/types/personality.ts'
 
 export interface AniimoFormSource {
   no: AniimoNo;
@@ -12,6 +13,7 @@ export interface AniimoFormSource {
   home_abilities: HomeAbilityAssignment[];
   image?: string;
   season?: number;
+  fixed_personality?: PartialPersonality;
 }
 
 const image = (value: string) => `images/aniimos/${value}`;
@@ -131,8 +133,8 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark, ElementIds.Fire],
     home_abilities: [
-      { id: HomeAbilityIds.Fire, level: 2 },
       { id: HomeAbilityIds.Dark, level: 3 },
+      { id: HomeAbilityIds.Fire, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     image: image("004-base.webp"),
@@ -143,8 +145,8 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Prismana,
     element_ids: [ElementIds.Dark, ElementIds.Fire],
     home_abilities: [
-      { id: HomeAbilityIds.Fire, level: 3 },
       { id: HomeAbilityIds.Dark, level: 4 },
+      { id: HomeAbilityIds.Fire, level: 3 },
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
     image: image("004-prismana.webp"),
@@ -300,6 +302,120 @@ export const aniimos: AniimoFormSource[] = [
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
     image: image("010-highland.webp"),
   },
+  // --- 011 - Ирис ---
+  {
+    no: AniimoNos.Iris,
+    name: "Ирис",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("011-base.webp"),
+  },
+  {
+    no: AniimoNos.Iris,
+    name: "Ирис",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("011-highland.webp"),
+  },
+  {
+    no: AniimoNos.Iris,
+    name: "Ирис",
+    form_id: FormIds.Forest,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("011-forest.webp"),
+  },
+  {
+    no: AniimoNos.Iris,
+    name: "Ирис",
+    form_id: FormIds.Grassland,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("011-grassland.webp"),
+  },
+  {
+    no: AniimoNos.Iris,
+    name: "Ирис",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("011-prismana.webp"),
+  },
+  {
+    no: AniimoNos.Iris,
+    name: "Ирис",
+    form_id: FormIds.Plateau,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("011-plateau.webp"),
+  },
+  {
+    no: AniimoNos.Iris,
+    name: "Ирис",
+    form_id: FormIds.MountainWoods,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("011-mountain_woods.webp"),
+  },
+  // --- 012 - Ирисаль ---
+  {
+    no: AniimoNos.Irisal,
+    name: "Ирисаль",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("012-base.webp"),
+  },
+  {
+    no: AniimoNos.Irisal,
+    name: "Ирисаль",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("012-highland.webp"),
+  },
+  {
+    no: AniimoNos.Irisal,
+    name: "Ирисаль",
+    form_id: FormIds.Forest,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("012-forest.webp"),
+  },
+  {
+    no: AniimoNos.Irisal,
+    name: "Ирисаль",
+    form_id: FormIds.Grassland,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("012-grassland.webp"),
+  },
+  {
+    no: AniimoNos.Irisal,
+    name: "Ирисаль",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 4 }, { id: HomeAbilityIds.Leisure, level: 4 }],
+    image: image("012-prismana.webp"),
+  },
+  {
+    no: AniimoNos.Irisal,
+    name: "Ирисаль",
+    form_id: FormIds.Plateau,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("012-plateau.webp"),
+  },
+  {
+    no: AniimoNos.Irisal,
+    name: "Ирисаль",
+    form_id: FormIds.MountainWoods,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("012-mountain_woods.webp"),
+  },
   // --- 017 - Пушинка ---
   {
     no: AniimoNos.Nimbi,
@@ -410,6 +526,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }],
+    image: image("020-base.webp"),
   },
   {
     no: AniimoNos.Hummin,
@@ -417,40 +534,44 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Mountain,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }],
+    image: image("020-mountain.webp"),
   },
   // --- 021 - Ведьмун ---
   {
     no: AniimoNos.Hexxin,
     name: "Ведьмун",
     form_id: FormIds.Base,
-    element_ids: [ElementIds.Grass, ElementIds.Dark],
+    element_ids: [ElementIds.Dark, ElementIds.Grass],
     home_abilities: [
-      { id: HomeAbilityIds.Grass, level: 1 },
       { id: HomeAbilityIds.Dark, level: 2 },
+      { id: HomeAbilityIds.Grass, level: 1 },
       { id: HomeAbilityIds.Artisanship, level: 2 },
     ],
+    image: image("021-base.webp"),
   },
   {
     no: AniimoNos.Hexxin,
     name: "Ведьмун",
     form_id: FormIds.Mountain,
-    element_ids: [ElementIds.Grass, ElementIds.Dark],
+    element_ids: [ElementIds.Dark, ElementIds.Grass],
     home_abilities: [
-      { id: HomeAbilityIds.Grass, level: 1 },
       { id: HomeAbilityIds.Dark, level: 2 },
+      { id: HomeAbilityIds.Grass, level: 1 },
       { id: HomeAbilityIds.Artisanship, level: 2 },
     ],
+    image: image("021-mountain.webp"),
   },
   {
     no: AniimoNos.Hexxin,
     name: "Ведьмун",
     form_id: FormIds.Prismana,
-    element_ids: [ElementIds.Grass, ElementIds.Dark],
+    element_ids: [ElementIds.Dark, ElementIds.Grass],
     home_abilities: [
-      { id: HomeAbilityIds.Grass, level: 3 },
       { id: HomeAbilityIds.Dark, level: 4 },
+      { id: HomeAbilityIds.Grass, level: 3 },
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
+    image: image("021-prismana.webp"),
   },
   // --- 022 - Топотун ---
   {
@@ -459,6 +580,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("022-base.webp"),
   },
   {
     no: AniimoNos.Tuckin,
@@ -470,6 +592,256 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
+    image: image("022-mountain.webp"),
+  },
+  // --- 026 - Искорка ---
+  {
+    no: AniimoNos.Sparki,
+    name: "Искорка",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }],
+    image: image("026-base.webp"),
+  },
+  {
+    no: AniimoNos.Sparki,
+    name: "Искорка",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }],
+    image: image("026-highland.webp"),
+  },
+  {
+    no: AniimoNos.Sparki,
+    name: "Искорка",
+    form_id: FormIds.Forest,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }],
+    image: image("026-forest.webp"),
+  },
+  {
+    no: AniimoNos.Sparki,
+    name: "Искорка",
+    form_id: FormIds.Flowerfield,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }],
+    image: image("026-flowerfield.webp"),
+  },
+  // --- 027 - Пламерион ---
+  {
+    no: AniimoNos.Flamerion,
+    name: "Пламерион",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
+    image: image("027-base.webp"),
+  },
+  {
+    no: AniimoNos.Flamerion,
+    name: "Пламерион",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
+    image: image("027-highland.webp"),
+  },
+  {
+    no: AniimoNos.Flamerion,
+    name: "Пламерион",
+    form_id: FormIds.Forest,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
+    image: image("027-forest.webp"),
+  },
+  {
+    no: AniimoNos.Flamerion,
+    name: "Пламерион",
+    form_id: FormIds.Flowerfield,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
+    image: image("027-flowerfield.webp"),
+  },
+  // --- 028 - Бояка ---
+  {
+    no: AniimoNos.Flutternym,
+    name: "Бояка",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("028-base.webp"),
+  },
+  {
+    no: AniimoNos.Flutternym,
+    name: "Бояка",
+    form_id: FormIds.Flowerfield,
+    element_ids: [ElementIds.Wind, ElementIds.Grass],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 1 },
+      { id: HomeAbilityIds.Grass, level: 1 },
+      { id: HomeAbilityIds.Leisure, level: 1 },
+    ],
+    image: image("028-flowerfield.webp"),
+  },
+  {
+    no: AniimoNos.Flutternym,
+    name: "Бояка",
+    form_id: FormIds.Nighttime,
+    element_ids: [ElementIds.Wind, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 1 },
+      { id: HomeAbilityIds.Dark, level: 1 },
+      { id: HomeAbilityIds.Leisure, level: 1 },
+    ],
+    image: image("028-nighttime.webp"),
+  },
+  {
+    no: AniimoNos.Flutternym,
+    name: "Бояка",
+    form_id: FormIds.MountainWoods,
+    element_ids: [ElementIds.Wind, ElementIds.Earth],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 1 },
+      { id: HomeAbilityIds.Earth, level: 1 },
+      { id: HomeAbilityIds.Leisure, level: 1 },
+    ],
+    image: image("028-mountain_woods.webp"),
+  },
+  // --- 029 - Миражекрыл ---
+  {
+    no: AniimoNos.Gracewing,
+    name: "Миражекрыл",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("029-base.webp"),
+  },
+  {
+    no: AniimoNos.Gracewing,
+    name: "Миражекрыл",
+    form_id: FormIds.Flowerfield,
+    element_ids: [ElementIds.Wind, ElementIds.Grass],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 3 },
+      { id: HomeAbilityIds.Grass, level: 2 },
+      { id: HomeAbilityIds.Leisure, level: 3 },
+    ],
+    image: image("029-flowerfield.webp"),
+  },
+  {
+    no: AniimoNos.Gracewing,
+    name: "Миражекрыл",
+    form_id: FormIds.Nighttime,
+    element_ids: [ElementIds.Wind, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 3 },
+      { id: HomeAbilityIds.Dark, level: 2 },
+      { id: HomeAbilityIds.Leisure, level: 3 },
+    ],
+    image: image("029-nighttime.webp"),
+  },
+  {
+    no: AniimoNos.Gracewing,
+    name: "Миражекрыл",
+    form_id: FormIds.MountainWoods,
+    element_ids: [ElementIds.Wind, ElementIds.Earth],
+    home_abilities: [
+      { id: HomeAbilityIds.Wind, level: 3 },
+      { id: HomeAbilityIds.Earth, level: 2 },
+      { id: HomeAbilityIds.Leisure, level: 3 },
+    ],
+    image: image("029-mountain_woods.webp"),
+  },
+  // --- 030 - Снокрыл ---
+  {
+    no: AniimoNos.Somniwing,
+    name: "Снокрыл",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Grass, ElementIds.Wind],
+    home_abilities: [
+      { id: HomeAbilityIds.Grass, level: 4 },
+      { id: HomeAbilityIds.Wind, level: 3 },
+      { id: HomeAbilityIds.Leisure, level: 4 },
+    ],
+    image: image("030-prismana.webp"),
+  },
+  // --- 033 - Бутоносец ---
+  {
+    no: AniimoNos.Budsquire,
+    name: "Бутоносец",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("033-base.webp"),
+  },
+  {
+    no: AniimoNos.Budsquire,
+    name: "Бутоносец",
+    form_id: FormIds.Towerwood,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("033-towerwood.webp"),
+  },
+  // --- 034 - Шпагошип ---
+  {
+    no: AniimoNos.Thornblade,
+    name: "Шпагошип",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("034-base.webp"),
+  },
+  {
+    no: AniimoNos.Thornblade,
+    name: "Шпагошип",
+    form_id: FormIds.Thunderstorm,
+    element_ids: [ElementIds.Grass, ElementIds.Lightning],
+    home_abilities: [
+      { id: HomeAbilityIds.Grass, level: 3 },
+      { id: HomeAbilityIds.Lightning, level: 2 },
+      { id: HomeAbilityIds.Artisanship, level: 3 },
+    ],
+    image: image("034-thunderstorm.webp"),
+  },
+  {
+    no: AniimoNos.Thornblade,
+    name: "Шпагошип",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Grass, ElementIds.Water],
+    home_abilities: [
+      { id: HomeAbilityIds.Grass, level: 4 },
+      { id: HomeAbilityIds.Water, level: 3 },
+      { id: HomeAbilityIds.Artisanship, level: 4 },
+    ],
+    image: image("034-prismana.webp"),
+  },
+  {
+    no: AniimoNos.Thornblade,
+    name: "Шпагошип",
+    form_id: FormIds.Towerwood,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("034-towerwood.webp"),
+  },
+  // --- 035 - Мироцвет ---
+  {
+    no: AniimoNos.Melloblum,
+    name: "Мироцвет",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("035-base.webp"),
+  },
+  {
+    no: AniimoNos.Melloblum,
+    name: "Мироцвет",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Grass, ElementIds.Light],
+    home_abilities: [
+      { id: HomeAbilityIds.Grass, level: 4 },
+      { id: HomeAbilityIds.Light, level: 3 },
+      { id: HomeAbilityIds.Artisanship, level: 4 },
+    ],
+    image: image("035-prismana.webp"),
+    season: 1,
   },
   // --- 038 - Отдушечка ---
   {
@@ -497,6 +869,206 @@ export const aniimos: AniimoFormSource[] = [
     ],
     image: image("039-base.webp"),
   },
+  // --- 040 - Когтис ---
+  {
+    no: AniimoNos.Wisptis,
+    name: "Когтис",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Dark],
+    home_abilities: [{ id: HomeAbilityIds.Dark, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("040-base.webp"),
+  },
+  {
+    no: AniimoNos.Wisptis,
+    name: "Когтис",
+    form_id: FormIds.Forest,
+    element_ids: [ElementIds.Dark, ElementIds.Grass],
+    home_abilities: [
+      { id: HomeAbilityIds.Dark, level: 1 },
+      { id: HomeAbilityIds.Grass, level: 1 },
+      { id: HomeAbilityIds.Artisanship, level: 1 },
+    ],
+    image: image("040-forest.webp"),
+  },
+  {
+    no: AniimoNos.Wisptis,
+    name: "Когтис",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Dark, ElementIds.Fire],
+    home_abilities: [
+      { id: HomeAbilityIds.Dark, level: 1 },
+      { id: HomeAbilityIds.Fire, level: 1 },
+      { id: HomeAbilityIds.Artisanship, level: 1 },
+    ],
+    image: image("040-highland.webp"),
+  },
+  // --- 041 - Игнитис ---
+  {
+    no: AniimoNos.Ignitis,
+    name: "Игнитис",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Dark],
+    home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("041-base.webp"),
+  },
+  {
+    no: AniimoNos.Ignitis,
+    name: "Игнитис",
+    form_id: FormIds.Forest,
+    element_ids: [ElementIds.Dark, ElementIds.Grass],
+    home_abilities: [
+      { id: HomeAbilityIds.Dark, level: 3 },
+      { id: HomeAbilityIds.Grass, level: 2 },
+      { id: HomeAbilityIds.Artisanship, level: 3 },
+    ],
+    image: image("041-forest.webp"),
+  },
+  {
+    no: AniimoNos.Ignitis,
+    name: "Игнитис",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Dark, ElementIds.Fire],
+    home_abilities: [
+      { id: HomeAbilityIds.Dark, level: 4 },
+      { id: HomeAbilityIds.Fire, level: 3 },
+      { id: HomeAbilityIds.Artisanship, level: 4 },
+    ],
+    image: image("041-prismana.webp"),
+  },
+  {
+    no: AniimoNos.Ignitis,
+    name: "Игнитис",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Dark, ElementIds.Fire],
+    home_abilities: [
+      { id: HomeAbilityIds.Dark, level: 3 },
+      { id: HomeAbilityIds.Fire, level: 2 },
+      { id: HomeAbilityIds.Artisanship, level: 3 },
+    ],
+    image: image("041-highland.webp"),
+  },
+  // --- 042 - Костесвод ---
+  {
+    no: AniimoNos.Bonesky,
+    name: "Костесвод",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Ice],
+    home_abilities: [{ id: HomeAbilityIds.Ice, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
+    image: image("042-base.webp"),
+  },
+  {
+    no: AniimoNos.Bonesky,
+    name: "Костесвод",
+    form_id: FormIds.Nighttime,
+    element_ids: [ElementIds.Ice, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Ice, level: 1 },
+      { id: HomeAbilityIds.Dark, level: 1 },
+      { id: HomeAbilityIds.Hauling, level: 1 },
+    ],
+    image: image("042-nighttime.webp"),
+  },
+  // --- 043 - Фенрир ---
+  {
+    no: AniimoNos.Fenrier,
+    name: "Фенрир",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Ice],
+    home_abilities: [{ id: HomeAbilityIds.Ice, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
+    image: image("043-base.webp"),
+  },
+  {
+    no: AniimoNos.Fenrier,
+    name: "Фенрир",
+    form_id: FormIds.Nighttime,
+    element_ids: [ElementIds.Ice, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Ice, level: 2 },
+      { id: HomeAbilityIds.Dark, level: 1 },
+      { id: HomeAbilityIds.Hauling, level: 2 },
+    ],
+    image: image("043-nighttime.webp"),
+  },
+  // --- 044 - Глинсера ---
+  {
+    no: AniimoNos.Glynsera,
+    name: "Глинсера",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Ice],
+    home_abilities: [{ id: HomeAbilityIds.Ice, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("044-base.webp"),
+  },
+  {
+    no: AniimoNos.Glynsera,
+    name: "Глинсера",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Ice, ElementIds.Light],
+    home_abilities: [
+      { id: HomeAbilityIds.Ice, level: 4 },
+      { id: HomeAbilityIds.Light, level: 3 },
+      { id: HomeAbilityIds.Hauling, level: 4 },
+    ],
+    image: image("044-prismana.webp"),
+    season: 1,
+  },
+  {
+    no: AniimoNos.Glynsera,
+    name: "Глинсера",
+    form_id: FormIds.Nighttime,
+    element_ids: [ElementIds.Ice, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Ice, level: 3 },
+      { id: HomeAbilityIds.Dark, level: 2 },
+      { id: HomeAbilityIds.Hauling, level: 3 },
+    ],
+    image: image("044-nighttime.webp"),
+  },
+  // --- 045 - Вольт ---
+  {
+    no: AniimoNos.Bolty,
+    name: "Вольт",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Lightning, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("045-base.webp"),
+  },
+  {
+    no: AniimoNos.Bolty,
+    name: "Вольт",
+    form_id: FormIds.MountainWoods,
+    element_ids: [ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Lightning, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("045-mountain_woods.webp"),
+  },
+  // --- 046 - Разряд ---
+  {
+    no: AniimoNos.Blazen,
+    name: "Разряд",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("046-base.webp"),
+  },
+  {
+    no: AniimoNos.Blazen,
+    name: "Разряд",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Lightning, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Lightning, level: 4 },
+      { id: HomeAbilityIds.Dark, level: 3 },
+      { id: HomeAbilityIds.Artisanship, level: 4 },
+    ],
+    image: image("046-prismana.webp"),
+  },
+  {
+    no: AniimoNos.Blazen,
+    name: "Разряд",
+    form_id: FormIds.MountainWoods,
+    element_ids: [ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("046-mountain_woods.webp"),
+  },
   // --- 047 - Белкулак ---
   {
     no: AniimoNos.Squarrel,
@@ -504,6 +1076,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("047-base.webp"),
   },
   // --- 048 - Хвостобой ---
   {
@@ -512,6 +1085,140 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }, { id: HomeAbilityIds.Artisanship, level: 2 }],
+    image: image("048-base.webp"),
+  },
+  // --- 049 - Стесняша ---
+  {
+    no: AniimoNos.Susuta,
+    name: "Стесняша",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("049-base.webp"),
+  },
+  {
+    no: AniimoNos.Susuta,
+    name: "Стесняша",
+    form_id: FormIds.Nighttime,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("049-nighttime.webp"),
+  },
+  // --- 050 - Ныряша ---
+  {
+    no: AniimoNos.Popota,
+    name: "Ныряша",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Leisure, level: 2 }],
+    image: image("050-base.webp"),
+  },
+  {
+    no: AniimoNos.Popota,
+    name: "Ныряша",
+    form_id: FormIds.Nighttime,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Leisure, level: 2 }],
+    image: image("050-nighttime.webp"),
+  },
+  // --- 051 - Нимфея ---
+  {
+    no: AniimoNos.Piopiota,
+    name: "Нимфея",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("051-base.webp"),
+  },
+  {
+    no: AniimoNos.Piopiota,
+    name: "Нимфея",
+    form_id: FormIds.Nighttime,
+    element_ids: [ElementIds.Water, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Water, level: 3 },
+      { id: HomeAbilityIds.Dark, level: 2 },
+      { id: HomeAbilityIds.Leisure, level: 3 },
+    ],
+    image: image("051-nighttime.webp"),
+    fixed_personality: { EI: 'E', JP: 'P' },
+  },
+  // --- 052 - Пухлея ---
+  {
+    no: AniimoNos.Panpanta,
+    name: "Пухлея",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("052-base.webp"),
+  },
+  {
+    no: AniimoNos.Panpanta,
+    name: "Пухлея",
+    form_id: FormIds.Nighttime,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("052-nighttime.webp"),
+    fixed_personality: { EI: 'I', JP: 'J' },
+  },
+  {
+    no: AniimoNos.Panpanta,
+    name: "Пухлея",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 4 }, { id: HomeAbilityIds.Leisure, level: 4 }],
+    image: image("052-prismana.webp"),
+  },
+  // --- 053 - Шелли ---
+  {
+    no: AniimoNos.Shelly,
+    name: "Шелли",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
+    image: image("053-base.webp"),
+  },
+  // --- 054 - Шелдон ---
+  {
+    no: AniimoNos.Sheldon,
+    name: "Шелдон",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Leisure, level: 2 }],
+    image: image("054-base.webp"),
+  },
+  // --- 055 - Шерро ---
+  {
+    no: AniimoNos.Sherro,
+    name: "Шерро",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
+    image: image("055-base.webp"),
+  },
+  {
+    no: AniimoNos.Sherro,
+    name: "Шерро",
+    form_id: FormIds.Thunderstorm,
+    element_ids: [ElementIds.Water, ElementIds.Lightning],
+    home_abilities: [
+      { id: HomeAbilityIds.Water, level: 3 },
+      { id: HomeAbilityIds.Lightning, level: 2 },
+      { id: HomeAbilityIds.Leisure, level: 3 },
+    ],
+    image: image("055-thunderstorm.webp"),
+  },
+  {
+    no: AniimoNos.Sherro,
+    name: "Шерро",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Water, ElementIds.Light],
+    home_abilities: [
+      { id: HomeAbilityIds.Water, level: 4 },
+      { id: HomeAbilityIds.Light, level: 3 },
+      { id: HomeAbilityIds.Leisure, level: 4 },
+    ],
+    image: image("055-prismana.webp"),
   },
   // --- 056 - Балитл ---
   {
@@ -520,6 +1227,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
+    image: image("056-base.webp"),
   },
   {
     no: AniimoNos.Baleetle,
@@ -531,6 +1239,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
+    image: image("056-snowfield.webp"),
   },
   // --- 057 - Валитл ---
   {
@@ -539,6 +1248,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("057-base.webp"),
   },
   {
     no: AniimoNos.Waleetle,
@@ -550,6 +1260,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
+    image: image("057-snowfield.webp"),
   },
   {
     no: AniimoNos.Waleetle,
@@ -561,6 +1272,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 3 },
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
+    image: image("057-prismana.webp"),
     season: 1,
   },
   // --- 058 - Камнюс ---
@@ -570,6 +1282,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("058-base.webp"),
   },
   {
     no: AniimoNos.Bouldus,
@@ -581,5 +1294,160 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
+    image: image("058-snowfield.webp"),
+  },
+  // --- 070 - Камешек ---
+  {
+    no: AniimoNos.Pebbling,
+    name: "Камешек",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Earth],
+    home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
+    image: image("070-base.webp"),
+  },
+  // --- 071 - Лавазар ---
+  {
+    no: AniimoNos.Lavazar,
+    name: "Лавазар",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Fire, ElementIds.Earth],
+    home_abilities: [
+      { id: HomeAbilityIds.Fire, level: 2 },
+      { id: HomeAbilityIds.Earth, level: 1 },
+      { id: HomeAbilityIds.Hauling, level: 2 },
+    ],
+    image: image("071-base.webp"),
+  },
+  // --- 072 - Магмарекс ---
+  {
+    no: AniimoNos.Magmarex,
+    name: "Магмарекс",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Fire, ElementIds.Earth],
+    home_abilities: [
+      { id: HomeAbilityIds.Fire, level: 3 },
+      { id: HomeAbilityIds.Earth, level: 2 },
+      { id: HomeAbilityIds.Hauling, level: 3 },
+    ],
+    image: image("072-base.webp"),
+  },
+  {
+    no: AniimoNos.Magmarex,
+    name: "Магмарекс",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Fire, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Fire, level: 4 },
+      { id: HomeAbilityIds.Dark, level: 3 },
+      { id: HomeAbilityIds.Hauling, level: 4 },
+    ],
+    image: image("072-prismana.webp"),
+  },
+  // --- 073 - Камнеспин ---
+  {
+    no: AniimoNos.Geodeback,
+    name: "Камнеспин",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Earth],
+    home_abilities: [{ id: HomeAbilityIds.Earth, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
+    image: image("073-base.webp"),
+  },
+  // --- 074 - Шахтоспин ---
+  {
+    no: AniimoNos.Minespine,
+    name: "Шахтоспин",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Earth],
+    home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("074-base.webp"),
+  },
+  // --- 077 - Лампадка ---
+  {
+    no: AniimoNos.Bulbly,
+    name: "Лампадка",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Lightning, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("077-base.webp"),
+  },
+  // --- 078 - Лучина ---
+  {
+    no: AniimoNos.Veilfloat,
+    name: "Лучина",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Lightning, level: 2 }, { id: HomeAbilityIds.Artisanship, level: 2 }],
+    image: image("078-base.webp"),
+  },
+  // --- 079 - Сияша ---
+  {
+    no: AniimoNos.Luminelle,
+    name: "Сияша",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("079-base.webp"),
+  },
+
+  // --- 10001 - Ирисалис ---
+  {
+    no: AniimoNos.Irisalis,
+    name: "Ирисалис",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 4 }, { id: HomeAbilityIds.Leisure, level: 4 }],
+    image: image("irisalis.webp"),
+    season: 1,
+  },
+  // --- 10003 - Фульминтис ---
+  {
+    no: AniimoNos.Fulmintis,
+    name: "Фульминтис",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("fulmintis.webp"),
+    season: 1,
+  },
+  {
+    no: AniimoNos.Fulmintis,
+    name: "Фульминтис",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Lightning, ElementIds.Light],
+    home_abilities: [
+      { id: HomeAbilityIds.Lightning, level: 4 },
+      { id: HomeAbilityIds.Light, level: 3 },
+      { id: HomeAbilityIds.Artisanship, level: 4 },
+    ],
+    image: image("fulmintis-prismana.webp"),
+    season: 1,
+  },
+  // --- 11001 - Дух дружбы ---
+  {
+    no: AniimoNos.Sparkelf,
+    name: "Дух дружбы",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
+    image: image("sparkelf.webp"),
+    season: 1,
+  },
+  {
+    no: AniimoNos.Sparkelf,
+    name: "Дух дружбы",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 4 }],
+    image: image("sparkelf-prismana.webp"),
+    season: 1,
+  },
+  // --- 99998 - Гелион ---
+  {
+    no: AniimoNos.Helion,
+    name: "Гелион",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Light],
+    home_abilities: [{ id: HomeAbilityIds.Light, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("helion.webp"),
   },
 ];

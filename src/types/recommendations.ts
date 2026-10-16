@@ -31,6 +31,8 @@ export interface EvolutionBranch {
   /** Профиль целевой формы — основа для рантайм-скора. */
   target_traits: FormTraitProfile;
   target_side_scores: SideScores;
+  /** Требования к характеру текущей формы, чтобы эта ветка сработала. */
+  requires_personality?: PartialPersonality;
 }
 
 export interface UpgradeSuggestion {
@@ -60,6 +62,7 @@ export interface FormRecommendation {
   /** Для нефинальных — куда можно эволюционировать, с портретом целевой формы. */
   evolution_branches: EvolutionBranch[];
   upgrade_suggestions: UpgradeSuggestion[];
+  fixed_personality?: PartialPersonality;
 }
 
 export interface Recommendations {

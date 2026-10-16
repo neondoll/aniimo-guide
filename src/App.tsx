@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
+import { HeaderNavigation } from '@/components/HeaderNavigation'
 import { useBootstrapData } from '@/hooks/use-bootstrap-data';
 import { AboutPage } from '@/pages/AboutPage';
 import { AniimoDetailPage } from '@/pages/AniimoDetailPage';
@@ -8,7 +9,6 @@ import { ElementsPage } from '@/pages/ElementsPage';
 import { EvolutionToolPage } from '@/pages/EvolutionToolPage';
 import { FacilitiesPage } from '@/pages/FacilitiesPage';
 import { HomeAbilitiesPage } from '@/pages/HomeAbilitiesPage';
-import { HeaderNavigation } from '@/components/HeaderNavigation.tsx'
 
 export default function App() {
   const { ready, error } = useBootstrapData();
@@ -25,7 +25,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<AniimosPage />} />
           <Route path="/aniimos" element={<AniimosPage />} />
-          <Route path="/aniimos/:no" element={<AniimoDetailPage />} />
+          <Route path="/aniimos/:slug" element={<AniimoDetailPage />} />
           <Route path="/elements" element={<ElementsPage />} />
           <Route path="/home-abilities" element={<HomeAbilitiesPage />} />
           <Route path="/facilities" element={<FacilitiesPage />} />

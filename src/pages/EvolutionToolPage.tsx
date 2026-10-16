@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Badge } from '@/components/base'
 import { Card } from '@/components/Card';
+import { RequiredPersonalityPills } from '@/components/TraitAxisPills'
 import { rankBranches } from '@/lib/personalityScore';
 import { useAniimosStore } from '@/store/aniimos.store';
 import { useFormsStore } from '@/store/forms.store';
@@ -20,19 +21,19 @@ export function EvolutionToolPage() {
   const [personality, setPersonality] = useState<Partial<Personality>>({});
   const personalityComplete = Object.keys(personality).length === 4;
 
+  const aniimoByNo = useMemo(() => new Map(aniimos.map((a) => [a.no, a])), [aniimos]);
   const formById = useMemo(() => new Map(forms.map((f) => [f.id, f])), [forms]);
   const selectedAniimo = aniimos.find((a) => a.no === selectedNo);
 
   const branches = useMemo(() => {
-    if (!selectedAniimo || !selectedForm || !personalityComplete) return [];
+    if (!selectedAniimo || !selectedForm) return [];
 
-    const key = `${selectedNo}:${selectedForm}`;
-    const rec = recommendations[key];
+    const rec = recommendations[`${selectedNo}:${selectedForm}`];
 
     if (!rec) return [];
 
     return rankBranches(personality, rec.evolution_branches);
-  }, [selectedAniimo, selectedForm, personality, personalityComplete, recommendations, selectedNo]);
+  }, [selectedAniimo, selectedForm, personality, recommendations, selectedNo]);
 
   return (
     <div className="p-6 mx-auto space-y-6 max-w-3xl">
@@ -84,20 +85,35 @@ export function EvolutionToolPage() {
             <h2 className="font-semibold text-primary">Рекомендуемые эволюции</h2>
 
             <ul className="space-y-1">
-              {branches.map((b) => (
-                <li key={`${b.to_no}:${b.to_form_id}`}>
-                  <Link
-                    className={`hover:underline ${
-                      b.recommended ? 'font-bold text-brand-700' : 'text-secondary'
-                    }`}
-                    to={`/aniimos/${b.to_no}`}
-                  >
-                    #{b.to_no} ({formById.get(b.to_form_id)?.name ?? b.to_form_id}) — score {b.score}
-                  </Link>
+              {branches.map((b) => {
+                const target = aniimoByNo.get(b.to_no);
+                const targetFormName = formById.get(b.to_form_id)?.name ?? b.to_form_id;
+                const locked = !b.available && !b.unknown;
+                const unknown = b.unknown;
 
-                  {b.recommended && <Badge className="ml-2" color="success" size="sm">рекомендуется</Badge>}
-                </li>
-              ))}
+                return (
+                  <li
+                    className={cx(
+                      'flex flex-wrap gap-2 items-center',
+                      locked && 'opacity-50',
+                      b.recommended && 'font-bold text-emerald-700',
+                    )}
+                    key={`${b.to_no}:${b.to_form_id}`}
+                  >
+                    <span className="text-tertiary">{locked ? '🔒' : '→'}</span>
+
+                    <Link className="hover:underline" to={`/aniimos/${b.to_no}`}>
+                      #{b.to_no} {target?.name ?? b.to_no} ({targetFormName})
+                    </Link>
+
+                    {b.requires_personality && <RequiredPersonalityPills personality={b.requires_personality} />}
+                    {b.available && b.score > 0 && <span className="text-xs text-tertiary">score {b.score}</span>}
+                    {b.recommended && <Badge color="success" size="sm">рекомендуется</Badge>}
+                    {locked && <span className="text-xs text-red-600">недоступно</span>}
+                    {unknown && <span className="text-xs text-amber-600">не хватает данных</span>}
+                  </li>
+                )
+              })}
             </ul>
           </Card>
         )}

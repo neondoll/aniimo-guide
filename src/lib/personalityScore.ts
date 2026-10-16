@@ -1,6 +1,6 @@
 import type { AniimoNo } from "../enums/aniimos.ts";
 import type { FormId } from "../enums/forms.ts";
-import type { Personality } from "../types/personality";
+import type { PartialPersonality, Personality } from "../types/personality";
 import type { PersonalitySide, SideScores } from "../types/recommendations";
 
 /**
@@ -8,7 +8,7 @@ import type { PersonalitySide, SideScores } from "../types/recommendations";
  * суммируем уровни способностей, поддерживающих каждую заданную черту.
  * Штрафов нет — несовпадающие черты дают 0.
  */
-export function scoreEvolution(p: Partial<Personality>, sideScores: SideScores): number {
+export function scoreEvolution(p: PartialPersonality, sideScores: SideScores): number {
   let score = 0;
 
   for (const side of Object.values(p)) {
@@ -25,30 +25,72 @@ export interface BranchScore {
   to_form_id: FormId;
   score: number;
   recommended: boolean;
+  /** Требования выполнены (или их нет вовсе). */
+  available: boolean;
+  /** Требования есть, но в характере не хватает нужных осей для проверки. */
+  unknown: boolean;
+  /** Для UI: показать «требует: …». */
+  requires_personality?: PartialPersonality;
+}
+
+function checkRequirements(
+  p: PartialPersonality,
+  requires: PartialPersonality | undefined,
+): { available: boolean; unknown: boolean } {
+  if (!requires) return { available: true, unknown: false };
+
+  let unknown = false;
+
+  for (const [axis, side] of Object.entries(requires)) {
+    if (!side) continue;
+
+    const actual = p[axis as keyof Personality];
+
+    if (!actual) {
+      unknown = true;
+
+      continue;
+    }
+
+    if (actual !== side) return { available: false, unknown: false };
+  }
+
+  return { available: !unknown, unknown };
 }
 
 export function rankBranches(
-  personality: Partial<Personality>,
-  branches: Array<{ to_no: AniimoNo; to_form_id: FormId; target_side_scores: SideScores }>,
+  personality: PartialPersonality,
+  branches: Array<{
+    to_no: AniimoNo;
+    to_form_id: FormId;
+    target_side_scores: SideScores;
+    requires_personality?: PartialPersonality;
+  }>,
 ): BranchScore[] {
-  const scored = branches.map((b) => ({
-    to_no: b.to_no,
-    to_form_id: b.to_form_id,
-    score: scoreEvolution(personality, b.target_side_scores),
-    recommended: false,
-  }));
+  const scored: BranchScore[] = branches.map((b) => {
+    const { available, unknown } = checkRequirements(personality, b.requires_personality);
 
-  if (scored.length === 0) return scored;
+    return {
+      to_no: b.to_no,
+      to_form_id: b.to_form_id,
+      score: available ? scoreEvolution(personality, b.target_side_scores) : 0,
+      recommended: false,
+      available,
+      unknown,
+      ...(b.requires_personality ? { requires_personality: b.requires_personality } : {}),
+    };
+  });
 
-  scored.sort((a, b) => b.score - a.score);
+  const candidates = scored.filter((b) => b.available);
 
-  // Топ может быть не один — все ветки с максимальным счётом помечаем рекомендованными.
-  const top = scored[0].score;
+  if (candidates.length === 0) return scored;
 
-  // Если топ равен 0 — значит ни одна из веток не даёт преимуществ
-  // под выбранный характер. Ничего не подсвечиваем, чтобы не вводить в заблуждение.
+  candidates.sort((a, b) => b.score - a.score);
+
+  const top = candidates[0].score;
+
   if (top > 0) {
-    for (const s of scored) if (s.score === top) s.recommended = true;
+    for (const s of candidates) if (s.score === top) s.recommended = true;
   }
 
   return scored;
