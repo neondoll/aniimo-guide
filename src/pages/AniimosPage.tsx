@@ -74,11 +74,9 @@ export function AniimosPage() {
                       return (
                         <li className="flex gap-3 pl-3 border-l-2 border-gray-200" key={f.form_id}>
                           {f.image && (
-                            <img
-                              alt=""
-                              className="object-contain shrink-0 w-16 h-16"
-                              src={assetUrl(f.image)}
-                            />
+                            <div className="aspect-2/3 flex overflow-hidden shrink-0 justify-center items-center w-14 bg-secondary/30 rounded-md">
+                              <img alt="" className="object-contain max-w-full max-h-full" src={assetUrl(f.image)} />
+                            </div>
                           )}
 
                           <div className="flex-1 min-w-0">

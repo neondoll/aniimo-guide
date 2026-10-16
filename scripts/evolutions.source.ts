@@ -45,6 +45,17 @@ export const evolutions: EvolutionSource[] = [
   { from_no: AniimoNos.Iris, from_form_id: FormIds.Plateau, to_no: AniimoNos.Irisal, to_form_id: FormIds.Plateau },
   { from_no: AniimoNos.Iris, from_form_id: FormIds.MountainWoods, to_no: AniimoNos.Irisal, to_form_id: FormIds.MountainWoods },
 
+  // 013 → 014
+  { from_no: AniimoNos.Skippy, from_form_id: FormIds.Base, to_no: AniimoNos.Pranky, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Skippy, from_form_id: FormIds.Flowerfield, to_no: AniimoNos.Pranky, to_form_id: FormIds.Flowerfield },
+  { from_no: AniimoNos.Skippy, from_form_id: FormIds.Snowfield, to_no: AniimoNos.Pranky, to_form_id: FormIds.Snowfield },
+
+  // 014 → 015 | 016
+  { from_no: AniimoNos.Pranky, from_form_id: FormIds.Base, to_no: AniimoNos.Glacy, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Pranky, from_form_id: FormIds.Base, to_no: AniimoNos.Leafy, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Pranky, from_form_id: FormIds.Flowerfield, to_no: AniimoNos.Glacy, to_form_id: FormIds.Flowerfield },
+  { from_no: AniimoNos.Pranky, from_form_id: FormIds.Snowfield, to_no: AniimoNos.Glacy, to_form_id: FormIds.Snowfield },
+
   // 017 → 018 | 019
   { from_no: AniimoNos.Nimbi, from_form_id: FormIds.Base, to_no: AniimoNos.Turbo, to_form_id: FormIds.Base },
   { from_no: AniimoNos.Nimbi, from_form_id: FormIds.Base, to_no: AniimoNos.Dreaple, to_form_id: FormIds.Base },
@@ -72,7 +83,7 @@ export const evolutions: EvolutionSource[] = [
 
   // 033 → 034 | 035
   { from_no: AniimoNos.Budsquire, from_form_id: FormIds.Base, to_no: AniimoNos.Thornblade, to_form_id: FormIds.Base },
-  { from_no: AniimoNos.Budsquire, from_form_id: FormIds.Base, to_no: AniimoNos.Melloblum, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Budsquire, from_form_id: FormIds.Base, to_no: AniimoNos.Melloblum, to_form_id: FormIds.Base, requires_personality: { TF: 'F' } },
   { from_no: AniimoNos.Budsquire, from_form_id: FormIds.Towerwood, to_no: AniimoNos.Thornblade, to_form_id: FormIds.Towerwood },
 
   // 038 → 039

@@ -416,6 +416,126 @@ export const aniimos: AniimoFormSource[] = [
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     image: image("012-mountain_woods.webp"),
   },
+  // --- 013 - Шустрик ---
+  {
+    no: AniimoNos.Skippy,
+    name: "Шустрик",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
+    image: image("013-base.webp"),
+  },
+  {
+    no: AniimoNos.Skippy,
+    name: "Шустрик",
+    form_id: FormIds.Flowerfield,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
+    image: image("013-flowerfield.webp"),
+  },
+  {
+    no: AniimoNos.Skippy,
+    name: "Шустрик",
+    form_id: FormIds.Snowfield,
+    element_ids: [ElementIds.Water, ElementIds.Ice],
+    home_abilities: [
+      { id: HomeAbilityIds.Water, level: 1 },
+      { id: HomeAbilityIds.Ice, level: 1 },
+      { id: HomeAbilityIds.Hauling, level: 1 },
+    ],
+    image: image("013-snowfield.webp"),
+  },
+  // --- 014 - Шутник ---
+  {
+    no: AniimoNos.Pranky,
+    name: "Шутник",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
+    image: image("014-base.webp"),
+  },
+  {
+    no: AniimoNos.Pranky,
+    name: "Шутник",
+    form_id: FormIds.Flowerfield,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
+    image: image("014-flowerfield.webp"),
+  },
+  {
+    no: AniimoNos.Pranky,
+    name: "Шутник",
+    form_id: FormIds.Snowfield,
+    element_ids: [ElementIds.Water, ElementIds.Ice],
+    home_abilities: [
+      { id: HomeAbilityIds.Water, level: 2 },
+      { id: HomeAbilityIds.Ice, level: 1 },
+      { id: HomeAbilityIds.Hauling, level: 2 },
+    ],
+    image: image("014-snowfield.webp"),
+  },
+  // --- 015 - Морозница ---
+  {
+    no: AniimoNos.Glacy,
+    name: "Морозница",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water, ElementIds.Ice],
+    home_abilities: [
+      { id: HomeAbilityIds.Water, level: 3 },
+      { id: HomeAbilityIds.Ice, level: 2 },
+      { id: HomeAbilityIds.Hauling, level: 3 },
+    ],
+    image: image("015-base.webp"),
+  },
+  {
+    no: AniimoNos.Glacy,
+    name: "Морозница",
+    form_id: FormIds.Flowerfield,
+    element_ids: [ElementIds.Water, ElementIds.Ice],
+    home_abilities: [
+      { id: HomeAbilityIds.Water, level: 3 },
+      { id: HomeAbilityIds.Ice, level: 2 },
+      { id: HomeAbilityIds.Hauling, level: 3 },
+    ],
+    image: image("015-flowerfield.webp"),
+  },
+  {
+    no: AniimoNos.Glacy,
+    name: "Морозница",
+    form_id: FormIds.Snowfield,
+    element_ids: [ElementIds.Water, ElementIds.Ice],
+    home_abilities: [
+      { id: HomeAbilityIds.Water, level: 3 },
+      { id: HomeAbilityIds.Ice, level: 2 },
+      { id: HomeAbilityIds.Hauling, level: 3 },
+    ],
+    image: image("015-snowfield.webp"),
+  },
+  {
+    no: AniimoNos.Glacy,
+    name: "Морозница",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Water, ElementIds.Light],
+    home_abilities: [
+      { id: HomeAbilityIds.Water, level: 4 },
+      { id: HomeAbilityIds.Light, level: 3 },
+      { id: HomeAbilityIds.Hauling, level: 4 },
+    ],
+    image: image("015-prismana.webp"),
+  },
+  // --- 016 - Листик ---
+  {
+    no: AniimoNos.Leafy,
+    name: "Листик",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Grass, ElementIds.Water],
+    home_abilities: [
+      { id: HomeAbilityIds.Grass, level: 3 },
+      { id: HomeAbilityIds.Water, level: 2 },
+      { id: HomeAbilityIds.Hauling, level: 3 },
+    ],
+    image: image("016-base.webp"),
+  },
   // --- 017 - Пушинка ---
   {
     no: AniimoNos.Nimbi,
@@ -829,6 +949,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
     image: image("035-base.webp"),
+    fixed_personality: { TF: 'F' },
   },
   {
     no: AniimoNos.Melloblum,
@@ -1388,6 +1509,30 @@ export const aniimos: AniimoFormSource[] = [
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
     image: image("079-base.webp"),
   },
+  {
+    no: AniimoNos.Luminelle,
+    name: "Сияша",
+    form_id: FormIds.Rainstorm,
+    element_ids: [ElementIds.Lightning, ElementIds.Water],
+    home_abilities: [
+      { id: HomeAbilityIds.Lightning, level: 3 },
+      { id: HomeAbilityIds.Water, level: 2 },
+      { id: HomeAbilityIds.Artisanship, level: 3 },
+    ],
+    image: image("079-rainstorm.webp"),
+  },
+  {
+    no: AniimoNos.Luminelle,
+    name: "Сияша",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Lightning, ElementIds.Light],
+    home_abilities: [
+      { id: HomeAbilityIds.Lightning, level: 4 },
+      { id: HomeAbilityIds.Light, level: 3 },
+      { id: HomeAbilityIds.Artisanship, level: 4 },
+    ],
+    image: image("079-prismana.webp"),
+  },
 
   // --- 10001 - Ирисалис ---
   {
@@ -1441,6 +1586,16 @@ export const aniimos: AniimoFormSource[] = [
     image: image("sparkelf-prismana.webp"),
     season: 1,
   },
+  // --- 99996 - Лунара ---
+  {
+    no: AniimoNos.Lunara,
+    name: "Лунара",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Light],
+    home_abilities: [{ id: HomeAbilityIds.Light, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("lunara.webp"),
+    fixed_personality: { EI: 'I', SN: 'S', TF: 'T', JP: 'J' },
+  },
   // --- 99998 - Гелион ---
   {
     no: AniimoNos.Helion,
@@ -1449,5 +1604,6 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Light],
     home_abilities: [{ id: HomeAbilityIds.Light, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     image: image("helion.webp"),
+    fixed_personality: { EI: 'E', SN: 'N', TF: 'F', JP: 'P' },
   },
 ];

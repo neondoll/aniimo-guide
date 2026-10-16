@@ -5,6 +5,7 @@ export const FamilyIds = {
   /* 005 - Селестис · Стелларис */ Celestis: AniimoNos.Celestis,
   /* 007 - Чайкуша · Кликуша · Крикуша · Каркуша */ Chirpi: AniimoNos.Chirpi,
   /* 011 - Ирис · Ирисаль · Ирисалис */ Iris: AniimoNos.Iris,
+  /* 013 - Шустрик · Шутник · Морозница · Листик */ Skippy: AniimoNos.Skippy,
   /* 017 - Пушинка · Турбо · Дрипл */ Nimbi: AniimoNos.Nimbi,
   /* 020 - Бормотун · Ведьмун · Топотун */ Hummin: AniimoNos.Hummin,
   /* 026 - Искорка · Пламерион */ Sparki: AniimoNos.Sparki,
@@ -21,6 +22,7 @@ export const FamilyIds = {
   /* 070 - Камешек · Лавазар · Магмарекс · Камнеспин · Шахтоспин */ Pebbling: AniimoNos.Pebbling,
   /* 077 - Лампадка · Лучина · Сияша */ Bulbly: AniimoNos.Bulbly,
   /* 11001 - Дух дружбы */ Sparkelf: AniimoNos.Sparkelf,
+  /* 99996 - Лунара */ Lunara: AniimoNos.Lunara,
   /* 99998 - Гелион */ Helion: AniimoNos.Helion,
 } as const;
 

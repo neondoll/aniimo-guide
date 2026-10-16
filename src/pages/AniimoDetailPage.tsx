@@ -95,7 +95,7 @@ export function AniimoDetailPage() {
       <div className="flex flex-wrap gap-2 justify-between items-baseline">
         <h1 className="text-3xl font-bold text-primary">
           #{aniimo.no} {aniimo.name}
-          {family && <span className="ml-2 text-lg font-normal text-secondary">семья «{family.name}»</span>}
+          {family && <span className="ml-2 text-lg font-normal text-secondary">семейство «{family.name}»</span>}
         </h1>
 
         <Link className="text-sm text-brand-600 hover:underline" to="/aniimos">← к списку</Link>
@@ -112,57 +112,79 @@ export function AniimoDetailPage() {
           const key = `${aniimo.no}:${form.form_id}`;
           const rec = recommendations[key];
           const branches = rec ? rankBranches(personality, rec.evolution_branches) : [];
+          const formName = formById.get(form.form_id)?.name ?? form.form_id;
+          const isRare = formById.get(form.form_id)?.is_rare;
 
           return {
             id: form.form_id,
-            label: formById.get(form.form_id)?.name ?? form.form_id,
+            label: formName,
             // badge: form.is_final ? 'финал' : undefined,
             content: (
               <Card className="p-5 space-y-4">
-                <div className="flex flex-wrap gap-4 items-center">
-                  {form.image && <img alt="" className="object-contain w-24 h-24" src={assetUrl(form.image)} />}
+                {/* Hero: картинка + название + бейджи + элементы + способности */}
+                <div className="flex flex-col gap-4 sm:flex-row sm:gap-5">
+                  {form.image && (
+                    <div className="aspect-2/3 flex shrink-0 justify-center items-center self-start p-2 mx-auto w-full max-w-35 bg-secondary/30 rounded-lg sm:mx-0">
+                      <img alt="" className="object-contain max-w-full max-h-full" src={assetUrl(form.image)} />
+                    </div>
+                  )}
 
-                  <div>
-                    <div className="flex flex-wrap gap-2">
-                      {form.is_final && <Badge color="success">финал</Badge>}
-                      {formById.get(form.form_id)?.is_rare && <Badge color="purple">редкий</Badge>}
-                      {form.season !== undefined && <Badge color="warning">Сезон {form.season}</Badge>}
+                  <div className="flex-1 space-y-3 min-w-0">
+                    <div className="flex flex-wrap gap-2 items-baseline">
+                      <h3 className="text-xl font-semibold text-primary">{formName}</h3>
+
+                      <div className="flex flex-wrap gap-1.5">
+                        {form.is_final && <Badge color="success" size="sm">финал</Badge>}
+                        {isRare && <Badge color="purple" size="sm">редкий</Badge>}
+                        {form.season !== undefined && <Badge color="warning" size="sm">Сезон {form.season}</Badge>}
+                      </div>
+                    </div>
+
+                    <div className="grid gap-2 text-sm">
+                      <div className="flex flex-wrap gap-x-2 gap-y-1 items-center">
+                        <span className="shrink-0 text-tertiary">Элементы:</span>
+
+                        {form.element_ids.map((id) => {
+                          const el = elementById.get(id);
+
+                          return el ? (
+                            <Tooltip key={id} title={el.name}>
+                              <span className="inline-flex gap-1 items-center px-1.5 py-0.5 bg-secondary/40 rounded-md border border-secondary">
+                                <Icon alt={el.name} size={16} src={el.icon} />
+                                {el.name}
+                              </span>
+                            </Tooltip>
+                          ) : (
+                            <span
+                              className="px-1.5 py-0.5 bg-secondary/40 rounded-md border border-secondary"
+                              key={id}
+                            >{id}</span>
+                          );
+                        })}
+                      </div>
+
+                      <div className="flex flex-wrap gap-x-2 gap-y-1 items-center">
+                        <span className="shrink-0 text-tertiary">Способности:</span>
+
+                        {form.home_abilities.map((ha) => {
+                          const ab = homeAbilityById.get(ha.id);
+
+                          return (
+                            <Tooltip key={ha.id} title={`${ab?.name ?? ha.id} · уровень ${ha.level}`}>
+                              <span className="inline-flex gap-1 items-center px-1.5 py-0.5 bg-secondary/40 rounded-md border border-secondary">
+                                {ab?.icon && <Icon alt={ab.name} size={16} src={ab.icon} />}
+                                <span>{ab?.name ?? ha.id}</span>
+
+                                <span className="px-1 ml-0.5 text-[11px] font-semibold text-brand-700 bg-brand-100 rounded">
+                                  ур.{ha.level}
+                                </span>
+                              </span>
+                            </Tooltip>
+                          );
+                        })}
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="grid gap-4 md:grid-cols-2">
-                  <Field label="Элементы">
-                    {form.element_ids.map((id) => {
-                      const el = elementById.get(id);
-
-                      return el ? (
-                        <Tooltip key={id} title={el.name}>
-                          <span className="inline-flex gap-1 items-center mr-3">
-                            <Icon src={el.icon} alt={el.name} size={18} />
-                            {el.name}
-                          </span>
-                        </Tooltip>
-                      ) : (
-                        <span key={id} className="mr-3">{id}</span>
-                      );
-                    })}
-                  </Field>
-
-                  <Field label="Способности дома">
-                    {form.home_abilities.map((ha) => {
-                      const ab = homeAbilityById.get(ha.id);
-
-                      return (
-                        <Tooltip key={ha.id} title={`${ab?.name ?? ha.id} · уровень ${ha.level}`}>
-                          <span className="inline-flex gap-1 items-center mr-3">
-                            {ab?.icon && <Icon src={ab.icon} alt={ab.name} size={18} />}
-                            {ab?.name ?? ha.id} ур.{ha.level}
-                          </span>
-                        </Tooltip>
-                      );
-                    })}
-                  </Field>
                 </div>
 
                 {rec?.fixed_personality && (

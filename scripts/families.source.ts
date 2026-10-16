@@ -19,6 +19,12 @@ export const families: Family[] = [
   },
   // 011 - Ирис · Ирисаль · Ирисалис
   { id: FamilyIds.Iris, name: "Ирис", member_nos: [AniimoNos.Iris, AniimoNos.Irisal, AniimoNos.Irisalis] },
+  // 013 - Шустрик · Шутник · Морозница · Листик
+  {
+    id: FamilyIds.Skippy,
+    name: "Шустрик",
+    member_nos: [AniimoNos.Skippy, AniimoNos.Pranky, AniimoNos.Glacy, AniimoNos.Leafy],
+  },
   // 017 - Пушинка · Турбо · Дрипл
   { id: FamilyIds.Nimbi, name: "Пушинка", member_nos: [AniimoNos.Nimbi, AniimoNos.Turbo, AniimoNos.Dreaple] },
   // 020 - Бормотун · Ведьмун · Топотун
@@ -67,6 +73,8 @@ export const families: Family[] = [
   { id: FamilyIds.Bulbly, name: "Лампадка", member_nos: [AniimoNos.Bulbly, AniimoNos.Veilfloat, AniimoNos.Luminelle] },
   // 11001 - Дух дружбы
   { id: FamilyIds.Sparkelf, name: "Дух дружбы", member_nos: [AniimoNos.Sparkelf] },
+  // 99996 - Лунара
+  { id: FamilyIds.Lunara, name: "Лунара", member_nos: [AniimoNos.Lunara] },
   // 99998 - Гелион
   { id: FamilyIds.Helion, name: "Гелион", member_nos: [AniimoNos.Helion] },
 ];
