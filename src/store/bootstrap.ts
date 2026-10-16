@@ -32,6 +32,8 @@ export async function bootstrapData(): Promise<void> {
   const cached = localStorage.getItem(META_CACHE_KEY);
   const isStale = meta !== null && meta.generatedAt !== cached;
 
+  console.log('--- meta ---', meta);
+
   await Promise.all([
     useElementsStore.getState().fetchData(isStale),
     useFormsStore.getState().fetchData(isStale),
