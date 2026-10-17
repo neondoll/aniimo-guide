@@ -71,6 +71,8 @@ export const families: Family[] = [
   },
   // 077 - Лампадка · Лучина · Сияша
   { id: FamilyIds.Bulbly, name: "Лампадка", member_nos: [AniimoNos.Bulbly, AniimoNos.Veilfloat, AniimoNos.Luminelle] },
+  // 080 - Фалу · Эрлат
+  { id: FamilyIds.Fahloo, name: "Фалу", member_nos: [AniimoNos.Fahloo, AniimoNos.Erlath] },
   // 11001 - Дух дружбы
   { id: FamilyIds.Sparkelf, name: "Дух дружбы", member_nos: [AniimoNos.Sparkelf] },
   // 99996 - Лунара

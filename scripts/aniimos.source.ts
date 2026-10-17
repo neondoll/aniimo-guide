@@ -1533,6 +1533,24 @@ export const aniimos: AniimoFormSource[] = [
     ],
     image: image("079-prismana.webp"),
   },
+  // --- 080 - Фалу ---
+  {
+    no: AniimoNos.Fahloo,
+    name: "Фалу",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }],
+    // image: image("080-base.webp"),
+  },
+  // --- 081 - Эрлат ---
+  {
+    no: AniimoNos.Erlath,
+    name: "Эрлат",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Water],
+    home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }],
+    // image: image("081-base.webp"),
+  },
 
   // --- 10001 - Ирисалис ---
   {

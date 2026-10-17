@@ -147,4 +147,7 @@ export const evolutions: EvolutionSource[] = [
 
   // 078 → 079
   { from_no: AniimoNos.Veilfloat, from_form_id: FormIds.Base, to_no: AniimoNos.Luminelle, to_form_id: FormIds.Base },
+
+  // 080 → 081
+  { from_no: AniimoNos.Fahloo, from_form_id: FormIds.Base, to_no: AniimoNos.Erlath, to_form_id: FormIds.Base },
 ];

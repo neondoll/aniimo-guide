@@ -21,6 +21,7 @@ export const FamilyIds = {
   /* 056 - Балитл · Валитл · Камнюс */ Baleetle: AniimoNos.Baleetle,
   /* 070 - Камешек · Лавазар · Магмарекс · Камнеспин · Шахтоспин */ Pebbling: AniimoNos.Pebbling,
   /* 077 - Лампадка · Лучина · Сияша */ Bulbly: AniimoNos.Bulbly,
+  /* 080 - Фалу · Эрлат */ Fahloo: AniimoNos.Fahloo,
   /* 11001 - Дух дружбы */ Sparkelf: AniimoNos.Sparkelf,
   /* 99996 - Лунара */ Lunara: AniimoNos.Lunara,
   /* 99998 - Гелион */ Helion: AniimoNos.Helion,
