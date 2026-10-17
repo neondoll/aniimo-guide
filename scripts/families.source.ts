@@ -43,6 +43,8 @@ export const families: Family[] = [
     name: "Бутоносец",
     member_nos: [AniimoNos.Budsquire, AniimoNos.Thornblade, AniimoNos.Melloblum],
   },
+  // 036 - Чирлимон · Танцомон · Помагавк
+  { id: FamilyIds.Pomegg, name: "Чирлимон", member_nos: [AniimoNos.Pomegg, AniimoNos.Pomawk, AniimoNos.Dazmand] },
   // 038 - Отдушечка · Фрагрансье
   { id: FamilyIds.Dewy, name: "Отдушечка", member_nos: [AniimoNos.Dewy, AniimoNos.Fragrancier] },
   // 040 - Когтис · Игнитис · Фульминтис

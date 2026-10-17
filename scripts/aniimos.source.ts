@@ -964,6 +964,80 @@ export const aniimos: AniimoFormSource[] = [
     image: image("035-prismana.webp"),
     season: 1,
   },
+  // --- 036 - Чирлимон ---
+  {
+    no: AniimoNos.Pomegg,
+    name: "Чирлимон",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("036-base.webp"),
+  },
+  {
+    no: AniimoNos.Pomegg,
+    name: "Чирлимон",
+    form_id: FormIds.Snowfield,
+    element_ids: [ElementIds.Grass, ElementIds.Ice],
+    home_abilities: [
+      { id: HomeAbilityIds.Grass, level: 1 },
+      { id: HomeAbilityIds.Ice, level: 1 },
+      { id: HomeAbilityIds.Artisanship, level: 1 },
+    ],
+    image: image("036-snowfield.webp"),
+  },
+  {
+    no: AniimoNos.Pomegg,
+    name: "Чирлимон",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("036-highland.webp"),
+  },
+  {
+    no: AniimoNos.Pomegg,
+    name: "Чирлимон",
+    form_id: FormIds.Flowerfield,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("036-flowerfield.webp"),
+  },
+  // --- 037 - Помагавк ---
+  {
+    no: AniimoNos.Pomawk,
+    name: "Помагавк",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("037-base.webp"),
+  },
+  {
+    no: AniimoNos.Pomawk,
+    name: "Помагавк",
+    form_id: FormIds.Snowfield,
+    element_ids: [ElementIds.Grass, ElementIds.Ice],
+    home_abilities: [
+      { id: HomeAbilityIds.Grass, level: 3 },
+      { id: HomeAbilityIds.Ice, level: 2 },
+      { id: HomeAbilityIds.Artisanship, level: 3 },
+    ],
+    image: image("037-snowfield.webp"),
+  },
+  {
+    no: AniimoNos.Pomawk,
+    name: "Помагавк",
+    form_id: FormIds.Highland,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("037-highland.webp"),
+  },
+  {
+    no: AniimoNos.Pomawk,
+    name: "Помагавк",
+    form_id: FormIds.Flowerfield,
+    element_ids: [ElementIds.Grass],
+    home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("037-flowerfield.webp"),
+  },
   // --- 038 - Отдушечка ---
   {
     no: AniimoNos.Dewy,
@@ -1540,7 +1614,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }],
-    // image: image("080-base.webp"),
+    image: image("080-base.webp"),
   },
   // --- 081 - Эрлат ---
   {
@@ -1549,7 +1623,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }],
-    // image: image("081-base.webp"),
+    image: image("081-base.webp"),
   },
 
   // --- 10001 - Ирисалис ---
@@ -1560,6 +1634,16 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 4 }, { id: HomeAbilityIds.Leisure, level: 4 }],
     image: image("irisalis.webp"),
+    season: 1,
+  },
+  // --- 10002 - Танцомон ---
+  {
+    no: AniimoNos.Dazmand,
+    name: "Танцомон",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Lightning],
+    home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("dazmand.webp"),
     season: 1,
   },
   // --- 10003 - Фульминтис ---

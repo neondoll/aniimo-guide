@@ -11,6 +11,7 @@ export const FamilyIds = {
   /* 026 - Искорка · Пламерион */ Sparki: AniimoNos.Sparki,
   /* 028 - Бояка · Миражекрыл · Снокрыл */ Flutternym: AniimoNos.Flutternym,
   /* 033 - Бутоносец · Шпагошип · Мироцвет */ Budsquire: AniimoNos.Budsquire,
+  /* 036 - Чирлимон · Танцомон · Помагавк */ Pomegg: AniimoNos.Pomegg,
   /* 038 - Отдушечка · Фрагрансье */ Dewy: AniimoNos.Dewy,
   /* 040 - Когтис · Игнитис · Фульминтис */ Wisptis: AniimoNos.Wisptis,
   /* 042 - Костесвод · Фенрир · Глинсера */ Bonesky: AniimoNos.Bonesky,

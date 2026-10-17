@@ -86,6 +86,13 @@ export const evolutions: EvolutionSource[] = [
   { from_no: AniimoNos.Budsquire, from_form_id: FormIds.Base, to_no: AniimoNos.Melloblum, to_form_id: FormIds.Base, requires_personality: { TF: 'F' } },
   { from_no: AniimoNos.Budsquire, from_form_id: FormIds.Towerwood, to_no: AniimoNos.Thornblade, to_form_id: FormIds.Towerwood },
 
+  // 036 → 037 | 10002
+  { from_no: AniimoNos.Pomegg, from_form_id: FormIds.Base, to_no: AniimoNos.Pomawk, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Pomegg, from_form_id: FormIds.Base, to_no: AniimoNos.Dazmand, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Pomegg, from_form_id: FormIds.Snowfield, to_no: AniimoNos.Pomawk, to_form_id: FormIds.Snowfield },
+  { from_no: AniimoNos.Pomegg, from_form_id: FormIds.Highland, to_no: AniimoNos.Pomawk, to_form_id: FormIds.Highland },
+  { from_no: AniimoNos.Pomegg, from_form_id: FormIds.Flowerfield, to_no: AniimoNos.Pomawk, to_form_id: FormIds.Flowerfield },
+
   // 038 → 039
   { from_no: AniimoNos.Dewy, from_form_id: FormIds.Base, to_no: AniimoNos.Fragrancier, to_form_id: FormIds.Base },
 
