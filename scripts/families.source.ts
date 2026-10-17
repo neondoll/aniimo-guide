@@ -29,6 +29,8 @@ export const families: Family[] = [
   { id: FamilyIds.Nimbi, name: "Пушинка", member_nos: [AniimoNos.Nimbi, AniimoNos.Turbo, AniimoNos.Dreaple] },
   // 020 - Бормотун · Ведьмун · Топотун
   { id: FamilyIds.Hummin, name: "Бормотун", member_nos: [AniimoNos.Hummin, AniimoNos.Hexxin, AniimoNos.Tuckin] },
+  // 023 - Цветохват · Кустохват · Кристаллохват
+  { id: FamilyIds.Budclaw, name: "Цветохват", member_nos: [AniimoNos.Budclaw, AniimoNos.Shrubclaw, AniimoNos.Geoclaw] },
   // 026 - Искорка · Пламерион
   { id: FamilyIds.Sparki, name: "Искорка", member_nos: [AniimoNos.Sparki, AniimoNos.Flamerion] },
   // 028 - Бояка · Миражекрыл · Снокрыл

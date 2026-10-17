@@ -8,6 +8,7 @@ export const FamilyIds = {
   /* 013 - Шустрик · Шутник · Морозница · Листик */ Skippy: AniimoNos.Skippy,
   /* 017 - Пушинка · Турбо · Дрипл */ Nimbi: AniimoNos.Nimbi,
   /* 020 - Бормотун · Ведьмун · Топотун */ Hummin: AniimoNos.Hummin,
+  /* 023 - Цветохват · Кустохват · Кристаллохват */ Budclaw: AniimoNos.Budclaw,
   /* 026 - Искорка · Пламерион */ Sparki: AniimoNos.Sparki,
   /* 028 - Бояка · Миражекрыл · Снокрыл */ Flutternym: AniimoNos.Flutternym,
   /* 033 - Бутоносец · Шпагошип · Мироцвет */ Budsquire: AniimoNos.Budsquire,

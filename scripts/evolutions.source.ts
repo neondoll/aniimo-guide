@@ -69,6 +69,13 @@ export const evolutions: EvolutionSource[] = [
   { from_no: AniimoNos.Hummin, from_form_id: FormIds.Mountain, to_no: AniimoNos.Hexxin, to_form_id: FormIds.Mountain },
   { from_no: AniimoNos.Hummin, from_form_id: FormIds.Mountain, to_no: AniimoNos.Tuckin, to_form_id: FormIds.Mountain },
 
+  // 023 → 024 | 025
+  { from_no: AniimoNos.Budclaw, from_form_id: FormIds.Base, to_no: AniimoNos.Shrubclaw, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Budclaw, from_form_id: FormIds.Base, to_no: AniimoNos.Geoclaw, to_form_id: FormIds.Base, requires_personality: { TF: 'T' } },
+  { from_no: AniimoNos.Budclaw, from_form_id: FormIds.Mudflat, to_no: AniimoNos.Shrubclaw, to_form_id: FormIds.Mudflat },
+  { from_no: AniimoNos.Budclaw, from_form_id: FormIds.Beach, to_no: AniimoNos.Shrubclaw, to_form_id: FormIds.Beach },
+  { from_no: AniimoNos.Budclaw, from_form_id: FormIds.Bay, to_no: AniimoNos.Shrubclaw, to_form_id: FormIds.Bay },
+
   // 026 → 027
   { from_no: AniimoNos.Sparki, from_form_id: FormIds.Base, to_no: AniimoNos.Flamerion, to_form_id: FormIds.Base },
   { from_no: AniimoNos.Sparki, from_form_id: FormIds.Highland, to_no: AniimoNos.Flamerion, to_form_id: FormIds.Highland },
