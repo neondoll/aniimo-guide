@@ -88,6 +88,9 @@ export const evolutions: EvolutionSource[] = [
   { from_no: AniimoNos.Flutternym, from_form_id: FormIds.Nighttime, to_no: AniimoNos.Gracewing, to_form_id: FormIds.Nighttime },
   { from_no: AniimoNos.Flutternym, from_form_id: FormIds.MountainWoods, to_no: AniimoNos.Gracewing, to_form_id: FormIds.MountainWoods },
 
+  // 031 → 032
+  { from_no: AniimoNos.Eko, from_form_id: FormIds.Base, to_no: AniimoNos.Eklue, to_form_id: FormIds.Base },
+
   // 033 → 034 | 035
   { from_no: AniimoNos.Budsquire, from_form_id: FormIds.Base, to_no: AniimoNos.Thornblade, to_form_id: FormIds.Base },
   { from_no: AniimoNos.Budsquire, from_form_id: FormIds.Base, to_no: AniimoNos.Melloblum, to_form_id: FormIds.Base, requires_personality: { TF: 'F' } },

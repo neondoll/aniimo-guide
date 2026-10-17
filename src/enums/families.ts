@@ -11,6 +11,7 @@ export const FamilyIds = {
   /* 023 - Цветохват · Кустохват · Кристаллохват */ Budclaw: AniimoNos.Budclaw,
   /* 026 - Искорка · Пламерион */ Sparki: AniimoNos.Sparki,
   /* 028 - Бояка · Миражекрыл · Снокрыл */ Flutternym: AniimoNos.Flutternym,
+  /* 031 - Эко · Эклу */ Eko: AniimoNos.Eko,
   /* 033 - Бутоносец · Шпагошип · Мироцвет */ Budsquire: AniimoNos.Budsquire,
   /* 036 - Чирлимон · Танцомон · Помагавк */ Pomegg: AniimoNos.Pomegg,
   /* 038 - Отдушечка · Фрагрансье */ Dewy: AniimoNos.Dewy,

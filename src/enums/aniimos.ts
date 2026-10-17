@@ -29,6 +29,8 @@ export const AniimoNos = {
   /* 028 - Бояка */ Flutternym: '028',
   /* 029 - Миражекрыл */ Gracewing: '029',
   /* 030 - Снокрыл */ Somniwing: '030',
+  /* 031 - Эко */ Eko: '031',
+  /* 032 - Эклу */ Eklue: '032',
   /* 033 - Бутоносец */ Budsquire: '033',
   /* 034 - Шпагошип */ Thornblade: '034',
   /* 035 - Мироцвет */ Melloblum: '035',

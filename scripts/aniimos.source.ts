@@ -967,6 +967,24 @@ export const aniimos: AniimoFormSource[] = [
     ],
     image: image("030-prismana.webp"),
   },
+  // --- 031 - Эко ---
+  {
+    no: AniimoNos.Eko,
+    name: "Эко",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
+    image: image("031-base.webp"),
+  },
+  // --- 032 - Эклу ---
+  {
+    no: AniimoNos.Eklue,
+    name: "Эклу",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
+    image: image("032-base.webp"),
+  },
   // --- 033 - Бутоносец ---
   {
     no: AniimoNos.Budsquire,

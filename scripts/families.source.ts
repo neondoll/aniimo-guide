@@ -39,6 +39,8 @@ export const families: Family[] = [
     name: "Бояка",
     member_nos: [AniimoNos.Flutternym, AniimoNos.Gracewing, AniimoNos.Somniwing],
   },
+  // 031 - Эко · Эклу
+  { id: FamilyIds.Eko, name: "Эко", member_nos: [AniimoNos.Eko, AniimoNos.Eklue] },
   // 033 - Бутоносец · Шпагошип · Мироцвет
   {
     id: FamilyIds.Budsquire,
