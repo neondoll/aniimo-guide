@@ -65,6 +65,12 @@ export const families: Family[] = [
   { id: FamilyIds.Shelly, name: "Шелли", member_nos: [AniimoNos.Shelly, AniimoNos.Sheldon, AniimoNos.Sherro] },
   // 056 - Балитл · Валитл · Камнюс
   { id: FamilyIds.Baleetle, name: "Балитл", member_nos: [AniimoNos.Baleetle, AniimoNos.Waleetle, AniimoNos.Bouldus] },
+  // 064 - Кусинг · Шлеминг · Бронинг · Горнинг
+  {
+    id: FamilyIds.Jawling,
+    name: "Кусинг",
+    member_nos: [AniimoNos.Jawling, AniimoNos.Helmwhelp, AniimoNos.Helgon, AniimoNos.Infergon],
+  },
   // 070 - Камешек · Лавазар · Магмарекс · Камнеспин · Шахтоспин
   {
     id: FamilyIds.Pebbling,
@@ -75,7 +81,7 @@ export const families: Family[] = [
   { id: FamilyIds.Bulbly, name: "Лампадка", member_nos: [AniimoNos.Bulbly, AniimoNos.Veilfloat, AniimoNos.Luminelle] },
   // 080 - Фалу · Эрлат
   { id: FamilyIds.Fahloo, name: "Фалу", member_nos: [AniimoNos.Fahloo, AniimoNos.Erlath] },
-  // 11001 - Дух дружбы
+  // 10004 - Дух дружбы
   { id: FamilyIds.Sparkelf, name: "Дух дружбы", member_nos: [AniimoNos.Sparkelf] },
   // 99996 - Лунара
   { id: FamilyIds.Lunara, name: "Лунара", member_nos: [AniimoNos.Lunara] },

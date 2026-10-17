@@ -139,6 +139,15 @@ export const evolutions: EvolutionSource[] = [
   { from_no: AniimoNos.Baleetle, from_form_id: FormIds.Snowfield, to_no: AniimoNos.Waleetle, to_form_id: FormIds.Snowfield },
   { from_no: AniimoNos.Baleetle, from_form_id: FormIds.Snowfield, to_no: AniimoNos.Bouldus, to_form_id: FormIds.Snowfield },
 
+  // 064 → 065
+  { from_no: AniimoNos.Jawling, from_form_id: FormIds.Base, to_no: AniimoNos.Helmwhelp, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Jawling, from_form_id: FormIds.Mountain, to_no: AniimoNos.Helmwhelp, to_form_id: FormIds.Mountain },
+
+  // 065 → 066 | 067
+  { from_no: AniimoNos.Helmwhelp, from_form_id: FormIds.Base, to_no: AniimoNos.Helgon, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Helmwhelp, from_form_id: FormIds.Base, to_no: AniimoNos.Infergon, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Helmwhelp, from_form_id: FormIds.Mountain, to_no: AniimoNos.Helgon, to_form_id: FormIds.Mountain },
+
   // 070 → 071 | 073
   { from_no: AniimoNos.Pebbling, from_form_id: FormIds.Base, to_no: AniimoNos.Lavazar, to_form_id: FormIds.Base },
   { from_no: AniimoNos.Pebbling, from_form_id: FormIds.Base, to_no: AniimoNos.Geodeback, to_form_id: FormIds.Base },

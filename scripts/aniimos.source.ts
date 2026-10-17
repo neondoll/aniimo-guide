@@ -1491,6 +1491,79 @@ export const aniimos: AniimoFormSource[] = [
     ],
     image: image("058-snowfield.webp"),
   },
+  // --- 064 - Кусинг ---
+  {
+    no: AniimoNos.Jawling,
+    name: "Кусинг",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
+    image: image("064-base.webp"),
+  },
+  {
+    no: AniimoNos.Jawling,
+    name: "Кусинг",
+    form_id: FormIds.Mountain,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
+    image: image("064-mountain.webp"),
+  },
+  // --- 065 - Шлеминг ---
+  {
+    no: AniimoNos.Helmwhelp,
+    name: "Шлеминг",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
+    image: image("065-base.webp"),
+  },
+  {
+    no: AniimoNos.Helmwhelp,
+    name: "Шлеминг",
+    form_id: FormIds.Mountain,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
+    image: image("065-mountain.webp"),
+  },
+  // --- 066 - Бронинг ---
+  {
+    no: AniimoNos.Helgon,
+    name: "Бронинг",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("066-base.webp"),
+  },
+  {
+    no: AniimoNos.Helgon,
+    name: "Бронинг",
+    form_id: FormIds.Mountain,
+    element_ids: [ElementIds.Wind],
+    home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("066-mountain.webp"),
+  },
+  // --- 067 - Горнинг ---
+  {
+    no: AniimoNos.Infergon,
+    name: "Горнинг",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Fire],
+    home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("067-base.webp"),
+  },
+  {
+    no: AniimoNos.Infergon,
+    name: "Горнинг",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Fire, ElementIds.Wind],
+    home_abilities: [
+      { id: HomeAbilityIds.Fire, level: 4 },
+      { id: HomeAbilityIds.Wind, level: 3 },
+      { id: HomeAbilityIds.Hauling, level: 4 },
+    ],
+    image: image("067-prismana.webp"),
+    season: 1,
+  },
   // --- 070 - Камешек ---
   {
     no: AniimoNos.Pebbling,
@@ -1669,7 +1742,7 @@ export const aniimos: AniimoFormSource[] = [
     image: image("fulmintis-prismana.webp"),
     season: 1,
   },
-  // --- 11001 - Дух дружбы ---
+  // --- 10004 - Дух дружбы ---
   {
     no: AniimoNos.Sparkelf,
     name: "Дух дружбы",

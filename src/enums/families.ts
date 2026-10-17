@@ -20,10 +20,11 @@ export const FamilyIds = {
   /* 049 - Стесняша · Ныряша · Нимфея · Пухлея */ Susuta: AniimoNos.Susuta,
   /* 053 - Шелли · Шелдон · Шерро */ Shelly: AniimoNos.Shelly,
   /* 056 - Балитл · Валитл · Камнюс */ Baleetle: AniimoNos.Baleetle,
+  /* 064 - Кусинг · Шлеминг · Бронинг · Горнинг */ Jawling: AniimoNos.Jawling,
   /* 070 - Камешек · Лавазар · Магмарекс · Камнеспин · Шахтоспин */ Pebbling: AniimoNos.Pebbling,
   /* 077 - Лампадка · Лучина · Сияша */ Bulbly: AniimoNos.Bulbly,
   /* 080 - Фалу · Эрлат */ Fahloo: AniimoNos.Fahloo,
-  /* 11001 - Дух дружбы */ Sparkelf: AniimoNos.Sparkelf,
+  /* 10004 - Дух дружбы */ Sparkelf: AniimoNos.Sparkelf,
   /* 99996 - Лунара */ Lunara: AniimoNos.Lunara,
   /* 99998 - Гелион */ Helion: AniimoNos.Helion,
 } as const;
