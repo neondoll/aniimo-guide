@@ -73,6 +73,8 @@ export const families: Family[] = [
     name: "Кусинг",
     member_nos: [AniimoNos.Jawling, AniimoNos.Helmwhelp, AniimoNos.Helgon, AniimoNos.Infergon],
   },
+  // 068 - Медвежик · Грызля
+  { id: FamilyIds.Cubbo, name: "Медвежик", member_nos: [AniimoNos.Cubbo, AniimoNos.Grizbo] },
   // 070 - Камешек · Лавазар · Магмарекс · Камнеспин · Шахтоспин
   {
     id: FamilyIds.Pebbling,

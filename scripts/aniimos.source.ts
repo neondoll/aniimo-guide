@@ -1648,6 +1648,36 @@ export const aniimos: AniimoFormSource[] = [
     image: image("067-prismana.webp"),
     season: 1,
   },
+  // --- 068 - Медвежик ---
+  {
+    no: AniimoNos.Cubbo,
+    name: "Медвежик",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Earth],
+    home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
+    image: image("068-base.webp"),
+  },
+  // --- 069 - Грызля ---
+  {
+    no: AniimoNos.Grizbo,
+    name: "Грызля",
+    form_id: FormIds.Base,
+    element_ids: [ElementIds.Earth],
+    home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
+    image: image("069-base.webp"),
+  },
+  {
+    no: AniimoNos.Grizbo,
+    name: "Грызля",
+    form_id: FormIds.Prismana,
+    element_ids: [ElementIds.Earth, ElementIds.Dark],
+    home_abilities: [
+      { id: HomeAbilityIds.Earth, level: 4 },
+      { id: HomeAbilityIds.Dark, level: 3 },
+      { id: HomeAbilityIds.Hauling, level: 4 },
+    ],
+    image: image("069-prismana.webp"),
+  },
   // --- 070 - Камешек ---
   {
     no: AniimoNos.Pebbling,

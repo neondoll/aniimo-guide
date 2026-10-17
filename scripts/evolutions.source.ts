@@ -155,6 +155,9 @@ export const evolutions: EvolutionSource[] = [
   { from_no: AniimoNos.Helmwhelp, from_form_id: FormIds.Base, to_no: AniimoNos.Infergon, to_form_id: FormIds.Base },
   { from_no: AniimoNos.Helmwhelp, from_form_id: FormIds.Mountain, to_no: AniimoNos.Helgon, to_form_id: FormIds.Mountain },
 
+  // 068 → 069
+  { from_no: AniimoNos.Cubbo, from_form_id: FormIds.Base, to_no: AniimoNos.Grizbo, to_form_id: FormIds.Base },
+
   // 070 → 071 | 073
   { from_no: AniimoNos.Pebbling, from_form_id: FormIds.Base, to_no: AniimoNos.Lavazar, to_form_id: FormIds.Base },
   { from_no: AniimoNos.Pebbling, from_form_id: FormIds.Base, to_no: AniimoNos.Geodeback, to_form_id: FormIds.Base },

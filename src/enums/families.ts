@@ -22,6 +22,7 @@ export const FamilyIds = {
   /* 053 - Шелли · Шелдон · Шерро */ Shelly: AniimoNos.Shelly,
   /* 056 - Балитл · Валитл · Камнюс */ Baleetle: AniimoNos.Baleetle,
   /* 064 - Кусинг · Шлеминг · Бронинг · Горнинг */ Jawling: AniimoNos.Jawling,
+  /* 068 - Медвежик · Грызля */ Cubbo: AniimoNos.Cubbo,
   /* 070 - Камешек · Лавазар · Магмарекс · Камнеспин · Шахтоспин */ Pebbling: AniimoNos.Pebbling,
   /* 077 - Лампадка · Лучина · Сияша */ Bulbly: AniimoNos.Bulbly,
   /* 080 - Фалу · Эрлат */ Fahloo: AniimoNos.Fahloo,
