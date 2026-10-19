@@ -27,7 +27,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("001-base.webp"),
+    image: image("001-base.jpeg"),
   },
   {
     no: AniimoNos.Emberpup,
@@ -39,7 +39,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
-    image: image("001-highland.webp"),
+    // image: image("001-highland.webp"),
   },
   {
     no: AniimoNos.Emberpup,
@@ -47,7 +47,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("001-mountain_woods.webp"),
+    // image: image("001-mountain_woods.webp"),
   },
   // --- 002 - Пламешерст ---
   {
@@ -56,7 +56,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
-    image: image("002-base.webp"),
+    // image: image("002-base.webp"),
   },
   {
     no: AniimoNos.Flameruff,
@@ -68,7 +68,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 2 },
     ],
-    image: image("002-highland.webp"),
+    // image: image("002-highland.webp"),
   },
   {
     no: AniimoNos.Flameruff,
@@ -76,7 +76,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
-    image: image("002-mountain_woods.webp"),
+    // image: image("002-mountain_woods.webp"),
   },
   // --- 003 - Волкожог ---
   {
@@ -85,7 +85,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("003-base.webp"),
+    // image: image("003-base.webp"),
   },
   {
     no: AniimoNos.Scorchhowl,
@@ -97,7 +97,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("003-highland.webp"),
+    // image: image("003-highland.webp"),
   },
   {
     no: AniimoNos.Scorchhowl,
@@ -109,7 +109,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Lightning, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("003-thunderstorm.webp"),
+    // image: image("003-thunderstorm.webp"),
   },
   {
     no: AniimoNos.Scorchhowl,
@@ -117,7 +117,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Prismana,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 4 }, { id: HomeAbilityIds.Hauling, level: 4 }],
-    image: image("003-prismana.webp"),
+    // image: image("003-prismana.webp"),
   },
   {
     no: AniimoNos.Scorchhowl,
@@ -125,7 +125,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("003-mountain_woods.webp"),
+    // image: image("003-mountain_woods.webp"),
   },
   // --- 004 - Пламеклык ---
   {
@@ -138,7 +138,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Fire, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("004-base.webp"),
+    // image: image("004-base.webp"),
   },
   {
     no: AniimoNos.Inferlupa,
@@ -151,7 +151,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
     season: 1,
-    image: image("004-prismana.webp"),
+    // image: image("004-prismana.webp"),
   },
   // --- 005 - Селестис ---
   {
@@ -160,7 +160,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("005-base.webp"),
+    // image: image("005-base.webp"),
   },
   // --- 006 - Стелларис ---
   {
@@ -169,7 +169,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("006-base.webp"),
+    // image: image("006-base.webp"),
   },
   {
     no: AniimoNos.Stellarys,
@@ -181,7 +181,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Water, level: 2 },
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
-    image: image("006-rainstorm.webp"),
+    // image: image("006-rainstorm.webp"),
   },
   {
     no: AniimoNos.Stellarys,
@@ -193,7 +193,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 3 },
       { id: HomeAbilityIds.Leisure, level: 4 },
     ],
-    image: image("006-prismana.webp"),
+    // image: image("006-prismana.webp"),
   },
   // --- 007 - Чайкуша ---
   {
@@ -202,7 +202,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }],
-    image: image("007-base.webp"),
+    // image: image("007-base.webp"),
   },
   {
     no: AniimoNos.Chirpi,
@@ -210,7 +210,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Beach,
     element_ids: [ElementIds.Wind, ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Water, level: 1 }],
-    image: image("007-beach.webp"),
+    // image: image("007-beach.webp"),
   },
   {
     no: AniimoNos.Chirpi,
@@ -218,7 +218,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Wind, ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Grass, level: 1 }],
-    image: image("007-highland.webp"),
+    // image: image("007-highland.webp"),
   },
   // --- 008 - Кликуша ---
   {
@@ -227,7 +227,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }],
-    image: image("008-base.webp"),
+    // image: image("008-base.webp"),
   },
   {
     no: AniimoNos.Tromber,
@@ -235,7 +235,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Beach,
     element_ids: [ElementIds.Wind, ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Water, level: 2 }],
-    image: image("008-beach.webp"),
+    // image: image("008-beach.webp"),
   },
   {
     no: AniimoNos.Tromber,
@@ -243,7 +243,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Wind, ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
-    image: image("008-highland.webp"),
+    // image: image("008-highland.webp"),
   },
   // --- 009 - Крикуша ---
   {
@@ -252,7 +252,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }],
-    image: image("009-base.webp"),
+    // image: image("009-base.webp"),
   },
   {
     no: AniimoNos.Cornet,
@@ -260,7 +260,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Beach,
     element_ids: [ElementIds.Wind, ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Water, level: 2 }],
-    image: image("009-beach.webp"),
+    // image: image("009-beach.webp"),
   },
   {
     no: AniimoNos.Cornet,
@@ -268,7 +268,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Prismana,
     element_ids: [ElementIds.Wind, ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 4 }, { id: HomeAbilityIds.Lightning, level: 3 }],
-    image: image("009-prismana.webp"),
+    // image: image("009-prismana.webp"),
   },
   {
     no: AniimoNos.Cornet,
@@ -276,7 +276,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Wind, ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
-    image: image("009-highland.webp"),
+    // image: image("009-highland.webp"),
   },
   // --- 010 - Каркуша ---
   {
@@ -285,7 +285,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }],
-    image: image("010-base.webp"),
+    // image: image("010-base.webp"),
   },
   {
     no: AniimoNos.Tubster,
@@ -293,7 +293,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Beach,
     element_ids: [ElementIds.Wind, ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Water, level: 2 }],
-    image: image("010-beach.webp"),
+    // image: image("010-beach.webp"),
   },
   {
     no: AniimoNos.Tubster,
@@ -301,7 +301,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Wind, ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
-    image: image("010-highland.webp"),
+    // image: image("010-highland.webp"),
   },
   // --- 011 - Ирис ---
   {
@@ -310,7 +310,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("011-base.webp"),
+    // image: image("011-base.webp"),
   },
   {
     no: AniimoNos.Iris,
@@ -318,7 +318,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("011-highland.webp"),
+    // image: image("011-highland.webp"),
   },
   {
     no: AniimoNos.Iris,
@@ -326,7 +326,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Forest,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("011-forest.webp"),
+    // image: image("011-forest.webp"),
   },
   {
     no: AniimoNos.Iris,
@@ -334,7 +334,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Grassland,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("011-grassland.webp"),
+    // image: image("011-grassland.webp"),
   },
   {
     no: AniimoNos.Iris,
@@ -342,7 +342,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Prismana,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("011-prismana.webp"),
+    // image: image("011-prismana.webp"),
   },
   {
     no: AniimoNos.Iris,
@@ -350,7 +350,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Plateau,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("011-plateau.webp"),
+    // image: image("011-plateau.webp"),
   },
   {
     no: AniimoNos.Iris,
@@ -358,7 +358,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("011-mountain_woods.webp"),
+    // image: image("011-mountain_woods.webp"),
   },
   // --- 012 - Ирисаль ---
   {
@@ -367,7 +367,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("012-base.webp"),
+    // image: image("012-base.webp"),
   },
   {
     no: AniimoNos.Irisal,
@@ -375,7 +375,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("012-highland.webp"),
+    // image: image("012-highland.webp"),
   },
   {
     no: AniimoNos.Irisal,
@@ -383,7 +383,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Forest,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("012-forest.webp"),
+    // image: image("012-forest.webp"),
   },
   {
     no: AniimoNos.Irisal,
@@ -391,7 +391,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Grassland,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("012-grassland.webp"),
+    // image: image("012-grassland.webp"),
   },
   {
     no: AniimoNos.Irisal,
@@ -399,7 +399,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Prismana,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 4 }, { id: HomeAbilityIds.Leisure, level: 4 }],
-    image: image("012-prismana.webp"),
+    // image: image("012-prismana.webp"),
   },
   {
     no: AniimoNos.Irisal,
@@ -407,7 +407,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Plateau,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("012-plateau.webp"),
+    // image: image("012-plateau.webp"),
   },
   {
     no: AniimoNos.Irisal,
@@ -415,7 +415,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("012-mountain_woods.webp"),
+    // image: image("012-mountain_woods.webp"),
   },
   // --- 013 - Шустрик ---
   {
@@ -424,7 +424,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("013-base.webp"),
+    // image: image("013-base.webp"),
   },
   {
     no: AniimoNos.Skippy,
@@ -432,7 +432,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Flowerfield,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("013-flowerfield.webp"),
+    // image: image("013-flowerfield.webp"),
   },
   {
     no: AniimoNos.Skippy,
@@ -444,7 +444,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
-    image: image("013-snowfield.webp"),
+    // image: image("013-snowfield.webp"),
   },
   // --- 014 - Шутник ---
   {
@@ -453,7 +453,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
-    image: image("014-base.webp"),
+    // image: image("014-base.webp"),
   },
   {
     no: AniimoNos.Pranky,
@@ -461,7 +461,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Flowerfield,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
-    image: image("014-flowerfield.webp"),
+    // image: image("014-flowerfield.webp"),
   },
   {
     no: AniimoNos.Pranky,
@@ -473,7 +473,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 2 },
     ],
-    image: image("014-snowfield.webp"),
+    // image: image("014-snowfield.webp"),
   },
   // --- 015 - Морозница ---
   {
@@ -486,7 +486,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("015-base.webp"),
+    // image: image("015-base.webp"),
   },
   {
     no: AniimoNos.Glacy,
@@ -498,7 +498,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("015-flowerfield.webp"),
+    // image: image("015-flowerfield.webp"),
   },
   {
     no: AniimoNos.Glacy,
@@ -510,7 +510,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("015-snowfield.webp"),
+    // image: image("015-snowfield.webp"),
   },
   {
     no: AniimoNos.Glacy,
@@ -522,7 +522,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Light, level: 3 },
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
-    image: image("015-prismana.webp"),
+    // image: image("015-prismana.webp"),
   },
   // --- 016 - Листик ---
   {
@@ -535,7 +535,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Water, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("016-base.webp"),
+    // image: image("016-base.webp"),
   },
   // --- 017 - Пушинка ---
   {
@@ -544,7 +544,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("017-base.webp"),
+    // image: image("017-base.webp"),
   },
   {
     no: AniimoNos.Nimbi,
@@ -556,7 +556,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Lightning, level: 1 },
       { id: HomeAbilityIds.Leisure, level: 1 },
     ],
-    image: image("017-rainstorm.webp"),
+    // image: image("017-rainstorm.webp"),
   },
   {
     no: AniimoNos.Nimbi,
@@ -564,7 +564,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Cloudmist,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("017-cloudmist.webp"),
+    // image: image("017-cloudmist.webp"),
   },
   {
     no: AniimoNos.Nimbi,
@@ -576,7 +576,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 1 },
       { id: HomeAbilityIds.Leisure, level: 1 },
     ],
-    image: image("017-plateau.webp"),
+    // image: image("017-plateau.webp"),
   },
   // --- 018 - Турбо ---
   {
@@ -585,7 +585,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("018-base.webp"),
+    // image: image("018-base.webp"),
   },
   {
     no: AniimoNos.Turbo,
@@ -597,7 +597,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Lightning, level: 2 },
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
-    image: image("018-rainstorm.webp"),
+    // image: image("018-rainstorm.webp"),
   },
   {
     no: AniimoNos.Turbo,
@@ -605,7 +605,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Cloudmist,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("018-cloudmist.webp"),
+    // image: image("018-cloudmist.webp"),
   },
   {
     no: AniimoNos.Turbo,
@@ -617,7 +617,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 3 },
       { id: HomeAbilityIds.Leisure, level: 4 },
     ],
-    image: image("018-prismana.webp"),
+    // image: image("018-prismana.webp"),
   },
   {
     no: AniimoNos.Turbo,
@@ -629,7 +629,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
-    image: image("018-plateau.webp"),
+    // image: image("018-plateau.webp"),
   },
   // --- 019 - Дрипл ---
   {
@@ -638,7 +638,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("019-base.webp"),
+    // image: image("019-base.webp"),
   },
   // --- 020 - Бормотун ---
   {
@@ -647,7 +647,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }],
-    image: image("020-base.webp"),
+    // image: image("020-base.webp"),
   },
   {
     no: AniimoNos.Hummin,
@@ -655,7 +655,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Mountain,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }],
-    image: image("020-mountain.webp"),
+    // image: image("020-mountain.webp"),
   },
   // --- 021 - Ведьмун ---
   {
@@ -668,7 +668,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Grass, level: 1 },
       { id: HomeAbilityIds.Artisanship, level: 2 },
     ],
-    image: image("021-base.webp"),
+    // image: image("021-base.webp"),
   },
   {
     no: AniimoNos.Hexxin,
@@ -680,7 +680,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Grass, level: 1 },
       { id: HomeAbilityIds.Artisanship, level: 2 },
     ],
-    image: image("021-mountain.webp"),
+    // image: image("021-mountain.webp"),
   },
   {
     no: AniimoNos.Hexxin,
@@ -692,7 +692,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Grass, level: 3 },
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
-    image: image("021-prismana.webp"),
+    // image: image("021-prismana.webp"),
   },
   // --- 022 - Топотун ---
   {
@@ -701,7 +701,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("022-base.webp"),
+    // image: image("022-base.webp"),
   },
   {
     no: AniimoNos.Tuckin,
@@ -713,7 +713,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("022-mountain.webp"),
+    // image: image("022-mountain.webp"),
   },
   // --- 023 - Цветохват ---
   {
@@ -726,7 +726,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Grass, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
-    image: image("023-base.webp"),
+    // image: image("023-base.webp"),
   },
   {
     no: AniimoNos.Budclaw,
@@ -734,7 +734,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Mudflat,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("023-mudflat.webp"),
+    // image: image("023-mudflat.webp"),
   },
   {
     no: AniimoNos.Budclaw,
@@ -742,7 +742,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Beach,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("023-beach.webp"),
+    // image: image("023-beach.webp"),
   },
   {
     no: AniimoNos.Budclaw,
@@ -750,7 +750,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Bay,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("023-bay.webp"),
+    // image: image("023-bay.webp"),
   },
   // --- 024 - Кустохват ---
   {
@@ -763,7 +763,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Grass, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("024-base.webp"),
+    // image: image("024-base.webp"),
   },
   {
     no: AniimoNos.Shrubclaw,
@@ -771,7 +771,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Mudflat,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("024-mudflat.webp"),
+    // image: image("024-mudflat.webp"),
   },
   {
     no: AniimoNos.Shrubclaw,
@@ -779,7 +779,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Beach,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("024-beach.webp"),
+    // image: image("024-beach.webp"),
   },
   {
     no: AniimoNos.Shrubclaw,
@@ -787,7 +787,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Bay,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("024-bay.webp"),
+    // image: image("024-bay.webp"),
   },
   // --- 025 - Кристаллохват ---
   {
@@ -797,7 +797,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Ice],
     home_abilities: [{ id: HomeAbilityIds.Ice, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     fixed_personality: { TF: "T" },
-    image: image("025-base.webp"),
+    // image: image("025-base.webp"),
   },
   // --- 026 - Искорка ---
   {
@@ -806,7 +806,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }],
-    image: image("026-base.webp"),
+    // image: image("026-base.webp"),
   },
   {
     no: AniimoNos.Sparki,
@@ -814,7 +814,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }],
-    image: image("026-highland.webp"),
+    // image: image("026-highland.webp"),
   },
   {
     no: AniimoNos.Sparki,
@@ -822,7 +822,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Forest,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }],
-    image: image("026-forest.webp"),
+    // image: image("026-forest.webp"),
   },
   {
     no: AniimoNos.Sparki,
@@ -830,7 +830,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Flowerfield,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }],
-    image: image("026-flowerfield.webp"),
+    // image: image("026-flowerfield.webp"),
   },
   // --- 027 - Пламерион ---
   {
@@ -839,7 +839,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
-    image: image("027-base.webp"),
+    // image: image("027-base.webp"),
   },
   {
     no: AniimoNos.Flamerion,
@@ -847,7 +847,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
-    image: image("027-highland.webp"),
+    // image: image("027-highland.webp"),
   },
   {
     no: AniimoNos.Flamerion,
@@ -855,7 +855,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Forest,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
-    image: image("027-forest.webp"),
+    // image: image("027-forest.webp"),
   },
   {
     no: AniimoNos.Flamerion,
@@ -863,7 +863,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Flowerfield,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
-    image: image("027-flowerfield.webp"),
+    // image: image("027-flowerfield.webp"),
   },
   // --- 028 - Бояка ---
   {
@@ -872,7 +872,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("028-base.webp"),
+    // image: image("028-base.webp"),
   },
   {
     no: AniimoNos.Flutternym,
@@ -884,7 +884,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Grass, level: 1 },
       { id: HomeAbilityIds.Leisure, level: 1 },
     ],
-    image: image("028-flowerfield.webp"),
+    // image: image("028-flowerfield.webp"),
   },
   {
     no: AniimoNos.Flutternym,
@@ -896,7 +896,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 1 },
       { id: HomeAbilityIds.Leisure, level: 1 },
     ],
-    image: image("028-nighttime.webp"),
+    // image: image("028-nighttime.webp"),
   },
   {
     no: AniimoNos.Flutternym,
@@ -908,7 +908,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 1 },
       { id: HomeAbilityIds.Leisure, level: 1 },
     ],
-    image: image("028-mountain_woods.webp"),
+    // image: image("028-mountain_woods.webp"),
   },
   // --- 029 - Миражекрыл ---
   {
@@ -917,7 +917,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("029-base.webp"),
+    // image: image("029-base.webp"),
   },
   {
     no: AniimoNos.Gracewing,
@@ -929,7 +929,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Grass, level: 2 },
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
-    image: image("029-flowerfield.webp"),
+    // image: image("029-flowerfield.webp"),
   },
   {
     no: AniimoNos.Gracewing,
@@ -941,7 +941,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 2 },
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
-    image: image("029-nighttime.webp"),
+    // image: image("029-nighttime.webp"),
   },
   {
     no: AniimoNos.Gracewing,
@@ -953,7 +953,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 2 },
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
-    image: image("029-mountain_woods.webp"),
+    // image: image("029-mountain_woods.webp"),
   },
   // --- 030 - Снокрыл ---
   {
@@ -966,7 +966,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Wind, level: 3 },
       { id: HomeAbilityIds.Leisure, level: 4 },
     ],
-    image: image("030-prismana.webp"),
+    // image: image("030-prismana.webp"),
   },
   // --- 031 - Эко ---
   {
@@ -975,7 +975,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("031-base.webp"),
+    // image: image("031-base.webp"),
   },
   // --- 032 - Эклу ---
   {
@@ -984,7 +984,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("032-base.webp"),
+    // image: image("032-base.webp"),
   },
   // --- 033 - Бутоносец ---
   {
@@ -993,7 +993,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("033-base.webp"),
+    // image: image("033-base.webp"),
   },
   {
     no: AniimoNos.Budsquire,
@@ -1001,7 +1001,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Towerwood,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("033-towerwood.webp"),
+    // image: image("033-towerwood.webp"),
   },
   // --- 034 - Шпагошип ---
   {
@@ -1010,7 +1010,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("034-base.webp"),
+    // image: image("034-base.webp"),
   },
   {
     no: AniimoNos.Thornblade,
@@ -1022,7 +1022,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Lightning, level: 2 },
       { id: HomeAbilityIds.Artisanship, level: 3 },
     ],
-    image: image("034-thunderstorm.webp"),
+    // image: image("034-thunderstorm.webp"),
   },
   {
     no: AniimoNos.Thornblade,
@@ -1034,7 +1034,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Water, level: 3 },
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
-    image: image("034-prismana.webp"),
+    // image: image("034-prismana.webp"),
   },
   {
     no: AniimoNos.Thornblade,
@@ -1042,7 +1042,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Towerwood,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("034-towerwood.webp"),
+    // image: image("034-towerwood.webp"),
   },
   // --- 035 - Мироцвет ---
   {
@@ -1052,7 +1052,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
     fixed_personality: { TF: "F" },
-    image: image("035-base.webp"),
+    // image: image("035-base.webp"),
   },
   {
     no: AniimoNos.Melloblum,
@@ -1066,7 +1066,7 @@ export const aniimos: AniimoFormSource[] = [
     ],
     fixed_personality: { TF: "F" },
     season: 1,
-    image: image("035-prismana.webp"),
+    // image: image("035-prismana.webp"),
   },
   // --- 036 - Чирлимон ---
   {
@@ -1075,7 +1075,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("036-base.webp"),
+    // image: image("036-base.webp"),
   },
   {
     no: AniimoNos.Pomegg,
@@ -1087,7 +1087,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 1 },
       { id: HomeAbilityIds.Artisanship, level: 1 },
     ],
-    image: image("036-snowfield.webp"),
+    // image: image("036-snowfield.webp"),
   },
   {
     no: AniimoNos.Pomegg,
@@ -1095,7 +1095,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("036-highland.webp"),
+    // image: image("036-highland.webp"),
   },
   {
     no: AniimoNos.Pomegg,
@@ -1103,7 +1103,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Flowerfield,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("036-flowerfield.webp"),
+    // image: image("036-flowerfield.webp"),
   },
   // --- 037 - Помагавк ---
   {
@@ -1112,7 +1112,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("037-base.webp"),
+    // image: image("037-base.webp"),
   },
   {
     no: AniimoNos.Pomawk,
@@ -1124,7 +1124,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Artisanship, level: 3 },
     ],
-    image: image("037-snowfield.webp"),
+    // image: image("037-snowfield.webp"),
   },
   {
     no: AniimoNos.Pomawk,
@@ -1132,7 +1132,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Highland,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("037-highland.webp"),
+    // image: image("037-highland.webp"),
   },
   {
     no: AniimoNos.Pomawk,
@@ -1140,7 +1140,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Flowerfield,
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("037-flowerfield.webp"),
+    // image: image("037-flowerfield.webp"),
   },
   // --- 038 - Отдушечка ---
   {
@@ -1153,7 +1153,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 1 },
       { id: HomeAbilityIds.Perfumery, level: 1 },
     ],
-    image: image("038-base.webp"),
+    // image: image("038-base.webp"),
   },
   // --- 039 - Фрагрансье ---
   {
@@ -1166,7 +1166,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 3 },
       { id: HomeAbilityIds.Perfumery, level: 3 },
     ],
-    image: image("039-base.webp"),
+    // image: image("039-base.webp"),
   },
   // --- 040 - Когтис ---
   {
@@ -1175,7 +1175,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("040-base.webp"),
+    // image: image("040-base.webp"),
   },
   {
     no: AniimoNos.Wisptis,
@@ -1187,7 +1187,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Grass, level: 1 },
       { id: HomeAbilityIds.Artisanship, level: 1 },
     ],
-    image: image("040-forest.webp"),
+    // image: image("040-forest.webp"),
   },
   {
     no: AniimoNos.Wisptis,
@@ -1199,7 +1199,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Fire, level: 1 },
       { id: HomeAbilityIds.Artisanship, level: 1 },
     ],
-    image: image("040-highland.webp"),
+    // image: image("040-highland.webp"),
   },
   // --- 041 - Игнитис ---
   {
@@ -1208,7 +1208,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("041-base.webp"),
+    // image: image("041-base.webp"),
   },
   {
     no: AniimoNos.Ignitis,
@@ -1220,7 +1220,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Grass, level: 2 },
       { id: HomeAbilityIds.Artisanship, level: 3 },
     ],
-    image: image("041-forest.webp"),
+    // image: image("041-forest.webp"),
   },
   {
     no: AniimoNos.Ignitis,
@@ -1232,7 +1232,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Fire, level: 3 },
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
-    image: image("041-prismana.webp"),
+    // image: image("041-prismana.webp"),
   },
   {
     no: AniimoNos.Ignitis,
@@ -1244,7 +1244,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Fire, level: 2 },
       { id: HomeAbilityIds.Artisanship, level: 3 },
     ],
-    image: image("041-highland.webp"),
+    // image: image("041-highland.webp"),
   },
   // --- 042 - Костесвод ---
   {
@@ -1253,7 +1253,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Ice],
     home_abilities: [{ id: HomeAbilityIds.Ice, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("042-base.webp"),
+    // image: image("042-base.webp"),
   },
   {
     no: AniimoNos.Bonesky,
@@ -1265,7 +1265,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
-    image: image("042-nighttime.webp"),
+    // image: image("042-nighttime.webp"),
   },
   // --- 043 - Фенрир ---
   {
@@ -1274,7 +1274,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Ice],
     home_abilities: [{ id: HomeAbilityIds.Ice, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
-    image: image("043-base.webp"),
+    // image: image("043-base.webp"),
   },
   {
     no: AniimoNos.Fenrier,
@@ -1286,7 +1286,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 2 },
     ],
-    image: image("043-nighttime.webp"),
+    // image: image("043-nighttime.webp"),
   },
   // --- 044 - Глинсера ---
   {
@@ -1295,7 +1295,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Ice],
     home_abilities: [{ id: HomeAbilityIds.Ice, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("044-base.webp"),
+    // image: image("044-base.webp"),
   },
   {
     no: AniimoNos.Glynsera,
@@ -1308,7 +1308,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
     season: 1,
-    image: image("044-prismana.webp"),
+    // image: image("044-prismana.webp"),
   },
   {
     no: AniimoNos.Glynsera,
@@ -1320,7 +1320,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("044-nighttime.webp"),
+    // image: image("044-nighttime.webp"),
   },
   // --- 045 - Вольт ---
   {
@@ -1329,7 +1329,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("045-base.webp"),
+    // image: image("045-base.webp"),
   },
   {
     no: AniimoNos.Bolty,
@@ -1337,7 +1337,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("045-mountain_woods.webp"),
+    // image: image("045-mountain_woods.webp"),
   },
   // --- 046 - Разряд ---
   {
@@ -1346,7 +1346,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("046-base.webp"),
+    // image: image("046-base.webp"),
   },
   {
     no: AniimoNos.Blazen,
@@ -1358,7 +1358,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 3 },
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
-    image: image("046-prismana.webp"),
+    // image: image("046-prismana.webp"),
   },
   {
     no: AniimoNos.Blazen,
@@ -1366,7 +1366,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("046-mountain_woods.webp"),
+    // image: image("046-mountain_woods.webp"),
   },
   // --- 047 - Белкулак ---
   {
@@ -1375,7 +1375,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("047-base.webp"),
+    // image: image("047-base.webp"),
   },
   // --- 048 - Хвостобой ---
   {
@@ -1384,7 +1384,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }, { id: HomeAbilityIds.Artisanship, level: 2 }],
-    image: image("048-base.webp"),
+    // image: image("048-base.webp"),
   },
   // --- 049 - Стесняша ---
   {
@@ -1393,7 +1393,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("049-base.webp"),
+    // image: image("049-base.webp"),
   },
   {
     no: AniimoNos.Susuta,
@@ -1401,7 +1401,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Nighttime,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("049-nighttime.webp"),
+    // image: image("049-nighttime.webp"),
   },
   // --- 050 - Ныряша ---
   {
@@ -1410,7 +1410,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Leisure, level: 2 }],
-    image: image("050-base.webp"),
+    // image: image("050-base.webp"),
   },
   {
     no: AniimoNos.Popota,
@@ -1418,7 +1418,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Nighttime,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Leisure, level: 2 }],
-    image: image("050-nighttime.webp"),
+    // image: image("050-nighttime.webp"),
   },
   // --- 051 - Нимфея ---
   {
@@ -1427,7 +1427,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("051-base.webp"),
+    // image: image("051-base.webp"),
   },
   {
     no: AniimoNos.Piopiota,
@@ -1440,7 +1440,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
     fixed_personality: { EI: "E", JP: "P" },
-    image: image("051-nighttime.webp"),
+    // image: image("051-nighttime.webp"),
   },
   // --- 052 - Пухлея ---
   {
@@ -1449,7 +1449,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("052-base.webp"),
+    // image: image("052-base.webp"),
   },
   {
     no: AniimoNos.Panpanta,
@@ -1458,7 +1458,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     fixed_personality: { EI: "I", JP: "J" },
-    image: image("052-nighttime.webp"),
+    // image: image("052-nighttime.webp"),
   },
   {
     no: AniimoNos.Panpanta,
@@ -1466,7 +1466,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Prismana,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 4 }, { id: HomeAbilityIds.Leisure, level: 4 }],
-    image: image("052-prismana.webp"),
+    // image: image("052-prismana.webp"),
   },
   // --- 053 - Шелли ---
   {
@@ -1475,7 +1475,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
-    image: image("053-base.webp"),
+    // image: image("053-base.webp"),
   },
   // --- 054 - Шелдон ---
   {
@@ -1484,7 +1484,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Leisure, level: 2 }],
-    image: image("054-base.webp"),
+    // image: image("054-base.webp"),
   },
   // --- 055 - Шерро ---
   {
@@ -1493,7 +1493,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
-    image: image("055-base.webp"),
+    // image: image("055-base.webp"),
   },
   {
     no: AniimoNos.Sherro,
@@ -1505,7 +1505,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Lightning, level: 2 },
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
-    image: image("055-thunderstorm.webp"),
+    // image: image("055-thunderstorm.webp"),
   },
   {
     no: AniimoNos.Sherro,
@@ -1517,7 +1517,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Light, level: 3 },
       { id: HomeAbilityIds.Leisure, level: 4 },
     ],
-    image: image("055-prismana.webp"),
+    // image: image("055-prismana.webp"),
   },
   // --- 056 - Балитл ---
   {
@@ -1526,7 +1526,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("056-base.webp"),
+    // image: image("056-base.webp"),
   },
   {
     no: AniimoNos.Baleetle,
@@ -1538,7 +1538,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
-    image: image("056-snowfield.webp"),
+    // image: image("056-snowfield.webp"),
   },
   // --- 057 - Валитл ---
   {
@@ -1547,7 +1547,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("057-base.webp"),
+    // image: image("057-base.webp"),
   },
   {
     no: AniimoNos.Waleetle,
@@ -1559,7 +1559,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("057-snowfield.webp"),
+    // image: image("057-snowfield.webp"),
   },
   {
     no: AniimoNos.Waleetle,
@@ -1572,7 +1572,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
     season: 1,
-    image: image("057-prismana.webp"),
+    // image: image("057-prismana.webp"),
   },
   // --- 058 - Камнюс ---
   {
@@ -1581,7 +1581,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("058-base.webp"),
+    // image: image("058-base.webp"),
   },
   {
     no: AniimoNos.Bouldus,
@@ -1593,7 +1593,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("058-snowfield.webp"),
+    // image: image("058-snowfield.webp"),
   },
   // --- 059 - Фентуфт ---
   {
@@ -1602,7 +1602,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("059-base.webp"),
+    // image: image("059-base.webp"),
   },
   // --- 060 - Фенмейн ---
   {
@@ -1611,7 +1611,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("060-base.webp"),
+    // image: image("060-base.webp"),
   },
   {
     no: AniimoNos.Fenmane,
@@ -1624,7 +1624,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
-    image: image("060-prismana.webp"),
+    // image: image("060-prismana.webp"),
   },
   // --- 061 - Шлемут ---
   {
@@ -1633,7 +1633,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("061-base.webp"),
+    // image: image("061-base.webp"),
   },
   {
     no: AniimoNos.Helmut,
@@ -1645,7 +1645,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
-    image: image("061-snowfield.webp"),
+    // image: image("061-snowfield.webp"),
   },
   {
     no: AniimoNos.Helmut,
@@ -1653,7 +1653,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("061-mountain_woods.webp"),
+    // image: image("061-mountain_woods.webp"),
   },
   // --- 062 - Крутут ---
   {
@@ -1662,7 +1662,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("062-base.webp"),
+    // image: image("062-base.webp"),
   },
   {
     no: AniimoNos.Pawney,
@@ -1674,7 +1674,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("062-snowfield.webp"),
+    // image: image("062-snowfield.webp"),
   },
   {
     no: AniimoNos.Pawney,
@@ -1682,7 +1682,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("062-mountain_woods.webp"),
+    // image: image("062-mountain_woods.webp"),
   },
   {
     no: AniimoNos.Pawney,
@@ -1690,7 +1690,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Prismana,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 4 }, { id: HomeAbilityIds.Hauling, level: 4 }],
-    image: image("062-prismana.webp"),
+    // image: image("062-prismana.webp"),
   },
   // --- 063 - Робкут ---
   {
@@ -1699,7 +1699,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("063-base.webp"),
+    // image: image("063-base.webp"),
   },
   {
     no: AniimoNos.Rookey,
@@ -1711,7 +1711,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Ice, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("063-snowfield.webp"),
+    // image: image("063-snowfield.webp"),
   },
   {
     no: AniimoNos.Rookey,
@@ -1719,7 +1719,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.MountainWoods,
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("063-mountain_woods.webp"),
+    // image: image("063-mountain_woods.webp"),
   },
   // --- 064 - Кусинг ---
   {
@@ -1728,7 +1728,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("064-base.webp"),
+    // image: image("064-base.webp"),
   },
   {
     no: AniimoNos.Jawling,
@@ -1736,7 +1736,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Mountain,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("064-mountain.webp"),
+    // image: image("064-mountain.webp"),
   },
   // --- 065 - Шлеминг ---
   {
@@ -1745,7 +1745,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
-    image: image("065-base.webp"),
+    // image: image("065-base.webp"),
   },
   {
     no: AniimoNos.Helmwhelp,
@@ -1753,7 +1753,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Mountain,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
-    image: image("065-mountain.webp"),
+    // image: image("065-mountain.webp"),
   },
   // --- 066 - Бронинг ---
   {
@@ -1762,7 +1762,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("066-base.webp"),
+    // image: image("066-base.webp"),
   },
   {
     no: AniimoNos.Helgon,
@@ -1770,7 +1770,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Mountain,
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("066-mountain.webp"),
+    // image: image("066-mountain.webp"),
   },
   // --- 067 - Горнинг ---
   {
@@ -1779,7 +1779,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("067-base.webp"),
+    // image: image("067-base.webp"),
   },
   {
     no: AniimoNos.Infergon,
@@ -1792,7 +1792,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
     season: 1,
-    image: image("067-prismana.webp"),
+    // image: image("067-prismana.webp"),
   },
   // --- 068 - Медвежик ---
   {
@@ -1801,7 +1801,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("068-base.webp"),
+    // image: image("068-base.webp"),
   },
   // --- 069 - Грызля ---
   {
@@ -1810,7 +1810,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("069-base.webp"),
+    // image: image("069-base.webp"),
   },
   {
     no: AniimoNos.Grizbo,
@@ -1822,7 +1822,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 3 },
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
-    image: image("069-prismana.webp"),
+    // image: image("069-prismana.webp"),
   },
   // --- 070 - Камешек ---
   {
@@ -1831,7 +1831,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("070-base.webp"),
+    // image: image("070-base.webp"),
   },
   // --- 071 - Лавазар ---
   {
@@ -1844,7 +1844,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 2 },
     ],
-    image: image("071-base.webp"),
+    // image: image("071-base.webp"),
   },
   // --- 072 - Магмарекс ---
   {
@@ -1857,7 +1857,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 2 },
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
-    image: image("072-base.webp"),
+    // image: image("072-base.webp"),
   },
   {
     no: AniimoNos.Magmarex,
@@ -1869,7 +1869,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Dark, level: 3 },
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
-    image: image("072-prismana.webp"),
+    // image: image("072-prismana.webp"),
   },
   // --- 073 - Камнеспин ---
   {
@@ -1878,7 +1878,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
-    image: image("073-base.webp"),
+    // image: image("073-base.webp"),
   },
   // --- 074 - Шахтоспин ---
   {
@@ -1887,7 +1887,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("074-base.webp"),
+    // image: image("074-base.webp"),
   },
   // --- 075 - Уютнит ---
   {
@@ -1896,7 +1896,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
-    image: image("075-base.webp"),
+    // image: image("075-base.webp"),
   },
   // --- 076 - Байлит ---
   {
@@ -1905,7 +1905,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
-    image: image("076-base.webp"),
+    // image: image("076-base.webp"),
   },
   // --- 077 - Лампадка ---
   {
@@ -1914,7 +1914,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 1 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("077-base.webp"),
+    // image: image("077-base.webp"),
   },
   // --- 078 - Лучина ---
   {
@@ -1923,7 +1923,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 2 }, { id: HomeAbilityIds.Artisanship, level: 2 }],
-    image: image("078-base.webp"),
+    // image: image("078-base.webp"),
   },
   // --- 079 - Сияша ---
   {
@@ -1932,7 +1932,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
-    image: image("079-base.webp"),
+    // image: image("079-base.webp"),
   },
   {
     no: AniimoNos.Luminelle,
@@ -1944,7 +1944,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Water, level: 2 },
       { id: HomeAbilityIds.Artisanship, level: 3 },
     ],
-    image: image("079-rainstorm.webp"),
+    // image: image("079-rainstorm.webp"),
   },
   {
     no: AniimoNos.Luminelle,
@@ -1956,7 +1956,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Light, level: 3 },
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
-    image: image("079-prismana.webp"),
+    // image: image("079-prismana.webp"),
   },
   // --- 080 - Фалу ---
   {
@@ -1965,7 +1965,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }],
-    image: image("080-base.webp"),
+    // image: image("080-base.webp"),
   },
   // --- 081 - Эрлат ---
   {
@@ -1974,7 +1974,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 3 }],
-    image: image("081-base.webp"),
+    // image: image("081-base.webp"),
   },
   // --- 082 - Ритмос ---
   {
@@ -1983,7 +1983,7 @@ export const aniimos: AniimoFormSource[] = [
     form_id: FormIds.Base,
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 1 }],
-    image: image("082-base.webp"),
+    // image: image("082-base.webp"),
     unique_group: "shop_ritmos",
   },
   // --- 10001 - Ирисалис ---
@@ -1994,7 +1994,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 4 }, { id: HomeAbilityIds.Leisure, level: 4 }],
     season: 1,
-    image: image("irisalis.webp"),
+    // image: image("irisalis.webp"),
   },
   // --- 10002 - Танцомон ---
   {
@@ -2004,7 +2004,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
     season: 1,
-    image: image("dazmand.webp"),
+    // image: image("dazmand.webp"),
   },
   // --- 10003 - Фульминтис ---
   {
@@ -2014,7 +2014,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
     season: 1,
-    image: image("fulmintis.webp"),
+    // image: image("fulmintis.webp"),
   },
   {
     no: AniimoNos.Fulmintis,
@@ -2027,7 +2027,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
     season: 1,
-    image: image("fulmintis-prismana.webp"),
+    // image: image("fulmintis-prismana.webp"),
   },
   // --- 10004 - Дух дружбы ---
   {
@@ -2037,7 +2037,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
     season: 1,
-    image: image("sparkelf.webp"),
+    // image: image("sparkelf.webp"),
   },
   {
     no: AniimoNos.Sparkelf,
@@ -2046,7 +2046,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 4 }],
     season: 1,
-    image: image("sparkelf-prismana.webp"),
+    // image: image("sparkelf-prismana.webp"),
   },
   // --- 99996 - Лунара ---
   {
@@ -2056,7 +2056,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Light],
     home_abilities: [{ id: HomeAbilityIds.Light, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     fixed_personality: { EI: "I", SN: "S", TF: "T", JP: "J" },
-    image: image("lunara.webp"),
+    // image: image("lunara.webp"),
     unique_group: "starter",
   },
   // --- 99998 - Гелион ---
@@ -2067,7 +2067,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Light],
     home_abilities: [{ id: HomeAbilityIds.Light, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     fixed_personality: { EI: "E", SN: "N", TF: "F", JP: "P" },
-    image: image("helion.webp"),
+    // image: image("helion.webp"),
     unique_group: "starter",
   },
 ];

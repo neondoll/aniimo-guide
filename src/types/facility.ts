@@ -21,7 +21,7 @@ export interface Facility {
   is_speed_capped?: boolean;
   copies: number;
   dedication: Dedication;
-  image?: string;
+  // image?: string;
 }
 
 export type FacilityId = string;

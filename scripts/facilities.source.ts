@@ -10,8 +10,6 @@ const PP = {
   J: { JP: "J" } as PartialPersonality, P: { JP: "P" } as PartialPersonality,
 } as const;
 
-const image = (value: string) => `images/facilities/${value}`;
-
 export const facilities: Facility[] = [
   // --- material_production ---
   {
@@ -23,7 +21,6 @@ export const facilities: Facility[] = [
     required_ability_level: 1,
     copies: 40,
     dedication: "shared",
-    image: image("farmland.webp"),
   },
   {
     id: "woodland",
@@ -34,7 +31,6 @@ export const facilities: Facility[] = [
     required_ability_level: 1,
     copies: 20,
     dedication: "shared",
-    image: image("woodland.webp"),
   },
   {
     id: "mine",
@@ -46,7 +42,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.P,
     copies: 10,
     dedication: "dedicated",
-    image: image("mine.webp"),
   },
   {
     id: "well",
@@ -58,7 +53,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.F,
     copies: 4,
     dedication: "dedicated",
-    image: image("well.webp"),
   },
   {
     id: "tidewhisper_sandcastle",
@@ -70,7 +64,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.J,
     copies: 2,
     dedication: "dedicated",
-    image: image("tidewhisper_sandcastle.webp"),
   },
   {
     id: "dewy_house",
@@ -82,7 +75,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.I,
     copies: 2,
     dedication: "dedicated",
-    image: image("dewy_house.webp"),
   },
   {
     id: "nimbus_bed",
@@ -94,7 +86,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.J,
     copies: 2,
     dedication: "dedicated",
-    image: image("nimbus_bed.webp"),
   },
   {
     id: "starfall_hammock",
@@ -106,7 +97,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.F,
     copies: 2,
     dedication: "dedicated",
-    image: image("starfall_hammock.webp"),
   },
   {
     id: "floral_windmill",
@@ -118,7 +108,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.N,
     copies: 1,
     dedication: "dedicated",
-    image: image("floral_windmill.webp"),
   },
 
   // --- material_processing ---
@@ -132,7 +121,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.T,
     copies: 2,
     dedication: "flexible",
-    image: image("carousel_mill.webp"),
   },
   {
     id: "crafting_table",
@@ -144,7 +132,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.J,
     copies: 2,
     dedication: "flexible",
-    image: image("crafting_table.webp"),
   },
   {
     id: "jukebox_dryer",
@@ -156,7 +143,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.N,
     copies: 2,
     dedication: "flexible",
-    image: image("jukebox_dryer.webp"),
   },
   {
     id: "claw_game_cooker",
@@ -168,7 +154,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.S,
     copies: 2,
     dedication: "flexible",
-    image: image("claw_game_cooker.webp"),
   },
   {
     id: "simmering_pot",
@@ -180,7 +165,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.T,
     copies: 2,
     dedication: "flexible",
-    image: image("simmering_pot.webp"),
   },
   {
     id: "phonolfactory_table",
@@ -192,7 +176,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.I,
     copies: 2,
     dedication: "flexible",
-    image: image("phonolfactory_table.webp"),
   },
   {
     id: "bouncy_brew_keg",
@@ -204,7 +187,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.E,
     copies: 2,
     dedication: "flexible",
-    image: image("bouncy_brew_keg.webp"),
   },
   {
     id: "woodworking_bench",
@@ -216,7 +198,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.E,
     copies: 4,
     dedication: "flexible",
-    image: image("woodworking_bench.webp"),
   },
   {
     id: "chimney_kiln",
@@ -228,7 +209,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.S,
     copies: 4,
     dedication: "flexible",
-    image: image("chimney_kiln.webp"),
   },
   {
     id: "joy_wheel_loom",
@@ -240,7 +220,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.F,
     copies: 2,
     dedication: "flexible",
-    image: image("joy_wheel_loom.webp"),
   },
   {
     id: "blazing_stove",
@@ -252,7 +231,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.N,
     copies: 2,
     dedication: "flexible",
-    image: image("blazing_stove.webp"),
   },
   {
     id: "pickling_jar",
@@ -264,7 +242,6 @@ export const facilities: Facility[] = [
     preferred_personality: PP.P,
     copies: 2,
     dedication: "flexible",
-    image: image("pickling_jar.webp"),
   },
 
   // --- item_production ---
@@ -277,7 +254,6 @@ export const facilities: Facility[] = [
     required_ability_level: 3,
     copies: 1,
     dedication: "flexible",
-    image: image("dance_pad_polisher.webp"),
   },
   {
     id: "aniipod_maker",
@@ -288,7 +264,6 @@ export const facilities: Facility[] = [
     required_ability_level: 3,
     copies: 1,
     dedication: "flexible",
-    image: image("aniipod_maker.webp"),
   },
 
   // --- utility ---
@@ -312,7 +287,6 @@ export const facilities: Facility[] = [
     is_speed_capped: true,
     copies: 3,
     dedication: "dedicated",
-    image: image("cooling_unit.webp"),
   },
   {
     id: "heat_furnace",
@@ -324,7 +298,6 @@ export const facilities: Facility[] = [
     is_speed_capped: true,
     copies: 3,
     dedication: "dedicated",
-    image: image("heat_furnace.webp"),
   },
   {
     id: "sunlamp",
@@ -336,7 +309,6 @@ export const facilities: Facility[] = [
     is_speed_capped: true,
     copies: 3,
     dedication: "dedicated",
-    image: image("sunlamp.webp"),
   },
   {
     id: "crackle_generator",
@@ -348,7 +320,6 @@ export const facilities: Facility[] = [
     is_speed_capped: true,
     copies: 3,
     dedication: "dedicated",
-    image: image("crackle_generator.webp"),
   },
   {
     id: "crackle_power_pole",
@@ -359,7 +330,6 @@ export const facilities: Facility[] = [
     required_ability_level: 0,
     copies: 30,
     dedication: "none",
-    image: image("crackle_power_pole.webp"),
   },
 
   // --- aniimo_objects ---
@@ -372,6 +342,5 @@ export const facilities: Facility[] = [
     required_ability_level: 0,
     copies: 10,
     dedication: "none",
-    image: image("hatchinator.webp"),
   },
 ];

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { Badge, Tooltip } from '@/components/base';
 import { Card } from '@/components/Card';
-import { Icon } from '@/components/Icon';
+// import { Icon } from '@/components/Icon';
 import type { FamilyId } from '@/enums/families'
 import { assetUrl } from '@/lib/assets'
 import { useAniimosStore } from '@/store/aniimos.store';
@@ -96,7 +96,7 @@ export function AniimosPage() {
                                 return el ? (
                                   <Tooltip key={id} title={el.name}>
                                     <span className="inline-flex gap-1 items-center">
-                                      <Icon src={el.icon} alt={el.name} size={16} />
+                                      {/* <Icon src={el.icon} alt={el.name} size={16} /> */}
                                       {el.name}
                                     </span>
                                   </Tooltip>
@@ -115,7 +115,7 @@ export function AniimosPage() {
                                 return ab ? (
                                   <Tooltip key={ha.id} title={`${ab.name} · уровень ${ha.level}`}>
                                     <span className="inline-flex gap-1 items-center">
-                                      <Icon src={ab.icon} alt={ab.name} size={16} />
+                                      {/* <Icon src={ab.icon} alt={ab.name} size={16} /> */}
                                       {ab.name} ур.{ha.level}
                                     </span>
                                   </Tooltip>

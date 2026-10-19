@@ -22,14 +22,9 @@ const OUTPUT_DIR = path.resolve("public/data");
 
 /* ───────────────────────── Zod-схемы ───────────────────────── */
 
-const ElementSchema = z.object({ id: z.string(), name: z.string().min(1), icon: z.string().min(1) });
+const ElementSchema = z.object({ id: z.string(), name: z.string().min(1) });
 const FormSchema = z.object({ id: z.string(), name: z.string().min(1), is_rare: z.boolean().optional() });
-const HomeAbilitySchema = z.object({
-  id: z.string(),
-  name: z.string().min(1),
-  description: z.string().optional(),
-  icon: z.string().min(1),
-});
+const HomeAbilitySchema = z.object({ id: z.string(), name: z.string().min(1), description: z.string().optional() });
 const HomeAbilityAssignmentSchema = z.object({ id: z.string(), level: z.number().int().min(1).max(4) });
 const PartialPersonalitySchema = z.object({
   EI: z.enum(["E", "I"]).optional(),
@@ -64,7 +59,6 @@ const FacilitySchema = z.object({
   is_speed_capped: z.boolean().optional(),
   copies: z.number().int().min(0),
   dedication: z.enum(["dedicated", "flexible", "shared", "none"]),
-  image: z.string().optional(),
 });
 const EvolutionSchema = z.object({
   from_no: z.string().regex(ID_REGEX),

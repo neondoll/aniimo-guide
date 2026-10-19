@@ -4,5 +4,5 @@ export interface HomeAbility {
   id: HomeAbilityId;
   name: string;
   description?: string;
-  icon: string;
+  // icon: string;
 }

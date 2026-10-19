@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 
 import { Badge, Tooltip } from '@/components/base';
 import { Card } from '@/components/Card';
-import { Icon } from '@/components/Icon';
+// import { Icon } from '@/components/Icon';
 import { SimpleTabs } from '@/components/SimpleTabs'
 import { PreferredPersonalityPills, RequiredPersonalityPills, TraitAxisPills } from '@/components/TraitAxisPills'
 import type { FormId } from '@/enums/forms'
@@ -151,7 +151,7 @@ export function AniimoDetailPage() {
                           return el ? (
                             <Tooltip key={id} title={el.name}>
                               <span className="inline-flex gap-1 items-center px-1.5 py-0.5 bg-secondary/40 rounded-md border border-secondary">
-                                <Icon alt={el.name} size={16} src={el.icon} />
+                                {/* <Icon alt={el.name} size={16} src={el.icon} /> */}
                                 {el.name}
                               </span>
                             </Tooltip>
@@ -173,7 +173,7 @@ export function AniimoDetailPage() {
                           return (
                             <Tooltip key={ha.id} title={`${ab?.name ?? ha.id} · уровень ${ha.level}`}>
                               <span className="inline-flex gap-1 items-center px-1.5 py-0.5 bg-secondary/40 rounded-md border border-secondary">
-                                {ab?.icon && <Icon alt={ab.name} size={16} src={ab.icon} />}
+                                {/* ab?.icon && <Icon alt={ab.name} size={16} src={ab.icon} /> */}
                                 <span>{ab?.name ?? ha.id}</span>
 
                                 <span className="px-1 ml-0.5 text-[11px] font-semibold text-brand-700 bg-brand-100 rounded">
@@ -211,7 +211,7 @@ export function AniimoDetailPage() {
                             return (
                               <Tooltip title={`${ab?.name ?? c.ability_id} · уровень ${c.level}`} key={c.ability_id}>
                                 <span className="inline-flex gap-1 items-center">
-                                  {ab?.icon && <Icon src={ab.icon} alt={ab.name} size={14} />}
+                                  {/* ab?.icon && <Icon src={ab.icon} alt={ab.name} size={14} /> */}
                                   {ab?.name ?? c.ability_id} ({c.level})
                                 </span>
                               </Tooltip>
@@ -287,7 +287,7 @@ export function AniimoDetailPage() {
                           <li className="text-sm text-secondary" key={u.ability_id}>
                             <Tooltip title={`${ab?.name ?? u.ability_id} · уровень ${u.current_level}`}>
                               <span className="inline-flex gap-1 items-center font-medium text-primary">
-                                {ab?.icon && <Icon src={ab.icon} alt={ab.name} size={14} />}
+                                {/* ab?.icon && <Icon src={ab.icon} alt={ab.name} size={14} /> */}
                                 {ab?.name ?? u.ability_id}
                               </span>
                             </Tooltip>

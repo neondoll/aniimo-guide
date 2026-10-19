@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { Badge } from '@/components/base';
 import { Card } from '@/components/Card';
-import { Icon } from '@/components/Icon';
+// import { Icon } from '@/components/Icon';
 import { useFacilitiesStore } from '@/store/facilities.store';
 import { useFamiliesStore } from '@/store/families.store';
 import { useHomeAbilitiesStore } from '@/store/home-abilities.store';
@@ -35,9 +35,9 @@ export function FacilitiesPage() {
 
                     return (
                       <span key={id} className="inline-flex gap-1 items-center">
-                      {ab?.icon && <Icon src={ab.icon} alt={ab.name} size={16} />}
+                        {/* ab?.icon && <Icon src={ab.icon} alt={ab.name} size={16} /> */}
                         {ab?.name ?? id}
-                    </span>
+                      </span>
                     );
                   })}
                 </div>

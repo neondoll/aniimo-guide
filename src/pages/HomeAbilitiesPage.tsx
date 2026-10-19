@@ -1,5 +1,5 @@
 import { Card } from '@/components/Card';
-import { Icon } from '@/components/Icon';
+// import { Icon } from '@/components/Icon';
 import { useHomeAbilitiesStore } from '@/store/home-abilities.store';
 
 export function HomeAbilitiesPage() {
@@ -12,7 +12,7 @@ export function HomeAbilitiesPage() {
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         {abilities.map((ab) => (
           <Card className="flex gap-3 items-center p-4" key={ab.id}>
-            <Icon alt={ab.name} size={32} src={ab.icon} />
+            {/* <Icon alt={ab.name} size={32} src={ab.icon} /> */}
 
             <div>
               <div className="font-semibold text-primary">{ab.name}</div>
