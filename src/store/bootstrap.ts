@@ -32,25 +32,25 @@ export async function bootstrapData(): Promise<void> {
   const cached = localStorage.getItem(META_CACHE_KEY);
   const isStale = meta !== null && meta.generatedAt !== cached;
 
-  console.log('--- meta ---', meta);
+  console.log("--- meta ---", meta);
 
   await Promise.all([
+    useAniimosStore.getState().fetchData(isStale),
     useElementsStore.getState().fetchData(isStale),
+    useFacilitiesStore.getState().fetchData(isStale),
+    useFamiliesStore.getState().fetchData(isStale),
     useFormsStore.getState().fetchData(isStale),
     useHomeAbilitiesStore.getState().fetchData(isStale),
-    useFamiliesStore.getState().fetchData(isStale),
-    useFacilitiesStore.getState().fetchData(isStale),
-    useAniimosStore.getState().fetchData(isStale),
     useRecommendationsStore.getState().fetchData(isStale),
   ]);
 
   const anyError =
+    useAniimosStore.getState().error ||
     useElementsStore.getState().error ||
+    useFacilitiesStore.getState().error ||
+    useFamiliesStore.getState().error ||
     useFormsStore.getState().error ||
     useHomeAbilitiesStore.getState().error ||
-    useFamiliesStore.getState().error ||
-    useFacilitiesStore.getState().error ||
-    useAniimosStore.getState().error ||
     useRecommendationsStore.getState().error;
 
   if (meta && !anyError) {

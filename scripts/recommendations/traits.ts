@@ -1,11 +1,15 @@
 import type { FamilyId } from "../../src/enums/families.ts";
+import type { PersonalityAxis, PersonalitySide } from "../../src/enums/personalities.ts";
 import type { AniimoForm } from "../../src/types/aniimo.ts";
 import type { Facility } from "../../src/types/facility.ts";
-import type {
-  Axis, FacilityMatch, FormTraitProfile, PersonalitySide, SideScores, TraitVote,
-} from "../../src/types/recommendations.ts";
+import type { FacilityMatch, FormTraitProfile, SideScores, TraitVote } from "../../src/types/recommendations.ts";
 
-const AXIS_SIDES: Record<Axis, [string, string]> = { EI: ["E", "I"], SN: ["S", "N"], TF: ["T", "F"], JP: ["J", "P"] };
+const AXIS_SIDES: Record<PersonalityAxis, [string, string]> = {
+  EI: ["E", "I"],
+  SN: ["S", "N"],
+  TF: ["T", "F"],
+  JP: ["J", "P"],
+};
 
 function passesFamilyFilter(f: Facility, familyId: FamilyId): boolean {
   return f.requires_families.length === 0 || f.requires_families.includes(familyId);
@@ -16,7 +20,7 @@ export function computeFormTraits(form: AniimoForm, facilities: Facility[], fami
 
   if (maxLevel === 0) return {};
 
-  const votes: Record<Axis, Record<string, number>> = { EI: {}, SN: {}, TF: {}, JP: {} };
+  const votes: Record<PersonalityAxis, Record<string, number>> = { EI: {}, SN: {}, TF: {}, JP: {} };
 
   for (const ha of form.home_abilities) {
     for (const f of facilities) {
@@ -26,7 +30,7 @@ export function computeFormTraits(form: AniimoForm, facilities: Facility[], fami
 
       if (!f.preferred_personality) continue;
 
-      for (const axis of Object.keys(AXIS_SIDES) as Axis[]) {
+      for (const axis of Object.keys(AXIS_SIDES) as PersonalityAxis[]) {
         const side = f.preferred_personality[axis];
 
         if (!side) continue;
@@ -38,7 +42,7 @@ export function computeFormTraits(form: AniimoForm, facilities: Facility[], fami
 
   const profile: FormTraitProfile = {};
 
-  for (const axis of Object.keys(AXIS_SIDES) as Axis[]) {
+  for (const axis of Object.keys(AXIS_SIDES) as PersonalityAxis[]) {
     const [left, right] = AXIS_SIDES[axis];
     const l = votes[axis][left] ?? 0;
     const r = votes[axis][right] ?? 0;
@@ -47,9 +51,9 @@ export function computeFormTraits(form: AniimoForm, facilities: Facility[], fami
 
     const list: TraitVote[] = [];
 
-    if (l > 0) list.push({ side: left, priority: l === maxLevel ? 'high' : 'low' });
+    if (l > 0) list.push({ side: left, priority: l === maxLevel ? "high" : "low" });
 
-    if (r > 0) list.push({ side: right, priority: r === maxLevel ? 'high' : 'low' });
+    if (r > 0) list.push({ side: right, priority: r === maxLevel ? "high" : "low" });
 
     profile[axis] = list;
   }

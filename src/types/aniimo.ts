@@ -5,9 +5,23 @@ import type { FamilyId } from "../enums/families.ts";
 import type { FormId } from "../enums/forms.ts";
 import type { HomeAbilityId } from "../enums/home-abilities.ts";
 
-export interface HomeAbilityAssignment {
-  id: HomeAbilityId;
-  level: number;
+export interface Aniimo {
+  no: AniimoNo;
+  name: string;
+  family_id: FamilyId;
+  forms: AniimoForm[];
+}
+
+export interface AniimoForm {
+  form_id: FormId;
+  element_ids: ElementId[];
+  home_abilities: HomeAbilityAssignment[];
+  fixed_personality?: PartialPersonality;
+  evolves_to: EvolutionEdge[];
+  is_final: boolean;
+  season?: number;
+  image?: string;
+  unique_group?: string;  // 'starter' | 'shop_ritmos' | undefined
 }
 
 export interface EvolutionEdge {
@@ -16,22 +30,7 @@ export interface EvolutionEdge {
   requires_personality?: PartialPersonality;
 }
 
-export interface AniimoForm {
-  form_id: FormId;
-  element_ids: ElementId[];
-  home_abilities: HomeAbilityAssignment[];
-  evolves_to: EvolutionEdge[];
-  is_final: boolean;
-  image?: string;
-  /** Номер сезона, если форма сезонная. Например, 1 для «Сувениров 1-го сезона». */
-  season?: number;
-  /** Черты, которые жёстко закреплены за формой и не могут быть изменены. */
-  fixed_personality?: PartialPersonality;
-}
-
-export interface Aniimo {
-  no: AniimoNo;
-  name: string;
-  family_id: FamilyId;
-  forms: AniimoForm[];
+export interface HomeAbilityAssignment {
+  id: HomeAbilityId;
+  level: number;
 }

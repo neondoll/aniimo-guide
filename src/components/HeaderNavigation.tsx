@@ -1,6 +1,6 @@
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link } from "react-router-dom";
 
-import { cx } from '@/utils/cx';
+import { cx } from "@/utils/cx";
 
 interface NavItem {
   to: string;
@@ -9,12 +9,12 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { to: '/aniimos',       label: 'Анимо' },
-  { to: '/elements',      label: 'Элементы' },
-  { to: '/home-abilities', label: 'Способности' },
-  { to: '/facilities',    label: 'Строения' },
-  { to: '/tools/evolution', label: 'Калькулятор', end: true },
-  { to: '/about', label: 'О сайте', end: true },
+  { to: "/aniimos", label: "Анимо" },
+  { to: "/elements", label: "Элементы" },
+  { to: "/home-abilities", label: "Способности" },
+  { to: "/facilities", label: "Строения" },
+  { to: "/tools/evolution", label: "Калькулятор", end: true },
+  { to: "/about", label: "О сайте", end: true },
 ];
 
 export function HeaderNavigation() {
@@ -40,10 +40,10 @@ export function HeaderNavigation() {
               <NavLink
                 className={({ isActive }) =>
                   cx(
-                    'px-3 py-2 text-sm font-medium rounded-lg transition-colors',
+                    "px-3 py-2 text-sm font-medium rounded-lg transition-colors",
                     isActive
-                      ? 'text-brand-700 bg-brand-50'
-                      : 'text-secondary hover:text-primary hover:bg-primary_hover',
+                      ? "text-brand-700 bg-brand-50"
+                      : "text-secondary hover:text-primary hover:bg-primary_hover",
                   )
                 }
                 end={item.end}

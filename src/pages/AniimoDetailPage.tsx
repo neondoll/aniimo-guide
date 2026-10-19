@@ -7,6 +7,7 @@ import { Icon } from '@/components/Icon';
 import { SimpleTabs } from '@/components/SimpleTabs'
 import { PreferredPersonalityPills, RequiredPersonalityPills, TraitAxisPills } from '@/components/TraitAxisPills'
 import type { FormId } from '@/enums/forms'
+import { PersonalityLabels, type PersonalitySide } from "@/enums/personalities";
 import { assetUrl } from '@/lib/assets';
 import { rankBranches } from '@/lib/personalityScore';
 import { useAniimosStore } from '@/store/aniimos.store';
@@ -337,7 +338,7 @@ function PersonalityForm({ value, onChange }: {
   value: Partial<Personality>;
   onChange: (v: Partial<Personality>) => void;
 }) {
-  const axes: Array<[keyof Personality, string[]]> = [
+  const axes: Array<[keyof Personality, PersonalitySide[]]> = [
     ['EI', ['E', 'I']],
     ['SN', ['S', 'N']],
     ['TF', ['T', 'F']],
@@ -363,6 +364,7 @@ function PersonalityForm({ value, onChange }: {
                 onChange({ ...value, [axis]: value[axis] === side ? undefined : side } as Partial<Personality>)
               }
               key={side}
+              title={PersonalityLabels[side]}
               type="button"
             >
               {side}

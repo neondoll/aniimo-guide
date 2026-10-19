@@ -1,7 +1,8 @@
 import type { AniimoNo } from "../enums/aniimos.ts";
 import type { FormId } from "../enums/forms.ts";
+import type { PersonalitySide } from "../enums/personalities";
 import type { PartialPersonality, Personality } from "../types/personality";
-import type { PersonalitySide, SideScores } from "../types/recommendations";
+import type { SideScores } from "../types/recommendations";
 
 /**
  * Оценка того, насколько целевая форма хороша для характера:

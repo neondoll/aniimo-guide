@@ -1,5 +1,6 @@
 import { computeFormTraits, computeFacilityMatches, computeSideScores } from "./traits.ts";
 import { computeUpgradeSuggestions } from "./upgrade.ts";
+import type { FormId } from "../../src/enums/forms.ts";
 import type { Aniimo } from "../../src/types/aniimo.ts";
 import type { Facility } from "../../src/types/facility.ts";
 import type { Recommendations, FormRecommendation } from "../../src/types/recommendations.ts";
@@ -7,7 +8,7 @@ import type { Recommendations, FormRecommendation } from "../../src/types/recomm
 interface BuildArgs {
   aniimos: Aniimo[];
   facilities: Facility[];
-  rareFormIds: Set<string>;
+  rareFormIds: Set<FormId>;
 }
 
 export function buildRecommendations({ aniimos, facilities, rareFormIds }: BuildArgs): Recommendations {

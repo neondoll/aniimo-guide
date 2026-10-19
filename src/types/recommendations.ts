@@ -1,11 +1,11 @@
+import type { FacilityId } from "./facility.ts";
 import type { PartialPersonality } from "./personality.ts";
 import type { AniimoNo } from "../enums/aniimos.ts";
 import type { FormId } from "../enums/forms.ts";
 import type { HomeAbilityId } from "../enums/home-abilities.ts";
+import type { PersonalityAxis, PersonalitySide } from "../enums/personalities.ts";
 
 export type Priority = "high" | "medium" | "low";
-export type Axis = "EI" | "SN" | "TF" | "JP";
-export type PersonalitySide = 'E' | 'I' | 'S' | 'N' | 'T' | 'F' | 'J' | 'P';
 
 /** Максимальный уровень способности формы, поддерживающей эту букву. */
 export type SideScores = Partial<Record<PersonalitySide, number>>;
@@ -15,10 +15,10 @@ export interface TraitVote {
   priority: Priority;
 }
 
-export type FormTraitProfile = Partial<Record<Axis, TraitVote[]>>;
+export type FormTraitProfile = Partial<Record<PersonalityAxis, TraitVote[]>>;
 
 export interface FacilityMatch {
-  facility_id: string;
+  facility_id: FacilityId;
   facility_name: string;
   covers: Array<{ ability_id: HomeAbilityId; level: number }>;
   /** Есть, только если у строения задано предпочтение. */

@@ -149,6 +149,17 @@ export const evolutions: EvolutionSource[] = [
   { from_no: AniimoNos.Baleetle, from_form_id: FormIds.Snowfield, to_no: AniimoNos.Waleetle, to_form_id: FormIds.Snowfield },
   { from_no: AniimoNos.Baleetle, from_form_id: FormIds.Snowfield, to_no: AniimoNos.Bouldus, to_form_id: FormIds.Snowfield },
 
+  // 059 → 060
+  { from_no: AniimoNos.Fentuft, from_form_id: FormIds.Base, to_no: AniimoNos.Fenmane, to_form_id: FormIds.Base },
+
+  // 061 → 062 | 063
+  { from_no: AniimoNos.Helmut, from_form_id: FormIds.Base, to_no: AniimoNos.Pawney, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Helmut, from_form_id: FormIds.Base, to_no: AniimoNos.Rookey, to_form_id: FormIds.Base },
+  { from_no: AniimoNos.Helmut, from_form_id: FormIds.Snowfield, to_no: AniimoNos.Pawney, to_form_id: FormIds.Snowfield },
+  { from_no: AniimoNos.Helmut, from_form_id: FormIds.Snowfield, to_no: AniimoNos.Rookey, to_form_id: FormIds.Snowfield },
+  { from_no: AniimoNos.Helmut, from_form_id: FormIds.MountainWoods, to_no: AniimoNos.Pawney, to_form_id: FormIds.MountainWoods },
+  { from_no: AniimoNos.Helmut, from_form_id: FormIds.MountainWoods, to_no: AniimoNos.Rookey, to_form_id: FormIds.MountainWoods },
+
   // 064 → 065
   { from_no: AniimoNos.Jawling, from_form_id: FormIds.Base, to_no: AniimoNos.Helmwhelp, to_form_id: FormIds.Base },
   { from_no: AniimoNos.Jawling, from_form_id: FormIds.Mountain, to_no: AniimoNos.Helmwhelp, to_form_id: FormIds.Mountain },
@@ -170,6 +181,9 @@ export const evolutions: EvolutionSource[] = [
 
   // 073 → 074
   { from_no: AniimoNos.Geodeback, from_form_id: FormIds.Base, to_no: AniimoNos.Minespine, to_form_id: FormIds.Base },
+
+  // 075 → 076
+  { from_no: AniimoNos.Cozite, from_form_id: FormIds.Base, to_no: AniimoNos.Bailite, to_form_id: FormIds.Base },
 
   // 077 → 078
   { from_no: AniimoNos.Bulbly, from_form_id: FormIds.Base, to_no: AniimoNos.Veilfloat, to_form_id: FormIds.Base },
