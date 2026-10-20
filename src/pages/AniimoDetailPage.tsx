@@ -1,14 +1,13 @@
-import { type ReactNode, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 
-import { Badge, Tooltip } from '@/components/base';
+import { Badge } from '@/components/base/badges/badges';
 import { Card } from '@/components/Card';
-// import { Icon } from '@/components/Icon';
-import { SimpleTabs } from '@/components/SimpleTabs'
-import { PreferredPersonalityPills, RequiredPersonalityPills, TraitAxisPills } from '@/components/TraitAxisPills'
-import type { FormId } from '@/enums/forms'
-import { PersonalityLabels, type PersonalitySide } from "@/enums/personalities";
-import { assetUrl } from '@/lib/assets';
+import { ElementBadge } from '@/components/ElementBadge';
+import { SimpleTabs, type TabItem } from '@/components/SimpleTabs';
+import { TraitAxisPills, RequiredPersonalityPills, PreferredPersonalityPills } from '@/components/TraitAxisPills';
+import { PERSONALITY_LABELS, type PersonalityAxis, type PersonalitySide } from '@/constants/personality-labels';
+import type { FormId } from '@/enums/forms';
 import { rankBranches } from '@/lib/personalityScore';
 import { useAniimosStore } from '@/store/aniimos.store';
 import { useElementsStore } from '@/store/elements.store';
@@ -19,15 +18,12 @@ import { useRecommendationsStore } from '@/store/recommendations.store';
 import type { Personality } from '@/types/personality';
 import { cx } from '@/utils/cx'
 
-/** Разбирает «001» → { no: '001' }; «001-base» → { no: '001', formId: 'base' }. */
-function parseSlug(slug: string | undefined): { no: string; formId?: string } {
+function parseSlug(slug?: string) {
   if (!slug) return { no: '' };
 
   const idx = slug.lastIndexOf('-');
 
-  if (idx === -1) return { no: slug };
-
-  return { no: slug.slice(0, idx), formId: slug.slice(idx + 1) };
+  return idx === -1 ? { no: slug } : { no: slug.slice(0, idx), formId: slug.slice(idx + 1) };
 }
 
 export function AniimoDetailPage() {
@@ -42,7 +38,6 @@ export function AniimoDetailPage() {
   const recommendations = useRecommendationsStore((s) => s.data.forms);
 
   const [personality, setPersonality] = useState<Partial<Personality>>({});
-  // const personalityComplete = Object.keys(personality).length === 4;
 
   const aniimoByNo = useMemo(() => new Map(aniimos.map((a) => [a.no, a])), [aniimos]);
   const elementById = useMemo(() => new Map(elements.map((e) => [e.id, e])), [elements]);
@@ -60,35 +55,160 @@ export function AniimoDetailPage() {
 
     if (formFromUrl && ids.has(formFromUrl as FormId)) return formFromUrl;
 
-    return (
-      aniimo.forms.find((f) => f.form_id === 'base')?.form_id ??
-      aniimo.forms[0]?.form_id ??
-      ''
-    );
+    return aniimo.forms.find((f) => f.form_id === 'base')?.form_id ?? aniimo.forms[0]?.form_id ?? '';
   }, [aniimo, formFromUrl]);
 
   const handleTabChange = (id: string) => {
-    if (!aniimo) return;
-
-    navigate(`/aniimos/${aniimo.no}-${id}`, { replace: true });
+    if (aniimo) navigate(`/aniimos/${aniimo.no}-${id}`, { replace: true });
   };
 
   if (!aniimo) {
     return (
       <div className="p-6 text-center">
         <p className="text-lg text-secondary">Анимо #{no} не найден.</p>
-        <Link className="inline-block mt-2 text-brand-600 hover:underline" to="/aniimos">← к списку</Link>
+        <Link to="/aniimos" className="text-brand-600 hover:underline">← к списку</Link>
       </div>
     );
   }
 
   const family = familyById.get(aniimo.family_id);
-  const sortedForms = [...aniimo.forms].sort((x, y) => {
-    if (x.form_id === 'base') return -1;
+  const sortedForms = [...aniimo.forms].sort((x, y) => x.form_id === 'base' ? -1 : y.form_id === 'base' ? 1 : x.form_id.localeCompare(y.form_id));
 
-    if (y.form_id === 'base') return 1;
+  const tabs: TabItem[] = sortedForms.map((form) => {
+    const rec = recommendations[`${aniimo.no}:${form.form_id}`];
+    const branches = rec ? rankBranches(personality, rec.evolution_branches) : [];
+    const formName = formById.get(form.form_id)?.name ?? form.form_id;
 
-    return x.form_id.localeCompare(y.form_id);
+    return {
+      id: form.form_id,
+      label: formName,
+      content: (
+        <Card className="overflow-hidden relative p-5 space-y-5">
+          <div className="absolute -top-6 -right-4 text-8xl font-black text-secondary/5 uppercase pointer-events-none select-none">
+            {aniimo.name}
+          </div>
+
+          <div className="flex relative z-10 flex-wrap gap-2 items-baseline">
+            <h2 className="text-2xl font-bold text-primary">{formName}</h2>
+            {form.is_final && <Badge color="success">Финал</Badge>}
+            {formById.get(form.form_id)?.is_rare && <Badge color="purple">Редкий</Badge>}
+            {form.season !== undefined && <Badge color="warning">Сезон {form.season}</Badge>}
+          </div>
+
+          <div className="grid relative z-10 gap-4 text-sm md:grid-cols-2">
+            <div>
+              <div className="mb-2 text-xs tracking-wide text-tertiary uppercase">Элементы</div>
+
+              <div className="flex flex-wrap gap-2">
+                {form.element_ids.map((id) => {
+                  const el = elementById.get(id);
+
+                  return <ElementBadge color={el?.color} key={id} name={el?.name ?? id} size="md" />;
+                })}
+              </div>
+            </div>
+
+            <div>
+              <div className="mb-2 text-xs tracking-wide text-tertiary uppercase">Способности дома</div>
+
+              <div className="flex flex-wrap gap-2">
+                {form.home_abilities.map((haa) => {
+                  const ha = homeAbilityById.get(haa.id);
+
+                  return (
+                    <ElementBadge
+                      color={ha?.color}
+                      key={haa.id}
+                      level={haa.level}
+                      name={ha?.name ?? haa.id}
+                      size="md"
+                    />
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          {rec?.fixed_personality && (
+            <div className="relative z-10">
+              <div className="mb-2 text-xs tracking-wide text-tertiary uppercase">Фиксированные черты</div>
+              <TraitAxisPills fixed={rec.fixed_personality} fixedOnly />
+            </div>
+          )}
+
+          <div className="relative z-10">
+            <div className="mb-2 text-xs tracking-wide text-tertiary uppercase">Рекомендуемые черты</div>
+            <TraitAxisPills fixed={rec?.fixed_personality} traits={rec?.traits} />
+          </div>
+
+          <div className="relative z-10">
+            <div className="mb-2 text-xs tracking-wide text-tertiary uppercase">Строения</div>
+
+            {rec && rec.facility_matches.length > 0 ? (
+              <ul className="space-y-2">
+                {rec.facility_matches.map((m) => (
+                  <li className="flex flex-wrap gap-2 items-center text-sm text-secondary" key={m.facility_id}>
+                    <span className="font-medium text-primary">{m.facility_name}</span>
+                    {m.preferred_personality && <PreferredPersonalityPills personality={m.preferred_personality} />}
+                    <span className="text-tertiary">·</span>
+
+                    {m.covers.map((c) => {
+                      const ha = homeAbilityById.get(c.ability_id);
+
+                      return (
+                        <ElementBadge
+                          color={ha?.color}
+                          key={c.ability_id}
+                          level={c.level}
+                          name={ha?.name ?? c.ability_id}
+                        />
+                      );
+                    })}
+                  </li>
+                ))}
+              </ul>
+            ) : <span className="text-sm text-tertiary">—</span>}
+          </div>
+
+          <div className="relative z-10">
+            <div className="mb-2 text-xs tracking-wide text-tertiary uppercase">Эволюция</div>
+
+            {branches.length === 0 ? (
+              <span className="text-sm text-tertiary">финальная форма</span>
+            ) : (
+              <ul className="space-y-2">
+                {branches.map((b) => {
+                  const target = aniimoByNo.get(b.to_no);
+                  const targetFormName = formById.get(b.to_form_id)?.name ?? b.to_form_id;
+                  const locked = !b.available && !b.unknown;
+
+                  return (
+                    <li
+                      className={cx(
+                        'flex flex-wrap gap-2 items-center text-sm',
+                        locked ? 'opacity-50' : '',
+                        b.recommended ? 'font-bold text-emerald-700' : 'text-secondary',
+                      )}
+                      key={`${b.to_no}:${b.to_form_id}`}
+                    >
+                      <span className="text-tertiary">{locked ? '🔒' : '→'}</span>
+
+                      <Link className="hover:underline" to={`/aniimos/${b.to_no}-${b.to_form_id}`}>
+                        #{b.to_no} {target?.name ?? b.to_no}
+                      </Link>
+
+                      <span>({targetFormName})</span>
+                      {b.requires_personality && <RequiredPersonalityPills personality={b.requires_personality} />}
+                      {locked && <span className="text-xs text-red-600">не подходит характер</span>}
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        </Card>
+      ),
+    };
   });
 
   return (
@@ -96,258 +216,27 @@ export function AniimoDetailPage() {
       <div className="flex flex-wrap gap-2 justify-between items-baseline">
         <h1 className="text-3xl font-bold text-primary">
           #{aniimo.no} {aniimo.name}
-          {family && <span className="ml-2 text-lg font-normal text-secondary">семейство «{family.name}»</span>}
+          {family && <span className="ml-2 text-lg font-normal text-secondary">семья «{family.name}»</span>}
         </h1>
 
-        <Link className="text-sm text-brand-600 hover:underline" to="/aniimos">← к списку</Link>
+        <Link to="/aniimos" className="text-sm text-brand-600 hover:underline">← к списку</Link>
       </div>
 
-      {aniimo.forms.some((a) => !a.is_final) && (
-        <PersonalityForm value={personality} onChange={setPersonality} />
-      )}
-
-      <SimpleTabs
-        activeId={activeFormId}
-        onChange={handleTabChange}
-        items={sortedForms.map((form) => {
-          const key = `${aniimo.no}:${form.form_id}`;
-          const rec = recommendations[key];
-          const branches = rec ? rankBranches(personality, rec.evolution_branches) : [];
-          const formName = formById.get(form.form_id)?.name ?? form.form_id;
-          const isRare = formById.get(form.form_id)?.is_rare;
-
-          return {
-            id: form.form_id,
-            label: formName,
-            // badge: form.is_final ? 'финал' : undefined,
-            content: (
-              <Card className="p-5 space-y-4">
-                {/* Hero: картинка + название + бейджи + элементы + способности */}
-                <div className="flex flex-col gap-4 sm:flex-row sm:gap-5">
-                  {form.image && (
-                    <div className="aspect-square flex shrink-0 justify-center items-center self-start p-2 mx-auto w-full max-w-35 bg-secondary/30 rounded-lg sm:mx-0">
-                      <img alt="" className="object-contain max-w-full max-h-full" src={assetUrl(form.image)} />
-                    </div>
-                  )}
-
-                  <div className="flex-1 space-y-3 min-w-0">
-                    <div className="flex flex-wrap gap-2 items-baseline">
-                      <h3 className="text-xl font-semibold text-primary">{formName}</h3>
-
-                      <div className="flex flex-wrap gap-1.5">
-                        {form.is_final && <Badge color="success" size="sm">финал</Badge>}
-                        {isRare && <Badge color="purple" size="sm">редкий</Badge>}
-                        {form.season !== undefined && <Badge color="warning" size="sm">Сезон {form.season}</Badge>}
-                      </div>
-                    </div>
-
-                    <div className="grid gap-2 text-sm">
-                      <div className="flex flex-wrap gap-x-2 gap-y-1 items-center">
-                        <span className="shrink-0 text-tertiary">Элементы:</span>
-
-                        {form.element_ids.map((id) => {
-                          const el = elementById.get(id);
-
-                          return el ? (
-                            <Tooltip key={id} title={el.name}>
-                              <span className="inline-flex gap-1 items-center px-1.5 py-0.5 bg-secondary/40 rounded-md border border-secondary">
-                                {/* <Icon alt={el.name} size={16} src={el.icon} /> */}
-                                {el.name}
-                              </span>
-                            </Tooltip>
-                          ) : (
-                            <span
-                              className="px-1.5 py-0.5 bg-secondary/40 rounded-md border border-secondary"
-                              key={id}
-                            >{id}</span>
-                          );
-                        })}
-                      </div>
-
-                      <div className="flex flex-wrap gap-x-2 gap-y-1 items-center">
-                        <span className="shrink-0 text-tertiary">Способности:</span>
-
-                        {form.home_abilities.map((ha) => {
-                          const ab = homeAbilityById.get(ha.id);
-
-                          return (
-                            <Tooltip key={ha.id} title={`${ab?.name ?? ha.id} · уровень ${ha.level}`}>
-                              <span className="inline-flex gap-1 items-center px-1.5 py-0.5 bg-secondary/40 rounded-md border border-secondary">
-                                {/* ab?.icon && <Icon alt={ab.name} size={16} src={ab.icon} /> */}
-                                <span>{ab?.name ?? ha.id}</span>
-
-                                <span className="px-1 ml-0.5 text-[11px] font-semibold text-brand-700 bg-brand-100 rounded">
-                                  ур.{ha.level}
-                                </span>
-                              </span>
-                            </Tooltip>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {rec?.fixed_personality && (
-                  <Field label="Фиксированные черты характера">
-                    <TraitAxisPills fixed={rec.fixed_personality} fixedOnly />
-                  </Field>
-                )}
-
-                <Field label="Рекомендуемые черты характера">
-                  <TraitAxisPills traits={rec?.traits} fixed={rec?.fixed_personality} />
-                </Field>
-
-                <Field label="Строения">
-                  {rec && rec.facility_matches.length > 0 ? (
-                    <ul className="space-y-1.5">
-                      {rec.facility_matches.map((m) => (
-                        <li className="flex flex-wrap gap-2 items-center text-sm text-secondary" key={m.facility_id}>
-                          <span className="font-medium text-primary">{m.facility_name}</span>
-
-                          {m.covers.map((c) => {
-                            const ab = homeAbilityById.get(c.ability_id);
-
-                            return (
-                              <Tooltip title={`${ab?.name ?? c.ability_id} · уровень ${c.level}`} key={c.ability_id}>
-                                <span className="inline-flex gap-1 items-center">
-                                  {/* ab?.icon && <Icon src={ab.icon} alt={ab.name} size={14} /> */}
-                                  {ab?.name ?? c.ability_id} ({c.level})
-                                </span>
-                              </Tooltip>
-                            );
-                          })}
-
-                          {m.preferred_personality && (
-                            <>
-                              <span className="text-tertiary">·</span>
-                              <PreferredPersonalityPills personality={m.preferred_personality} />
-                            </>
-                          )}
-                        </li>
-                      ))}
-                    </ul>
-                  ) : (
-                    <span className="text-tertiary">—</span>
-                  )}
-                </Field>
-
-                <Field label="Эволюция">
-                  {branches.length === 0 ? (
-                    <span className="text-tertiary">финальная форма</span>
-                  ) : (
-                    <ul className="space-y-1.5">
-                      {branches.map((b) => {
-                        const target = aniimoByNo.get(b.to_no);
-                        const targetFormName = formById.get(b.to_form_id)?.name ?? b.to_form_id;
-                        const locked = !b.available && !b.unknown;
-                        const unknown = b.unknown;
-
-                        return (
-                          <li
-                            className={cx(
-                              'flex flex-wrap gap-2 items-center',
-                              locked && 'opacity-50',
-                              b.recommended && 'font-bold text-emerald-700',
-                            )}
-                            key={`${b.to_no}:${b.to_form_id}`}
-                          >
-                            <span className="text-tertiary">{locked ? '🔒' : '→'}</span>
-
-                            <Link className="hover:underline" to={`/aniimos/${b.to_no}-${b.to_form_id}`}>
-                              #{b.to_no} {target?.name ?? b.to_no}
-                            </Link>
-
-                            <span className="text-secondary">({targetFormName})</span>
-
-                            {b.requires_personality && (
-                              <RequiredPersonalityPills personality={b.requires_personality} />
-                            )}
-
-                            {b.available && b.score > 0 && (
-                              <span className="text-xs text-tertiary">score {b.score}</span>
-                            )}
-
-                            {locked && <span className="text-xs text-red-600">характер не подходит</span>}
-                            {unknown && <span className="text-xs text-amber-600">выберите больше черт</span>}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  )}
-                </Field>
-
-                <Field label="Апгрейд (кто лучше по способностям)">
-                  {rec && rec.upgrade_suggestions.length > 0 ? (
-                    <ul className="space-y-1">
-                      {rec.upgrade_suggestions.map((u) => {
-                        const ab = homeAbilityById.get(u.ability_id);
-
-                        return (
-                          <li className="text-sm text-secondary" key={u.ability_id}>
-                            <Tooltip title={`${ab?.name ?? u.ability_id} · уровень ${u.current_level}`}>
-                              <span className="inline-flex gap-1 items-center font-medium text-primary">
-                                {/* ab?.icon && <Icon src={ab.icon} alt={ab.name} size={14} /> */}
-                                {ab?.name ?? u.ability_id}
-                              </span>
-                            </Tooltip>
-                            : {u.current_level} →{' '}
-                            {u.better_forms.slice(0, 5).map((b, i) => {
-                              const target = aniimoByNo.get(b.no);
-                              const targetFormName = formById.get(b.form_id)?.name ?? b.form_id;
-
-                              return (
-                                <span key={`${b.no}:${b.form_id}`}>
-                                  {i > 0 && ', '}
-                                  <Link className="hover:underline" to={`/aniimos/${b.no}-${b.form_id}`}>
-                                    #{b.no} {target?.name ?? b.no}
-                                  </Link>{' '}
-                                  ({targetFormName}, {b.level})
-                                  {b.is_rare && <span className="text-purple-600"> ✦</span>}
-                                </span>
-                              );
-                            })}
-                            {u.better_forms.length > 5 && ` +${u.better_forms.length - 5}`}
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  ) : (
-                    <span className="text-tertiary">—</span>
-                  )}
-                </Field>
-              </Card>
-            ),
-          };
-        })}
-      />
+      <PersonalityForm value={personality} onChange={setPersonality} />
+      <SimpleTabs items={tabs} activeId={activeFormId} onChange={handleTabChange} />
     </div>
   );
 }
 
-function Field({ label, children }: { label: string; children: ReactNode }) {
-  return (
-    <div>
-      <div className="text-xs uppercase tracking-wide text-tertiary mb-1">{label}</div>
-      <div className="text-secondary">{children}</div>
-    </div>
-  );
-}
-
-function PersonalityForm({ value, onChange }: {
-  value: Partial<Personality>;
+function PersonalityForm({ onChange, value }: {
   onChange: (v: Partial<Personality>) => void;
+  value: Partial<Personality>
 }) {
-  const axes: Array<[keyof Personality, PersonalitySide[]]> = [
-    ['EI', ['E', 'I']],
-    ['SN', ['S', 'N']],
-    ['TF', ['T', 'F']],
-    ['JP', ['J', 'P']],
-  ];
+  const axes: Array<[PersonalityAxis, PersonalitySide[]]> = [['EI', ['E', 'I']], ['SN', ['S', 'N']], ['TF', ['T', 'F']], ['JP', ['J', 'P']]];
 
   return (
     <div className="flex flex-wrap gap-3 items-center p-3 bg-secondary/30 rounded-lg border border-secondary">
-      <span className="text-sm text-tertiary">Характер анимо (для рекомендации эволюции):</span>
+      <span className="text-sm text-tertiary">Характер анимо:</span>
 
       {axes.map(([axis, sides]) => (
         <div
@@ -360,11 +249,12 @@ function PersonalityForm({ value, onChange }: {
                 'inline-flex justify-center items-center px-2 min-w-8 h-7 text-sm font-medium rounded-md transition-colors',
                 value[axis] === side ? 'text-white bg-brand-600' : 'text-secondary hover:bg-secondary/60',
               )}
-              onClick={() =>
-                onChange({ ...value, [axis]: value[axis] === side ? undefined : side } as Partial<Personality>)
-              }
               key={side}
-              title={PersonalityLabels[side]}
+              onClick={() => onChange({
+                ...value,
+                [axis]: value[axis] === side ? undefined : side,
+              } as Partial<Personality>)}
+              title={PERSONALITY_LABELS[side]}
               type="button"
             >
               {side}
@@ -374,11 +264,7 @@ function PersonalityForm({ value, onChange }: {
       ))}
 
       {Object.keys(value).length > 0 && (
-        <button
-          className="ml-auto text-xs text-tertiary hover:text-primary"
-          onClick={() => onChange({})}
-          type="button"
-        >
+        <button className="ml-auto text-xs text-tertiary hover:text-primary" onClick={() => onChange({})} type="button">
           сбросить
         </button>
       )}

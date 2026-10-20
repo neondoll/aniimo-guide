@@ -1,11 +1,10 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Badge, Tooltip } from '@/components/base';
+import { Badge } from '@/components/base/badges/badges';
 import { Card } from '@/components/Card';
-// import { Icon } from '@/components/Icon';
+import { ElementBadge } from '@/components/ElementBadge';
 import type { FamilyId } from '@/enums/families'
-import { assetUrl } from '@/lib/assets'
 import { useAniimosStore } from '@/store/aniimos.store';
 import { useElementsStore } from '@/store/elements.store';
 import { useFamiliesStore } from '@/store/families.store';
@@ -29,9 +28,7 @@ export function AniimosPage() {
 
     for (const a of aniimos) {
       const list = map.get(a.family_id) ?? [];
-
       list.push(a);
-
       map.set(a.family_id, list);
     }
 
@@ -41,8 +38,8 @@ export function AniimosPage() {
   }, [aniimos]);
 
   return (
-    <div className="p-6 mx-auto space-y-8 max-w-6xl">
-      <h1 className="text-3xl font-bold text-primary">Аниимо</h1>
+    <div className="p-6 mx-auto space-y-10 max-w-6xl">
+      <h1 className="text-3xl font-bold text-primary">Анимо</h1>
 
       {byFamily.map(([familyId, members]) => {
         const family = familyById.get(familyId);
@@ -54,81 +51,66 @@ export function AniimosPage() {
               <Badge color="gray" size="sm">#{familyId} · {members.length} вид(ов)</Badge>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-4 items-start md:grid-cols-2">
               {members.map((a) => (
-                <Card key={a.no} className="p-4 transition-shadow hover:shadow-md">
-                  <header className="flex justify-between items-baseline mb-3">
-                    <h3 className="text-lg font-semibold text-primary">
-                      <Link className="transition-colors hover:text-brand-600" to={`/aniimos/${a.no}`}>
-                        #{a.no} {a.name}
-                      </Link>
-                    </h3>
+                <Card className="overflow-hidden divide-y divide-secondary" key={a.no}>
+                  {a.forms.map((f) => {
+                    const formInfo = formById.get(f.form_id);
+                    const mainElement = elementById.get(f.element_ids[0]);
 
-                    <Badge color="gray" size="sm">форм: {a.forms.length}</Badge>
-                  </header>
+                    return (
+                      <article
+                        className="relative p-4 transition-colors has-[h3>a:hover]:bg-secondary/20"
+                        key={f.form_id}
+                      >
+                        {/* Цветная полоска слева */}
+                        <div
+                          className="absolute top-0 bottom-0 left-0 w-1"
+                          style={{ backgroundColor: mainElement?.color ?? '#ccc' }}
+                        />
 
-                  <ul className="space-y-3">
-                    {a.forms.map((f) => {
-                      const formInfo = formById.get(f.form_id);
+                        <div className="flex gap-4 justify-between items-start">
+                          <div className="space-y-2">
+                            <div className="flex flex-wrap gap-2 items-baseline">
+                              <h3 className="text-lg font-bold text-primary">
+                                <Link className="before:absolute before:inset-0" to={`/aniimos/${a.no}-${f.form_id}`}>
+                                  #{a.no} {a.name}
+                                </Link>
+                              </h3>
 
-                      return (
-                        <li className="flex gap-3 pl-3 border-l-2 border-gray-200" key={f.form_id}>
-                          {f.image && (
-                            <div className="aspect-square flex overflow-hidden shrink-0 justify-center items-center w-16.5 bg-secondary/30 rounded-md">
-                              <img alt="" className="object-contain max-w-full max-h-full" src={assetUrl(f.image)} />
-                            </div>
-                          )}
-
-                          <div className="flex-1 min-w-0">
-                            <div className="flex flex-wrap gap-2 items-center mb-1">
-                              <span className="text-sm font-medium text-primary">{formInfo?.name ?? f.form_id}</span>
-                              {f.is_final && <Badge color="success" size="sm">финал</Badge>}
-                              {formInfo?.is_rare && <Badge color="purple" size="sm">редкий</Badge>}
+                              <span className="text-sm font-medium text-tertiary">({formInfo?.name ?? f.form_id})</span>
+                              {f.is_final && <Badge color="success" size="sm">Финал</Badge>}
+                              {formInfo?.is_rare && <Badge color="purple" size="sm">Редкий</Badge>}
                               {f.season !== undefined && <Badge color="warning" size="sm">Сезон {f.season}</Badge>}
                             </div>
 
-                            <div className="flex flex-wrap gap-x-2 gap-y-1 items-center text-sm text-secondary">
-                              <span className="text-tertiary">Элементы:</span>
-
+                            <div className="flex flex-wrap gap-1.5">
                               {f.element_ids.map((id) => {
                                 const el = elementById.get(id);
 
-                                return el ? (
-                                  <Tooltip key={id} title={el.name}>
-                                    <span className="inline-flex gap-1 items-center">
-                                      {/* <Icon src={el.icon} alt={el.name} size={16} /> */}
-                                      {el.name}
-                                    </span>
-                                  </Tooltip>
-                                ) : (
-                                  <span key={id}>{id}</span>
-                                );
+                                return <ElementBadge color={el?.color} key={id} name={el?.name ?? id} />;
                               })}
                             </div>
 
-                            <div className="flex flex-wrap gap-x-2 gap-y-1 items-center text-sm text-secondary">
-                              <span className="text-tertiary">Способности:</span>
+                            <div className="flex flex-wrap gap-1.5">
+                              {f.home_abilities.map((haa) => {
+                                const ha = homeAbilityById.get(haa.id);
 
-                              {f.home_abilities.map((ha) => {
-                                const ab = homeAbilityById.get(ha.id);
-
-                                return ab ? (
-                                  <Tooltip key={ha.id} title={`${ab.name} · уровень ${ha.level}`}>
-                                    <span className="inline-flex gap-1 items-center">
-                                      {/* <Icon src={ab.icon} alt={ab.name} size={16} /> */}
-                                      {ab.name} ур.{ha.level}
-                                    </span>
-                                  </Tooltip>
-                                ) : (
-                                  <span key={ha.id}>{ha.id} ур.{ha.level}</span>
+                                return (
+                                  <ElementBadge
+                                    color={ha?.color}
+                                    key={haa.id}
+                                    level={haa.level}
+                                    name={ha?.name ?? haa.id}
+                                  />
                                 );
                               })}
                             </div>
                           </div>
-                        </li>
-                      );
-                    })}
-                  </ul>
+                        </div>
+                      </article>
+                    );
+                  })}
                 </Card>
               ))}
             </div>

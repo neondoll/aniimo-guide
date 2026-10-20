@@ -1,6 +1,6 @@
-import type { AniimoNo } from "../enums/aniimos.ts";
-import type { FormId } from "../enums/forms.ts";
-import type { PersonalitySide } from "../enums/personalities";
+import type { PersonalitySide } from '../constants/personality-labels'
+import type { AniimoNo } from "../enums/aniimos";
+import type { FormId } from "../enums/forms";
 import type { PartialPersonality, Personality } from "../types/personality";
 import type { SideScores } from "../types/recommendations";
 

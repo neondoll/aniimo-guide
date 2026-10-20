@@ -1,5 +1,5 @@
 import { Card } from '@/components/Card';
-// import { Icon } from '@/components/Icon';
+import { ElementBadge } from '@/components/ElementBadge';
 import { useElementsStore } from '@/store/elements.store';
 
 export function ElementsPage() {
@@ -11,13 +11,9 @@ export function ElementsPage() {
 
       <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3">
         {elements.map((el) => (
-          <Card className="flex gap-3 items-center p-4" key={el.id}>
-            {/* <Icon alt={el.name} size={32} src={el.icon} /> */}
-
-            <div>
-              <div className="font-semibold text-primary">{el.name}</div>
-              <div className="text-xs text-tertiary">{el.id}</div>
-            </div>
+          <Card className="flex flex-col gap-2 p-4" key={el.id}>
+            <ElementBadge color={el.color} name={el.name} size="md" />
+            <div className="text-xs text-tertiary">{el.id}</div>
           </Card>
         ))}
       </div>

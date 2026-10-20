@@ -22,9 +22,18 @@ const OUTPUT_DIR = path.resolve("public/data");
 
 /* ───────────────────────── Zod-схемы ───────────────────────── */
 
-const ElementSchema = z.object({ id: z.string(), name: z.string().min(1) });
+const ElementSchema = z.object({
+  id: z.string(),
+  name: z.string().min(1),
+  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+});
 const FormSchema = z.object({ id: z.string(), name: z.string().min(1), is_rare: z.boolean().optional() });
-const HomeAbilitySchema = z.object({ id: z.string(), name: z.string().min(1), description: z.string().optional() });
+const HomeAbilitySchema = z.object({
+  id: z.string(),
+  name: z.string().min(1),
+  description: z.string().optional(),
+  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+});
 const HomeAbilityAssignmentSchema = z.object({ id: z.string(), level: z.number().int().min(1).max(4) });
 const PartialPersonalitySchema = z.object({
   EI: z.enum(["E", "I"]).optional(),

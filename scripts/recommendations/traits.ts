@@ -1,10 +1,10 @@
+import type { PersonalityAxis, PersonalitySide } from '../../src/constants/personality-labels.ts'
 import type { FamilyId } from "../../src/enums/families.ts";
-import type { PersonalityAxis, PersonalitySide } from "../../src/enums/personalities.ts";
 import type { AniimoForm } from "../../src/types/aniimo.ts";
 import type { Facility } from "../../src/types/facility.ts";
 import type { FacilityMatch, FormTraitProfile, SideScores, TraitVote } from "../../src/types/recommendations.ts";
 
-const AXIS_SIDES: Record<PersonalityAxis, [string, string]> = {
+const AXIS_SIDES: Record<PersonalityAxis, [PersonalitySide, PersonalitySide]> = {
   EI: ["E", "I"],
   SN: ["S", "N"],
   TF: ["T", "F"],

@@ -1,9 +1,9 @@
 import type { FacilityId } from "./facility.ts";
 import type { PartialPersonality } from "./personality.ts";
+import type { PersonalityAxis, PersonalitySide } from '../constants/personality-labels.ts'
 import type { AniimoNo } from "../enums/aniimos.ts";
 import type { FormId } from "../enums/forms.ts";
 import type { HomeAbilityId } from "../enums/home-abilities.ts";
-import type { PersonalityAxis, PersonalitySide } from "../enums/personalities.ts";
 
 export type Priority = "high" | "medium" | "low";
 

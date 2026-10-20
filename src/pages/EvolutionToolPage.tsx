@@ -1,9 +1,10 @@
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { Badge } from '@/components/base'
+import { Badge } from '@/components/base/badges/badges';
 import { Card } from '@/components/Card';
-import { RequiredPersonalityPills } from '@/components/TraitAxisPills'
+import { RequiredPersonalityPills } from '@/components/TraitAxisPills';
+import { PERSONALITY_LABELS, type PersonalityAxis, type PersonalitySide } from '@/constants/personality-labels';
 import { rankBranches } from '@/lib/personalityScore';
 import { useAniimosStore } from '@/store/aniimos.store';
 import { useFormsStore } from '@/store/forms.store';
@@ -21,7 +22,6 @@ export function EvolutionToolPage() {
   const [personality, setPersonality] = useState<Partial<Personality>>({});
   const personalityComplete = Object.keys(personality).length === 4;
 
-  const aniimoByNo = useMemo(() => new Map(aniimos.map((a) => [a.no, a])), [aniimos]);
   const formById = useMemo(() => new Map(forms.map((f) => [f.id, f])), [forms]);
   const selectedAniimo = aniimos.find((a) => a.no === selectedNo);
 
@@ -78,101 +78,74 @@ export function EvolutionToolPage() {
           </label>
         )}
 
-        <PersonalityPicker value={personality} onChange={setPersonality} />
+        <div className="flex flex-wrap gap-3 items-center p-4 bg-secondary/30 rounded-lg border border-secondary">
+          <span className="text-sm text-tertiary">Характер анимо:</span>
+
+          {([['EI', ['E', 'I']], ['SN', ['S', 'N']], ['TF', ['T', 'F']], ['JP', ['J', 'P']]] as [PersonalityAxis, PersonalitySide[]][])
+            .map(([axis, sides]) => (
+              <div
+                className="inline-flex gap-0.5 items-center p-0.5 bg-primary rounded-lg border border-secondary"
+                key={axis}
+              >
+                {sides.map((side) => (
+                  <button
+                    className={cx(
+                      'inline-flex justify-center items-center px-2 min-w-8 h-7 text-sm font-medium rounded-md transition-colors',
+                      personality[axis] === side ? 'text-white bg-brand-600' : 'text-secondary hover:bg-secondary/60',
+                    )}
+                    key={side}
+                    onClick={() => setPersonality({
+                      ...personality,
+                      [axis]: personality[axis] === side ? undefined : side,
+                    } as Partial<Personality>)}
+                    title={PERSONALITY_LABELS[side]}
+                    type="button"
+                  >
+                    {side}
+                  </button>
+                ))}
+              </div>
+            ))}
+        </div>
 
         {branches.length > 0 && (
-          <Card className="p-4 space-y-2">
-            <h2 className="font-semibold text-primary">Рекомендуемые эволюции</h2>
+          <Card className="p-5 space-y-3">
+            <h2 className="text-lg font-semibold text-primary">Рекомендуемые эволюции</h2>
 
-            <ul className="space-y-1">
-              {branches.map((b) => {
-                const target = aniimoByNo.get(b.to_no);
-                const targetFormName = formById.get(b.to_form_id)?.name ?? b.to_form_id;
-                const locked = !b.available && !b.unknown;
-                const unknown = b.unknown;
+            <ul className="space-y-3">
+              {branches.map((b) => (
+                <li
+                  className={cx(
+                    'flex flex-wrap gap-2 items-center text-sm',
+                    !b.available && !b.unknown ? 'opacity-50' : '',
+                  )}
+                  key={`${b.to_no}:${b.to_form_id}`}
+                >
+                  <span className="text-tertiary">{!b.available && !b.unknown ? '🔒' : '→'}</span>
 
-                return (
-                  <li
+                  <Link
                     className={cx(
-                      'flex flex-wrap gap-2 items-center',
-                      locked && 'opacity-50',
-                      b.recommended && 'font-bold text-emerald-700',
+                      'hover:underline',
+                      b.recommended ? 'font-bold text-emerald-700' : 'text-secondary',
                     )}
-                    key={`${b.to_no}:${b.to_form_id}`}
+                    to={`/aniimos/${b.to_no}-${b.to_form_id}`}
                   >
-                    <span className="text-tertiary">{locked ? '🔒' : '→'}</span>
+                    #{b.to_no} ({formById.get(b.to_form_id)?.name ?? b.to_form_id})
+                  </Link>
 
-                    <Link className="hover:underline" to={`/aniimos/${b.to_no}`}>
-                      #{b.to_no} {target?.name ?? b.to_no} ({targetFormName})
-                    </Link>
-
-                    {b.requires_personality && <RequiredPersonalityPills personality={b.requires_personality} />}
-                    {b.available && b.score > 0 && <span className="text-xs text-tertiary">score {b.score}</span>}
-                    {b.recommended && <Badge color="success" size="sm">рекомендуется</Badge>}
-                    {locked && <span className="text-xs text-red-600">недоступно</span>}
-                    {unknown && <span className="text-xs text-amber-600">не хватает данных</span>}
-                  </li>
-                )
-              })}
+                  {b.requires_personality && <RequiredPersonalityPills personality={b.requires_personality} />}
+                  {b.recommended && <Badge color="success" size="sm">рекомендуется</Badge>}
+                  {!b.available && !b.unknown && <span className="text-xs text-red-600">не подходит</span>}
+                </li>
+              ))}
             </ul>
           </Card>
         )}
 
         {personalityComplete && branches.length === 0 && selectedForm && (
-          <p className="text-tertiary">Нет доступных эволюций для выбранной формы.</p>
+          <p className="text-tertiary text-sm">Нет доступных эволюций для выбранной формы.</p>
         )}
       </div>
-    </div>
-  );
-}
-
-function PersonalityPicker({ value, onChange }: {
-  value: Partial<Personality>;
-  onChange: (v: Partial<Personality>) => void;
-}) {
-  const axes: Array<[keyof Personality, string[]]> = [
-    ['EI', ['E', 'I']],
-    ['SN', ['S', 'N']],
-    ['TF', ['T', 'F']],
-    ['JP', ['J', 'P']],
-  ];
-
-  return (
-    <div className="flex flex-wrap gap-3 items-center p-4 bg-secondary/30 rounded-lg border border-secondary">
-      <span className="text-sm text-tertiary">Характер анимо:</span>
-
-      {axes.map(([axis, sides]) => (
-        <div
-          className="inline-flex gap-0.5 items-center p-0.5 bg-primary rounded-lg border border-secondary"
-          key={axis}
-        >
-          {sides.map((side) => (
-            <button
-              key={side}
-              onClick={() =>
-                onChange({ ...value, [axis]: value[axis] === side ? undefined : side } as Partial<Personality>)
-              }
-              type="button"
-              className={cx(
-                'inline-flex justify-center items-center px-2 min-w-8 h-7 text-sm font-medium rounded-md transition-colors',
-                value[axis] === side ? 'text-white bg-brand-600' : 'text-secondary hover:bg-secondary/60',
-              )}
-            >
-              {side}
-            </button>
-          ))}
-        </div>
-      ))}
-
-      {Object.keys(value).length > 0 && (
-        <button
-          className="ml-auto text-xs text-tertiary hover:text-primary"
-          onClick={() => onChange({})}
-          type="button"
-        >
-          сбросить
-        </button>
-      )}
     </div>
   );
 }
