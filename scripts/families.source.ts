@@ -95,7 +95,7 @@ export const families: Family[] = [
   { id: FamilyIds.Fahloo, name: "Фалу", member_nos: [AniimoNos.Fahloo, AniimoNos.Erlath] },
   // 082 - Ритмос
   { id: FamilyIds.Besauce, name: "Ритмос", member_nos: [AniimoNos.Besauce] },
-  // 10004 - Дух дружбы
+  // 11001 - Дух дружбы
   { id: FamilyIds.Sparkelf, name: "Дух дружбы", member_nos: [AniimoNos.Sparkelf] },
   // 99996 - Лунара
   { id: FamilyIds.Lunara, name: "Лунара", member_nos: [AniimoNos.Lunara] },

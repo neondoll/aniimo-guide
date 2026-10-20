@@ -31,7 +31,7 @@ export const FamilyIds = {
   /* 077 - Лампадка · Лучина · Сияша */ Bulbly: AniimoNos.Bulbly,
   /* 080 - Фалу · Эрлат */ Fahloo: AniimoNos.Fahloo,
   /* 082 - Ритмос */ Besauce: AniimoNos.Besauce,
-  /* 10004 - Дух дружбы */ Sparkelf: AniimoNos.Sparkelf,
+  /* 11001 - Дух дружбы */ Sparkelf: AniimoNos.Sparkelf,
   /* 99996 - Лунара */ Lunara: AniimoNos.Lunara,
   /* 99998 - Гелион */ Helion: AniimoNos.Helion,
 } as const;

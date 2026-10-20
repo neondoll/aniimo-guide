@@ -1994,7 +1994,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 4 }, { id: HomeAbilityIds.Leisure, level: 4 }],
     season: 1,
-    // image: image("irisalis.jpeg"),
+    // image: image("10001.jpeg"),
   },
   // --- 10002 - Танцомон ---
   {
@@ -2004,7 +2004,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
     season: 1,
-    // image: image("dazmand.jpeg"),
+    // image: image("10002.jpeg"),
   },
   // --- 10003 - Фульминтис ---
   {
@@ -2014,7 +2014,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Lightning, level: 3 }, { id: HomeAbilityIds.Artisanship, level: 3 }],
     season: 1,
-    // image: image("fulmintis.jpeg"),
+    // image: image("10003-base.jpeg"),
   },
   {
     no: AniimoNos.Fulmintis,
@@ -2027,9 +2027,9 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
     season: 1,
-    // image: image("fulmintis-prismana.jpeg"),
+    // image: image("10003-prismana.jpeg"),
   },
-  // --- 10004 - Дух дружбы ---
+  // --- 11001 - Дух дружбы ---
   {
     no: AniimoNos.Sparkelf,
     name: "Дух дружбы",
@@ -2037,7 +2037,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }],
     season: 1,
-    // image: image("sparkelf.jpeg"),
+    // image: image("11001-base.jpeg"),
   },
   {
     no: AniimoNos.Sparkelf,
@@ -2046,7 +2046,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 4 }],
     season: 1,
-    // image: image("sparkelf-prismana.jpeg"),
+    // image: image("11001-prismana.jpeg"),
   },
   // --- 99996 - Лунара ---
   {
@@ -2056,7 +2056,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Light],
     home_abilities: [{ id: HomeAbilityIds.Light, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     fixed_personality: { EI: "I", SN: "S", TF: "T", JP: "J" },
-    // image: image("lunara.jpeg"),
+    // image: image("99996.jpeg"),
     unique_group: "starter",
   },
   // --- 99998 - Гелион ---
@@ -2067,7 +2067,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Light],
     home_abilities: [{ id: HomeAbilityIds.Light, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     fixed_personality: { EI: "E", SN: "N", TF: "F", JP: "P" },
-    // image: image("helion.jpeg"),
+    // image: image("99998.jpeg"),
     unique_group: "starter",
   },
 ];
