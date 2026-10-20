@@ -323,7 +323,7 @@ function mergeAniimos(rows: AniimoFormSource[], familiesList: typeof families): 
   return [...byNo.values()]
     .map((a) => ({
       ...a,
-      forms: [...a.forms].sort((x, y) => x.form_id.localeCompare(y.form_id)),
+      // forms: [...a.forms].sort((x, y) => x.form_id.localeCompare(y.form_id)),
     }))
     .sort((a, b) => a.no.localeCompare(b.no));
 }

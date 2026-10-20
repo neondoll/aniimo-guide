@@ -20,7 +20,7 @@ export interface AniimoFormSource {
 // const image = (value: string) => `images/aniimos/${value}`;
 
 export const aniimos: AniimoFormSource[] = [
-  // --- 001 - Искрокус ---
+  /* --- 001 - Искрокус --- */
   {
     no: AniimoNos.Emberpup,
     name: "Искрокус",
@@ -28,7 +28,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
     // image: image("001-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Emberpup,
     name: "Искрокус",
@@ -40,7 +40,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
     // image: image("001-highland.jpeg"),
-  },
+  }, /* Форма высокогорья */
   {
     no: AniimoNos.Emberpup,
     name: "Искрокус",
@@ -48,8 +48,8 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
     // image: image("001-mountain_woods.jpeg"),
-  },
-  // --- 002 - Пламешерст ---
+  }, /* Форма горного леса */
+  /* --- 002 - Пламешерст --- */
   {
     no: AniimoNos.Flameruff,
     name: "Пламешерст",
@@ -57,7 +57,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
     // image: image("002-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Flameruff,
     name: "Пламешерст",
@@ -69,7 +69,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 2 },
     ],
     // image: image("002-highland.jpeg"),
-  },
+  }, /* Форма высокогорья */
   {
     no: AniimoNos.Flameruff,
     name: "Пламешерст",
@@ -77,8 +77,8 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
     // image: image("002-mountain_woods.jpeg"),
-  },
-  // --- 003 - Волкожог ---
+  }, /* Форма горного леса */
+  /* --- 003 - Волкожог --- */
   {
     no: AniimoNos.Scorchhowl,
     name: "Волкожог",
@@ -86,7 +86,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     // image: image("003-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Scorchhowl,
     name: "Волкожог",
@@ -98,7 +98,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     // image: image("003-highland.jpeg"),
-  },
+  }, /* Форма высокогорья */
   {
     no: AniimoNos.Scorchhowl,
     name: "Волкожог",
@@ -110,7 +110,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     // image: image("003-thunderstorm.jpeg"),
-  },
+  }, /* Форма грозы */
   {
     no: AniimoNos.Scorchhowl,
     name: "Волкожог",
@@ -118,7 +118,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 4 }, { id: HomeAbilityIds.Hauling, level: 4 }],
     // image: image("003-prismana.jpeg"),
-  },
+  }, /* Форма призманы */
   {
     no: AniimoNos.Scorchhowl,
     name: "Волкожог",
@@ -126,7 +126,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Fire],
     home_abilities: [{ id: HomeAbilityIds.Fire, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     // image: image("003-mountain_woods.jpeg"),
-  },
+  }, /* Форма горного леса */
   // --- 004 - Пламеклык ---
   {
     no: AniimoNos.Inferlupa,
@@ -139,7 +139,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     // image: image("004-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Inferlupa,
     name: "Пламеклык",
@@ -152,7 +152,7 @@ export const aniimos: AniimoFormSource[] = [
     ],
     season: 1,
     // image: image("004-prismana.jpeg"),
-  },
+  }, /* Форма призманы */
   // --- 005 - Селестис ---
   {
     no: AniimoNos.Celestis,
@@ -161,7 +161,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("005-base.jpeg"),
-  },
+  }, /* Базовая форма */
   // --- 006 - Стелларис ---
   {
     no: AniimoNos.Stellarys,
@@ -170,7 +170,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("006-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Stellarys,
     name: "Стелларис",
@@ -182,7 +182,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
     // image: image("006-rainstorm.jpeg"),
-  },
+  }, /* Форма ливня */
   {
     no: AniimoNos.Stellarys,
     name: "Стелларис",
@@ -194,7 +194,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 4 },
     ],
     // image: image("006-prismana.jpeg"),
-  },
+  }, /* Форма призманы */
   // --- 007 - Чайкуша ---
   {
     no: AniimoNos.Chirpi,
@@ -203,7 +203,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }],
     // image: image("007-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Chirpi,
     name: "Чайкуша",
@@ -211,7 +211,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind, ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Water, level: 1 }],
     // image: image("007-beach.jpeg"),
-  },
+  }, /* Форма пляжа */
   {
     no: AniimoNos.Chirpi,
     name: "Чайкуша",
@@ -219,7 +219,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind, ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Grass, level: 1 }],
     // image: image("007-highland.jpeg"),
-  },
+  }, /* Форма высокогорья */
   // --- 008 - Кликуша ---
   {
     no: AniimoNos.Tromber,
@@ -228,7 +228,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }],
     // image: image("008-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Tromber,
     name: "Кликуша",
@@ -236,7 +236,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind, ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Water, level: 2 }],
     // image: image("008-beach.jpeg"),
-  },
+  }, /* Форма пляжа */
   {
     no: AniimoNos.Tromber,
     name: "Кликуша",
@@ -244,7 +244,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind, ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
     // image: image("008-highland.jpeg"),
-  },
+  }, /* Форма высокогорья */
   // --- 009 - Крикуша ---
   {
     no: AniimoNos.Cornet,
@@ -253,7 +253,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }],
     // image: image("009-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Cornet,
     name: "Крикуша",
@@ -261,7 +261,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind, ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Water, level: 2 }],
     // image: image("009-beach.jpeg"),
-  },
+  }, /* Форма пляжа */
   {
     no: AniimoNos.Cornet,
     name: "Крикуша",
@@ -269,7 +269,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind, ElementIds.Lightning],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 4 }, { id: HomeAbilityIds.Lightning, level: 3 }],
     // image: image("009-prismana.jpeg"),
-  },
+  }, /* Форма призманы */
   {
     no: AniimoNos.Cornet,
     name: "Крикуша",
@@ -277,7 +277,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind, ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
     // image: image("009-highland.jpeg"),
-  },
+  }, /* Форма высокогорья */
   // --- 010 - Каркуша ---
   {
     no: AniimoNos.Tubster,
@@ -286,7 +286,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }],
     // image: image("010-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Tubster,
     name: "Каркуша",
@@ -294,7 +294,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind, ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Water, level: 2 }],
     // image: image("010-beach.jpeg"),
-  },
+  }, /* Форма пляжа */
   {
     no: AniimoNos.Tubster,
     name: "Каркуша",
@@ -302,7 +302,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind, ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Grass, level: 2 }],
     // image: image("010-highland.jpeg"),
-  },
+  }, /* Форма высокогорья */
   // --- 011 - Ирис ---
   {
     no: AniimoNos.Iris,
@@ -311,7 +311,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("011-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Iris,
     name: "Ирис",
@@ -319,7 +319,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("011-highland.jpeg"),
-  },
+  }, /* Форма высокогорья */
   {
     no: AniimoNos.Iris,
     name: "Ирис",
@@ -327,7 +327,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("011-forest.jpeg"),
-  },
+  }, /* Форма леса */
   {
     no: AniimoNos.Iris,
     name: "Ирис",
@@ -335,7 +335,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("011-grassland.jpeg"),
-  },
+  }, /* Форма луга */
   {
     no: AniimoNos.Iris,
     name: "Ирис",
@@ -343,7 +343,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("011-prismana.jpeg"),
-  },
+  }, /* Форма призманы */
   {
     no: AniimoNos.Iris,
     name: "Ирис",
@@ -351,7 +351,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("011-plateau.jpeg"),
-  },
+  }, /* Форма плато */
   {
     no: AniimoNos.Iris,
     name: "Ирис",
@@ -359,7 +359,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("011-mountain_woods.jpeg"),
-  },
+  }, /* Форма горного леса */
   // --- 012 - Ирисаль ---
   {
     no: AniimoNos.Irisal,
@@ -368,7 +368,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("012-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Irisal,
     name: "Ирисаль",
@@ -376,7 +376,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("012-highland.jpeg"),
-  },
+  }, /* Форма высокогорья */
   {
     no: AniimoNos.Irisal,
     name: "Ирисаль",
@@ -384,7 +384,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("012-forest.jpeg"),
-  },
+  }, /* Форма леса */
   {
     no: AniimoNos.Irisal,
     name: "Ирисаль",
@@ -392,7 +392,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("012-grassland.jpeg"),
-  },
+  }, /* Форма луга */
   {
     no: AniimoNos.Irisal,
     name: "Ирисаль",
@@ -400,7 +400,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 4 }, { id: HomeAbilityIds.Leisure, level: 4 }],
     // image: image("012-prismana.jpeg"),
-  },
+  }, /* Форма призманы */
   {
     no: AniimoNos.Irisal,
     name: "Ирисаль",
@@ -408,7 +408,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("012-plateau.jpeg"),
-  },
+  }, /* Форма плато */
   {
     no: AniimoNos.Irisal,
     name: "Ирисаль",
@@ -416,7 +416,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("012-mountain_woods.jpeg"),
-  },
+  }, /* Форма горного леса */
   // --- 013 - Шустрик ---
   {
     no: AniimoNos.Skippy,
@@ -425,7 +425,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
     // image: image("013-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Skippy,
     name: "Шустрик",
@@ -433,7 +433,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
     // image: image("013-flowerfield.jpeg"),
-  },
+  }, /* Форма моря цветов */
   {
     no: AniimoNos.Skippy,
     name: "Шустрик",
@@ -445,7 +445,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
     // image: image("013-snowfield.jpeg"),
-  },
+  }, /* Форма снежного поля */
   // --- 014 - Шутник ---
   {
     no: AniimoNos.Pranky,
@@ -454,7 +454,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
     // image: image("014-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Pranky,
     name: "Шутник",
@@ -462,7 +462,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Water],
     home_abilities: [{ id: HomeAbilityIds.Water, level: 2 }, { id: HomeAbilityIds.Hauling, level: 2 }],
     // image: image("014-flowerfield.jpeg"),
-  },
+  }, /* Форма моря цветов */
   {
     no: AniimoNos.Pranky,
     name: "Шутник",
@@ -474,7 +474,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 2 },
     ],
     // image: image("014-snowfield.jpeg"),
-  },
+  }, /* Форма снежного поля */
   // --- 015 - Морозница ---
   {
     no: AniimoNos.Glacy,
@@ -487,7 +487,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     // image: image("015-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Glacy,
     name: "Морозница",
@@ -499,7 +499,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     // image: image("015-flowerfield.jpeg"),
-  },
+  }, /* Форма моря цветов */
   {
     no: AniimoNos.Glacy,
     name: "Морозница",
@@ -511,7 +511,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     // image: image("015-snowfield.jpeg"),
-  },
+  }, /* Форма снежного поля */
   {
     no: AniimoNos.Glacy,
     name: "Морозница",
@@ -523,7 +523,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 4 },
     ],
     // image: image("015-prismana.jpeg"),
-  },
+  }, /* Форма призманы */
   // --- 016 - Листик ---
   {
     no: AniimoNos.Leafy,
@@ -536,7 +536,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     // image: image("016-base.jpeg"),
-  },
+  }, /* Базовая форма */
   // --- 017 - Пушинка ---
   {
     no: AniimoNos.Nimbi,
@@ -545,7 +545,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("017-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Nimbi,
     name: "Пушинка",
@@ -557,7 +557,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 1 },
     ],
     // image: image("017-rainstorm.jpeg"),
-  },
+  }, /* Форма ливня */
   {
     no: AniimoNos.Nimbi,
     name: "Пушинка",
@@ -565,7 +565,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 1 }, { id: HomeAbilityIds.Leisure, level: 1 }],
     // image: image("017-cloudmist.jpeg"),
-  },
+  }, /* Форма облачного тумана */
   {
     no: AniimoNos.Nimbi,
     name: "Пушинка",
@@ -577,7 +577,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 1 },
     ],
     // image: image("017-plateau.jpeg"),
-  },
+  }, /* Форма плато */
   // --- 018 - Турбо ---
   {
     no: AniimoNos.Turbo,
@@ -586,7 +586,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("018-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Turbo,
     name: "Турбо",
@@ -598,7 +598,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
     // image: image("018-rainstorm.jpeg"),
-  },
+  }, /* Форма ливня */
   {
     no: AniimoNos.Turbo,
     name: "Турбо",
@@ -606,7 +606,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Wind],
     home_abilities: [{ id: HomeAbilityIds.Wind, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("018-cloudmist.jpeg"),
-  },
+  }, /* Форма облачного тумана */
   {
     no: AniimoNos.Turbo,
     name: "Турбо",
@@ -618,7 +618,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 4 },
     ],
     // image: image("018-prismana.jpeg"),
-  },
+  }, /* Форма призманы */
   {
     no: AniimoNos.Turbo,
     name: "Турбо",
@@ -630,7 +630,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Leisure, level: 3 },
     ],
     // image: image("018-plateau.jpeg"),
-  },
+  }, /* Форма плато */
   // --- 019 - Дрипл ---
   {
     no: AniimoNos.Dreaple,
@@ -639,7 +639,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Dark],
     home_abilities: [{ id: HomeAbilityIds.Dark, level: 3 }, { id: HomeAbilityIds.Leisure, level: 3 }],
     // image: image("019-base.jpeg"),
-  },
+  }, /* Базовая форма */
   // --- 020 - Бормотун ---
   {
     no: AniimoNos.Hummin,
@@ -648,7 +648,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }],
     // image: image("020-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Hummin,
     name: "Бормотун",
@@ -656,7 +656,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 1 }],
     // image: image("020-mountain.jpeg"),
-  },
+  }, /* Форма гор */
   // --- 021 - Ведьмун ---
   {
     no: AniimoNos.Hexxin,
@@ -669,7 +669,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Artisanship, level: 2 },
     ],
     // image: image("021-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Hexxin,
     name: "Ведьмун",
@@ -681,7 +681,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Artisanship, level: 2 },
     ],
     // image: image("021-mountain.jpeg"),
-  },
+  }, /* Форма гор */
   {
     no: AniimoNos.Hexxin,
     name: "Ведьмун",
@@ -693,7 +693,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Artisanship, level: 4 },
     ],
     // image: image("021-prismana.jpeg"),
-  },
+  }, /* Форма призманы */
   // --- 022 - Топотун ---
   {
     no: AniimoNos.Tuckin,
@@ -702,7 +702,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Grass],
     home_abilities: [{ id: HomeAbilityIds.Grass, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     // image: image("022-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Tuckin,
     name: "Топотун",
@@ -714,7 +714,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     // image: image("022-mountain.jpeg"),
-  },
+  }, /* Форма гор */
   // --- 023 - Цветохват ---
   {
     no: AniimoNos.Budclaw,
@@ -727,7 +727,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
     // image: image("023-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Budclaw,
     name: "Цветохват",
@@ -735,7 +735,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
     // image: image("023-mudflat.jpeg"),
-  },
+  }, /* Форма илистого берега */
   {
     no: AniimoNos.Budclaw,
     name: "Цветохват",
@@ -743,7 +743,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
     // image: image("023-beach.jpeg"),
-  },
+  }, /* Форма пляжа */
   {
     no: AniimoNos.Budclaw,
     name: "Цветохват",
@@ -751,7 +751,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 1 }, { id: HomeAbilityIds.Hauling, level: 1 }],
     // image: image("023-bay.jpeg"),
-  },
+  }, /* Форма бухты */
   // --- 024 - Кустохват ---
   {
     no: AniimoNos.Shrubclaw,
@@ -764,7 +764,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Hauling, level: 3 },
     ],
     // image: image("024-base.jpeg"),
-  },
+  }, /* Базовая форма */
   {
     no: AniimoNos.Shrubclaw,
     name: "Кустохват",
@@ -772,7 +772,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     // image: image("024-mudflat.jpeg"),
-  },
+  }, /* Форма илистого берега */
   {
     no: AniimoNos.Shrubclaw,
     name: "Кустохват",
@@ -780,7 +780,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     // image: image("024-beach.jpeg"),
-  },
+  }, /* Форма пляжа */
   {
     no: AniimoNos.Shrubclaw,
     name: "Кустохват",
@@ -788,7 +788,7 @@ export const aniimos: AniimoFormSource[] = [
     element_ids: [ElementIds.Earth],
     home_abilities: [{ id: HomeAbilityIds.Earth, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     // image: image("024-bay.jpeg"),
-  },
+  }, /* Форма бухты */
   // --- 025 - Кристаллохват ---
   {
     no: AniimoNos.Geoclaw,
@@ -798,7 +798,7 @@ export const aniimos: AniimoFormSource[] = [
     home_abilities: [{ id: HomeAbilityIds.Ice, level: 3 }, { id: HomeAbilityIds.Hauling, level: 3 }],
     fixed_personality: { TF: "T" },
     // image: image("025-base.jpeg"),
-  },
+  }, /* Базовая форма */
   // --- 026 - Искорка ---
   {
     no: AniimoNos.Sparki,
