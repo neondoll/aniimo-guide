@@ -39,7 +39,7 @@ export const aniimos: AniimoFormSource[] = [
       { id: HomeAbilityIds.Earth, level: 1 },
       { id: HomeAbilityIds.Hauling, level: 1 },
     ],
-    // image: image("001-highland.webp"),
+    image: image("001-highland.jpeg"),
   },
   {
     no: AniimoNos.Emberpup,
