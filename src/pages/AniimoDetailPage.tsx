@@ -125,7 +125,7 @@ export function AniimoDetailPage() {
                 {/* Hero: картинка + название + бейджи + элементы + способности */}
                 <div className="flex flex-col gap-4 sm:flex-row sm:gap-5">
                   {form.image && (
-                    <div className="aspect-2/3 flex shrink-0 justify-center items-center self-start p-2 mx-auto w-full max-w-35 bg-secondary/30 rounded-lg sm:mx-0">
+                    <div className="aspect-square flex shrink-0 justify-center items-center self-start p-2 mx-auto w-full max-w-35 bg-secondary/30 rounded-lg sm:mx-0">
                       <img alt="" className="object-contain max-w-full max-h-full" src={assetUrl(form.image)} />
                     </div>
                   )}
