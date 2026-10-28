@@ -14,7 +14,15 @@ import type { AniimoNo } from "../src/enums/aniimos.ts";
 import { ElementOrder } from "../src/enums/elements.ts";
 import type { FamilyId } from "../src/enums/families.ts";
 import { HomeAbilityOrder } from "../src/enums/home-abilities.ts";
+import { StageIds } from "../src/enums/stages.ts";
 import type { Aniimo, AniimoForm } from "../src/types/aniimo.ts";
+import type { Element } from "../src/types/element.ts";
+import type { ElementAniimoRef, ElementFacilityRef, ElementWithStats } from "../src/types/element-stats.ts";
+import type { Facility } from "../src/types/facility.ts";
+import type { HomeAbility } from "../src/types/home-ability.ts";
+import type {
+  HomeAbilityAniimoRef, HomeAbilityFacilityRef, HomeAbilityWithStats,
+} from "../src/types/home-ability-stats.ts";
 import { compareByOrder } from "../src/utils/sorting.ts";
 
 const ID_REGEX = /^[A-Za-z0-9][A-Za-z0-9_-]*$/;
@@ -22,59 +30,66 @@ const OUTPUT_DIR = path.resolve("public/data");
 
 /* ───────────────────────── Zod-схемы ───────────────────────── */
 
+const ElementAssignmentSchema = z.object({ id: z.string(), level: z.number().int().min(1).max(4) });
 const ElementSchema = z.object({
   id: z.string(),
   name: z.string().min(1),
   color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
 });
-const FormSchema = z.object({ id: z.string(), name: z.string().min(1), is_rare: z.boolean().optional() });
-const HomeAbilitySchema = z.object({
+const FacilityModeSchema = z.object({
   id: z.string(),
   name: z.string().min(1),
-  description: z.string().optional(),
-  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
-});
-const HomeAbilityAssignmentSchema = z.object({ id: z.string(), level: z.number().int().min(1).max(4) });
-const PartialPersonalitySchema = z.object({
-  EI: z.enum(["E", "I"]).optional(),
-  SN: z.enum(["S", "N"]).optional(),
-  TF: z.enum(["T", "F"]).optional(),
-  JP: z.enum(["J", "P"]).optional(),
-}).strict();
-const AniimoSourceSchema = z.object({
-  no: z.string().regex(ID_REGEX),
-  name: z.string().min(1),
-  form_id: z.string(),
-  element_ids: z.array(z.string()).min(1),
-  home_abilities: z.array(HomeAbilityAssignmentSchema),
-  image: z.string().optional(),
-  season: z.number().int().min(1).optional(),
-  fixed_personality: PartialPersonalitySchema.optional(),
+  required_ability_level: z.number().int().min(0),
 });
 const FamilySchema = z.object({
   id: z.string().regex(ID_REGEX),
   name: z.string().min(1),
   member_nos: z.array(z.string().regex(ID_REGEX)).min(1),
 });
-const FacilitySchema = z.object({
+const FormSchema = z.object({ id: z.string(), name: z.string().min(1), is_rare: z.boolean().optional() });
+const HomeAbilityAssignmentSchema = z.object({ id: z.string(), level: z.number().int().min(1).max(4) });
+const HomeAbilitySchema = z.object({
   id: z.string(),
   name: z.string().min(1),
   description: z.string().optional(),
-  category: z.enum(["material_production", "material_processing", "item_production", "utility", "aniimo_objects"]),
-  requires_abilities: z.array(z.string()),
-  requires_families: z.array(z.string()),
-  required_ability_level: z.number().int().min(0),
-  preferred_personality: PartialPersonalitySchema.optional(),
-  is_speed_capped: z.boolean().optional(),
-  copies: z.number().int().min(0),
-  dedication: z.enum(["dedicated", "flexible", "shared", "none"]),
+  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
 });
+const PartialPersonalitySchema = z.object({
+  EI: z.enum(["E", "I"]).optional(),
+  SN: z.enum(["S", "N"]).optional(),
+  TF: z.enum(["T", "F"]).optional(),
+  JP: z.enum(["J", "P"]).optional(),
+}).strict();
 const EvolutionSchema = z.object({
   from_no: z.string().regex(ID_REGEX),
   from_form_id: z.string(),
   to_no: z.string().regex(ID_REGEX),
   to_form_id: z.string(),
   requires_personality: PartialPersonalitySchema.optional(),
+});
+const FacilitySchema = z.object({
+  id: z.string(),
+  name: z.string().min(1),
+  description: z.string().optional(),
+  category: z.enum(["material_production", "material_processing", "item_production", "utility", "aniimo_objects"]),
+  copies: z.number().int().min(0),
+  requires_abilities: z.array(z.string()),
+  requires_families: z.array(z.string()),
+  preferred_personality: PartialPersonalitySchema.optional(),
+  modes: z.array(FacilityModeSchema).min(1).optional(),
+  is_speed_capped: z.boolean().optional(),
+});
+const StageSchema = z.enum([StageIds.Lumin, StageIds.Gamma, StageIds.Nova]);
+const AniimoSourceSchema = z.object({
+  no: z.string().regex(ID_REGEX),
+  name: z.string().min(1),
+  form_id: z.string(),
+  stage: StageSchema.optional(),
+  elements: z.array(ElementAssignmentSchema).min(1),
+  home_abilities: z.array(HomeAbilityAssignmentSchema).min(1),
+  fixed_personality: PartialPersonalitySchema.optional(),
+  season: z.number().int().min(1).optional(),
+  image: z.string().optional(),
 });
 
 /* ───────────────────────── Валидация ───────────────────────── */
@@ -96,18 +111,24 @@ function validate() {
   for (const a of aniimos) {
     if (!formIds.has(a.form_id)) throw new Error(`${a.name} (#${a.no}): неизвестная форма "${a.form_id}"`);
 
-    for (const id of a.element_ids) {
-      if (!elementIds.has(id)) throw new Error(`${a.name} (#${a.no}): неизвестный элемент "${id}"`);
+    const eSeen = new Set<string>();
+
+    for (const e of a.elements) {
+      if (!elementIds.has(e.id)) throw new Error(`${a.name} (#${a.no}): неизвестный элемент "${e.id}"`);
+
+      if (eSeen.has(e.id)) throw new Error(`${a.name} (#${a.no}): элемент "${e.id}" указан дважды`);
+
+      eSeen.add(e.id);
     }
 
-    const seen = new Set<string>();
+    const haSeen = new Set<string>();
 
     for (const ha of a.home_abilities) {
       if (!homeAbilityIds.has(ha.id)) throw new Error(`${a.name} (#${a.no}): неизвестная способность дома "${ha.id}"`);
 
-      if (seen.has(ha.id)) throw new Error(`${a.name} (#${a.no}): способность "${ha.id}" указана дважды`);
+      if (haSeen.has(ha.id)) throw new Error(`${a.name} (#${a.no}): способность "${ha.id}" указана дважды`);
 
-      seen.add(ha.id);
+      haSeen.add(ha.id);
     }
   }
 
@@ -309,14 +330,18 @@ function mergeAniimos(rows: AniimoFormSource[], familiesList: typeof families): 
 
     entry.forms.push({
       form_id: row.form_id,
-      element_ids: row.element_ids,
-      home_abilities: [...row.home_abilities].sort((x, y) => compareByOrder(HomeAbilityOrder, x.id, y.id)),
+      elements: [...row.elements].sort((x, y) =>
+        x.level === y.level ? compareByOrder(ElementOrder, x.id, y.id) : y.level - x.level,
+      ),
+      home_abilities: [...row.home_abilities].sort((x, y) =>
+        x.level === y.level ? compareByOrder(HomeAbilityOrder, x.id, y.id) : y.level - x.level,
+      ),
       evolves_to,
       is_final: evolves_to.length === 0,
       ...(row.image ? { image: row.image } : {}),
       ...(row.season !== undefined ? { season: row.season } : {}),
+      ...(row.stage ? { stage: row.stage } : {}),
       ...(row.fixed_personality ? { fixed_personality: row.fixed_personality } : {}),
-      ...(row.unique_group ? { unique_group: row.unique_group } : {}),
     });
   }
 
@@ -326,6 +351,97 @@ function mergeAniimos(rows: AniimoFormSource[], familiesList: typeof families): 
       // forms: [...a.forms].sort((x, y) => x.form_id.localeCompare(y.form_id)),
     }))
     .sort((a, b) => a.no.localeCompare(b.no));
+}
+
+function computeElementStats(
+  elements: Element[],
+  aniimos: Aniimo[],
+  facilities: Array<Facility>,
+): ElementWithStats[] {
+  return elements.map((el) => {
+    const aniimosRef: ElementAniimoRef[] = [];
+
+    for (const a of aniimos) {
+      for (const f of a.forms) {
+        const match = f.elements.find((e) => e.id === el.id);
+
+        if (match) aniimosRef.push({ no: a.no, name: a.name, form_id: f.form_id, level: match.level });
+      }
+    }
+
+    const facilitiesRef: ElementFacilityRef[] = [];
+
+    for (const f of facilities) {
+      if (!f.requires_abilities.includes(el.id)) continue;
+
+      facilitiesRef.push({
+        facility_id: f.id,
+        facility_name: f.name,
+        copies: f.copies,
+        modes: f.modes.map((m) => ({
+          mode_id: m.id,
+          mode_name: m.name,
+          required_ability_level: m.required_ability_level,
+        })),
+      });
+    }
+
+    return {
+      id: el.id,
+      name: el.name,
+      color: el.color,
+      aniimo_count: aniimosRef.length,
+      aniimos: aniimosRef,
+      facility_count: facilitiesRef.length,
+      facilities: facilitiesRef,
+    };
+  });
+}
+
+function computeHomeAbilityStats(
+  homeAbilities: HomeAbility[],
+  aniimos: Aniimo[],
+  facilities: Array<Facility>,
+): HomeAbilityWithStats[] {
+  return homeAbilities.map((ha) => {
+    const aniimosRef: HomeAbilityAniimoRef[] = [];
+
+    for (const a of aniimos) {
+      for (const f of a.forms) {
+        const match = f.home_abilities.find((haa) => haa.id === ha.id);
+
+        if (match) aniimosRef.push({ no: a.no, name: a.name, form_id: f.form_id, level: match.level });
+      }
+    }
+
+    const facilitiesRef: HomeAbilityFacilityRef[] = [];
+
+    for (const f of facilities) {
+      if (!f.requires_abilities.includes(ha.id)) continue;
+
+      facilitiesRef.push({
+        facility_id: f.id,
+        facility_name: f.name,
+        copies: f.copies,
+        modes: f.modes.map((m) => ({
+          mode_id: m.id,
+          mode_name: m.name,
+          required_ability_level: m.required_ability_level,
+        })),
+      });
+    }
+
+    return {
+      id: ha.id,
+      name: ha.name,
+      description: ha.description,
+      color: ha.color,
+      aniimo_count: aniimosRef.length,
+      aniimos: aniimosRef,
+      facility_count: facilitiesRef.length,
+      facilities: facilitiesRef,
+    };
+  });
 }
 
 /* ───────────────────────── Запись ───────────────────────── */
@@ -343,15 +459,17 @@ function main() {
   validate();
 
   const mergedAniimos = mergeAniimos(aniimos, families);
+  const computedElements = computeElementStats(elements, mergedAniimos, facilities);
+  const computedHomeAbilities = computeHomeAbilityStats(homeAbilities, mergedAniimos, facilities);
   const rareFormIds = new Set(forms.filter((f) => f.is_rare).map((f) => f.id));
   const recommendations = buildRecommendations({ aniimos: mergedAniimos, facilities, rareFormIds });
 
   write("aniimos", mergedAniimos);
-  write("elements", [...elements].sort((a, b) => compareByOrder(ElementOrder, a.id, b.id)));
+  write("elements", [...computedElements].sort((a, b) => compareByOrder(ElementOrder, a.id, b.id)));
   write("facilities", facilities);
   write("families", families);
   write("forms", forms);
-  write("home-abilities", [...homeAbilities].sort((a, b) => compareByOrder(HomeAbilityOrder, a.id, b.id)));
+  write("home-abilities", [...computedHomeAbilities].sort((a, b) => compareByOrder(HomeAbilityOrder, a.id, b.id)));
   write("recommendations", recommendations);
   write("meta", {
     generatedAt: new Date().toISOString(),

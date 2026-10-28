@@ -1,15 +1,15 @@
-import { useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import { useMemo } from "react";
+import { Link } from "react-router-dom";
 
-import { Badge } from '@/components/base/badges/badges';
-import { Card } from '@/components/Card';
-import { ElementBadge } from '@/components/ElementBadge';
-import type { FamilyId } from '@/enums/families'
-import { useAniimosStore } from '@/store/aniimos.store';
-import { useElementsStore } from '@/store/elements.store';
-import { useFamiliesStore } from '@/store/families.store';
-import { useFormsStore } from '@/store/forms.store';
-import { useHomeAbilitiesStore } from '@/store/home-abilities.store';
+import { Badge } from "@/components/base/badges/badges";
+import { Card } from "@/components/Card";
+import { ElementBadge } from "@/components/ElementBadge";
+import type { FamilyId } from "@/enums/families";
+import { useAniimosStore } from "@/store/aniimos.store";
+import { useElementsStore } from "@/store/elements.store";
+import { useFamiliesStore } from "@/store/families.store";
+import { useFormsStore } from "@/store/forms.store";
+import { useHomeAbilitiesStore } from "@/store/home-abilities.store";
 
 export function AniimosPage() {
   const aniimos = useAniimosStore((s) => s.data);
@@ -56,7 +56,7 @@ export function AniimosPage() {
                 <Card className="overflow-hidden divide-y divide-secondary" key={a.no}>
                   {a.forms.map((f) => {
                     const formInfo = formById.get(f.form_id);
-                    const mainElement = elementById.get(f.element_ids[0]);
+                    const mainElement = elementById.get(f.elements[0].id);
 
                     return (
                       <article
@@ -66,7 +66,7 @@ export function AniimosPage() {
                         {/* Цветная полоска слева */}
                         <div
                           className="absolute top-0 bottom-0 left-0 w-1"
-                          style={{ backgroundColor: mainElement?.color ?? '#ccc' }}
+                          style={{ backgroundColor: mainElement?.color ?? "#ccc" }}
                         />
 
                         <div className="flex gap-4 justify-between items-start">
@@ -85,10 +85,15 @@ export function AniimosPage() {
                             </div>
 
                             <div className="flex flex-wrap gap-1.5">
-                              {f.element_ids.map((id) => {
-                                const el = elementById.get(id);
+                              {f.elements.map((ea) => {
+                                const e = elementById.get(ea.id);
 
-                                return <ElementBadge color={el?.color} key={id} name={el?.name ?? id} />;
+                                return <ElementBadge
+                                  color={e?.color}
+                                  key={ea.id}
+                                  level={ea.level}
+                                  name={e?.name ?? ea.id}
+                                />;
                               })}
                             </div>
 

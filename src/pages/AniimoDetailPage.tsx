@@ -1,27 +1,27 @@
-import { useMemo, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useMemo, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
-import { Badge } from '@/components/base/badges/badges';
-import { Card } from '@/components/Card';
-import { ElementBadge } from '@/components/ElementBadge';
-import { SimpleTabs, type TabItem } from '@/components/SimpleTabs';
-import { TraitAxisPills, RequiredPersonalityPills, PreferredPersonalityPills } from '@/components/TraitAxisPills';
-import { PERSONALITY_LABELS, type PersonalityAxis, type PersonalitySide } from '@/constants/personality-labels';
-import type { FormId } from '@/enums/forms';
-import { rankBranches } from '@/lib/personalityScore';
-import { useAniimosStore } from '@/store/aniimos.store';
-import { useElementsStore } from '@/store/elements.store';
-import { useFamiliesStore } from '@/store/families.store';
-import { useFormsStore } from '@/store/forms.store';
-import { useHomeAbilitiesStore } from '@/store/home-abilities.store';
-import { useRecommendationsStore } from '@/store/recommendations.store';
-import type { Personality } from '@/types/personality';
-import { cx } from '@/utils/cx'
+import { Badge } from "@/components/base/badges/badges";
+import { Card } from "@/components/Card";
+import { ElementBadge } from "@/components/ElementBadge";
+import { SimpleTabs, type TabItem } from "@/components/SimpleTabs";
+import { TraitAxisPills, RequiredPersonalityPills, PreferredPersonalityPills } from "@/components/TraitAxisPills";
+import { PERSONALITY_LABELS, type PersonalityAxis, type PersonalitySide } from "@/constants/personality-labels";
+import type { FormId } from "@/enums/forms";
+import { rankBranches } from "@/lib/personalityScore";
+import { useAniimosStore } from "@/store/aniimos.store";
+import { useElementsStore } from "@/store/elements.store";
+import { useFamiliesStore } from "@/store/families.store";
+import { useFormsStore } from "@/store/forms.store";
+import { useHomeAbilitiesStore } from "@/store/home-abilities.store";
+import { useRecommendationsStore } from "@/store/recommendations.store";
+import type { Personality } from "@/types/personality";
+import { cx } from "@/utils/cx";
 
 function parseSlug(slug?: string) {
-  if (!slug) return { no: '' };
+  if (!slug) return { no: "" };
 
-  const idx = slug.lastIndexOf('-');
+  const idx = slug.lastIndexOf("-");
 
   return idx === -1 ? { no: slug } : { no: slug.slice(0, idx), formId: slug.slice(idx + 1) };
 }
@@ -49,13 +49,13 @@ export function AniimoDetailPage() {
   const aniimo = useMemo(() => aniimos.find((a) => a.no === no), [aniimos, no]);
 
   const activeFormId = useMemo(() => {
-    if (!aniimo) return '';
+    if (!aniimo) return "";
 
     const ids = new Set(aniimo.forms.map((f) => f.form_id));
 
     if (formFromUrl && ids.has(formFromUrl as FormId)) return formFromUrl;
 
-    return aniimo.forms.find((f) => f.form_id === 'base')?.form_id ?? aniimo.forms[0]?.form_id ?? '';
+    return aniimo.forms.find((f) => f.form_id === "base")?.form_id ?? aniimo.forms[0]?.form_id ?? "";
   }, [aniimo, formFromUrl]);
 
   const handleTabChange = (id: string) => {
@@ -72,7 +72,7 @@ export function AniimoDetailPage() {
   }
 
   const family = familyById.get(aniimo.family_id);
-  const sortedForms = [...aniimo.forms].sort((x, y) => x.form_id === 'base' ? -1 : y.form_id === 'base' ? 1 : x.form_id.localeCompare(y.form_id));
+  const sortedForms = [...aniimo.forms].sort((x, y) => x.form_id === "base" ? -1 : y.form_id === "base" ? 1 : x.form_id.localeCompare(y.form_id));
 
   const tabs: TabItem[] = sortedForms.map((form) => {
     const rec = recommendations[`${aniimo.no}:${form.form_id}`];
@@ -100,10 +100,12 @@ export function AniimoDetailPage() {
               <div className="mb-2 text-xs tracking-wide text-tertiary uppercase">Элементы</div>
 
               <div className="flex flex-wrap gap-2">
-                {form.element_ids.map((id) => {
-                  const el = elementById.get(id);
+                {form.elements.map((ea) => {
+                  const e = elementById.get(ea.id);
 
-                  return <ElementBadge color={el?.color} key={id} name={el?.name ?? id} size="md" />;
+                  return (
+                    <ElementBadge color={e?.color} key={ea.id} level={ea.level} name={e?.name ?? ea.id} size="md" />
+                  );
                 })}
               </div>
             </div>
@@ -185,13 +187,13 @@ export function AniimoDetailPage() {
                   return (
                     <li
                       className={cx(
-                        'flex flex-wrap gap-2 items-center text-sm',
-                        locked ? 'opacity-50' : '',
-                        b.recommended ? 'font-bold text-emerald-700' : 'text-secondary',
+                        "flex flex-wrap gap-2 items-center text-sm",
+                        locked ? "opacity-50" : "",
+                        b.recommended ? "font-bold text-emerald-700" : "text-secondary",
                       )}
                       key={`${b.to_no}:${b.to_form_id}`}
                     >
-                      <span className="text-tertiary">{locked ? '🔒' : '→'}</span>
+                      <span className="text-tertiary">{locked ? "🔒" : "→"}</span>
 
                       <Link className="hover:underline" to={`/aniimos/${b.to_no}-${b.to_form_id}`}>
                         #{b.to_no} {target?.name ?? b.to_no}
@@ -232,7 +234,7 @@ function PersonalityForm({ onChange, value }: {
   onChange: (v: Partial<Personality>) => void;
   value: Partial<Personality>
 }) {
-  const axes: Array<[PersonalityAxis, PersonalitySide[]]> = [['EI', ['E', 'I']], ['SN', ['S', 'N']], ['TF', ['T', 'F']], ['JP', ['J', 'P']]];
+  const axes: Array<[PersonalityAxis, PersonalitySide[]]> = [["EI", ["E", "I"]], ["SN", ["S", "N"]], ["TF", ["T", "F"]], ["JP", ["J", "P"]]];
 
   return (
     <div className="flex flex-wrap gap-3 items-center p-3 bg-secondary/30 rounded-lg border border-secondary">
@@ -246,8 +248,8 @@ function PersonalityForm({ onChange, value }: {
           {sides.map((side) => (
             <button
               className={cx(
-                'inline-flex justify-center items-center px-2 min-w-8 h-7 text-sm font-medium rounded-md transition-colors',
-                value[axis] === side ? 'text-white bg-brand-600' : 'text-secondary hover:bg-secondary/60',
+                "inline-flex justify-center items-center px-2 min-w-8 h-7 text-sm font-medium rounded-md transition-colors",
+                value[axis] === side ? "text-white bg-brand-600" : "text-secondary hover:bg-secondary/60",
               )}
               key={side}
               onClick={() => onChange({

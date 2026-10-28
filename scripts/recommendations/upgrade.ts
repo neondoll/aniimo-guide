@@ -1,66 +1,59 @@
 import type { HomeAbilityId } from "../../src/enums/home-abilities.ts";
 import type { FormRecommendation, UpgradeSuggestion } from "../../src/types/recommendations.ts";
 
-interface Entry {
-  rec: FormRecommendation;
-  level: number;
-}
-
 export function computeUpgradeSuggestions(all: FormRecommendation[]): void {
-  // ability_id → список (форма, уровень)
-  const byAbility = new Map<HomeAbilityId, Entry[]>();
+  const byAbility = new Map<HomeAbilityId, Array<{ rec: FormRecommendation; maxLevel: number }>>();
 
   for (const rec of all) {
-    const ownMax = new Map<HomeAbilityId, number>(); // чтобы не учитывать одну форму дважды
+    const own = new Map<HomeAbilityId, number>();
 
-    for (const fm of rec.facility_matches) {
-      for (const c of fm.covers) {
-        const prev = ownMax.get(c.ability_id) ?? 0;
-
-        if (c.level > prev) ownMax.set(c.ability_id, c.level);
+    for (const c of rec.facility_matches) {
+      for (const id of c.covered_ability_ids) {
+        const level = Math.max(own.get(id) ?? 0, c.max_ability_level);
+        own.set(id, level);
       }
     }
 
-    for (const [abilityId, level] of ownMax) {
+    for (const [abilityId, level] of own) {
       const list = byAbility.get(abilityId) ?? [];
-      list.push({ rec, level });
+      list.push({ rec, maxLevel: level });
       byAbility.set(abilityId, list);
     }
   }
 
   for (const rec of all) {
-    const suggestions: UpgradeSuggestion[] = [];
-    const ownMax = new Map<HomeAbilityId, number>();
+    const own = new Map<HomeAbilityId, { level: number; capped: boolean }>();
 
-    for (const fm of rec.facility_matches) {
-      for (const c of fm.covers) {
-        const prev = ownMax.get(c.ability_id) ?? 0;
-
-        if (c.level > prev) ownMax.set(c.ability_id, c.level);
+    for (const c of rec.facility_matches) {
+      for (const id of c.covered_ability_ids) {
+        const prev = own.get(id);
+        own.set(id, {
+          level: Math.max(prev?.level ?? 0, c.max_ability_level),
+          capped: prev?.capped || c.is_speed_capped,
+        });
       }
     }
 
-    for (const [abilityId, level] of ownMax) {
+    const suggestions: UpgradeSuggestion[] = [];
+
+    for (const [abilityId, { level, capped }] of own) {
+      if (capped) continue; // скорость уже максимальна — улучшать нечего
+
       const better = (byAbility.get(abilityId) ?? [])
-        .filter((x) => x.level > level)
-        .sort(
-          (a, b) =>
-            b.level - a.level ||
-            a.rec.no.localeCompare(b.rec.no) ||
-            a.rec.form_id.localeCompare(b.rec.form_id),
-        );
+        .filter((x) => x.maxLevel > level)
+        .sort((a, b) => b.maxLevel - a.maxLevel || a.rec.no.localeCompare(b.rec.no));
 
       if (better.length === 0) continue;
 
       suggestions.push({
-        ability_id: abilityId as HomeAbilityId,
+        ability_id: abilityId,
         current_level: level,
         better_forms: better.map((b) => ({
           no: b.rec.no,
           name: b.rec.name,
           form_id: b.rec.form_id,
           is_rare: b.rec.is_rare,
-          level: b.level,
+          level: b.maxLevel,
         })),
       });
     }

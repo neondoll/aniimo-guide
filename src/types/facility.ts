@@ -3,25 +3,24 @@ import type { FacilityCategory } from "../enums/facilities.ts";
 import type { FamilyId } from "../enums/families.ts";
 import type { HomeAbilityId } from "../enums/home-abilities.ts";
 
-export type Dedication =
-  | "dedicated"   // анимо закреплён, 1 на копию
-  | "flexible"    // анимо переключается между строениями
-  | "shared"      // анимо приходит и уходит
-  | "none";       // анимо не нужен
+export interface FacilityMode {
+  id: string;
+  name: string;
+  /** Уровень способности, необходимый для 100% скорости в этом режиме. */
+  required_ability_level: number;
+}
+
+export type FacilityId = string;
 
 export interface Facility {
   id: FacilityId;
   name: string;
   description?: string;
   category: FacilityCategory;
+  copies: number;
   requires_abilities: HomeAbilityId[];
   requires_families: FamilyId[];
-  required_ability_level: number;
   preferred_personality?: PartialPersonality;
+  modes: FacilityMode[];
   is_speed_capped?: boolean;
-  copies: number;
-  dedication: Dedication;
-  // image?: string;
 }
-
-export type FacilityId = string;

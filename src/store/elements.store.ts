@@ -1,7 +1,7 @@
 import { createDataStore } from "./createDataStore";
-import type { Element } from "../types/element";
+import type { ElementWithStats } from "../types/element-stats";
 
-export const useElementsStore = createDataStore<Element[]>({
+export const useElementsStore = createDataStore<ElementWithStats[]>({
   name: "elements",
   url: "data/elements.json",
   initialData: [],

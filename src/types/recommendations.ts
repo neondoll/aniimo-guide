@@ -1,71 +1,70 @@
 import type { FacilityId } from "./facility.ts";
 import type { PartialPersonality } from "./personality.ts";
-import type { PersonalityAxis, PersonalitySide } from '../constants/personality-labels.ts'
+import type { PersonalitySide } from "../constants/personality-labels.ts";
 import type { AniimoNo } from "../enums/aniimos.ts";
+import type { FamilyId } from "../enums/families.ts";
 import type { FormId } from "../enums/forms.ts";
 import type { HomeAbilityId } from "../enums/home-abilities.ts";
+import type { StageId } from "../enums/stages.ts";
 
 export type Priority = "high" | "medium" | "low";
-
-/** Максимальный уровень способности формы, поддерживающей эту букву. */
-export type SideScores = Partial<Record<PersonalitySide, number>>;
+export type Axis = "EI" | "SN" | "TF" | "JP";
 
 export interface TraitVote {
   side: string;
   priority: Priority;
 }
 
-export type FormTraitProfile = Partial<Record<PersonalityAxis, TraitVote[]>>;
+export type FormTraitProfile = Partial<Record<Axis, TraitVote[]>>;
+export type SideScores = Partial<Record<PersonalitySide, number>>;
 
-export interface FacilityMatch {
+export interface FacilityCoverage {
   facility_id: FacilityId;
   facility_name: string;
-  covers: Array<{ ability_id: HomeAbilityId; level: number }>;
-  /** Есть, только если у строения задано предпочтение. */
+  copies: number;
+  mode_id: string;
+  mode_name: string;
+  covered_ability_ids: HomeAbilityId[];
+  required_ability_level: number;
+  max_ability_level: number;
+  is_speed_capped: boolean;
   preferred_personality?: PartialPersonality;
+  family_match?: string;
 }
 
 export interface EvolutionBranch {
   to_no: AniimoNo;
   to_form_id: FormId;
-  /** Профиль целевой формы — основа для рантайм-скора. */
   target_traits: FormTraitProfile;
   target_side_scores: SideScores;
-  /** Требования к характеру текущей формы, чтобы эта ветка сработала. */
   requires_personality?: PartialPersonality;
 }
 
 export interface UpgradeSuggestion {
   ability_id: HomeAbilityId;
   current_level: number;
-  better_forms: Array<{
-    no: AniimoNo;
-    name: string;
-    form_id: FormId;
-    is_rare: boolean;
-    level: number;
-  }>;
+  better_forms: Array<{ no: AniimoNo; name: string; form_id: FormId; is_rare: boolean; level: number }>;
 }
 
 export interface FormRecommendation {
+  form_key: string;
   no: AniimoNo;
   name: string;
   form_id: FormId;
+  family_id: FamilyId;
   is_final: boolean;
   is_rare: boolean;
   season?: number;
-  /** Профиль по характеру для этой формы. */
+  stage?: StageId;
+  image?: string;
+  fixed_personality?: PartialPersonality;
   traits: FormTraitProfile;
   side_scores: SideScores;
-  /** Строения, на которых эта форма может работать. */
-  facility_matches: FacilityMatch[];
-  /** Для нефинальных — куда можно эволюционировать, с портретом целевой формы. */
+  facility_matches: FacilityCoverage[];
   evolution_branches: EvolutionBranch[];
   upgrade_suggestions: UpgradeSuggestion[];
-  fixed_personality?: PartialPersonality;
 }
 
 export interface Recommendations {
-  /** Ключ — `${no}:${form_id}`. */
   forms: Record<string, FormRecommendation>;
 }
