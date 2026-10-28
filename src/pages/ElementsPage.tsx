@@ -1,73 +1,66 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import { Card } from "@/components/Card";
-import { ElementBadge } from "@/components/ElementBadge";
-import { useElementsStore } from "@/store/elements.store";
+import { Card } from '@/components/Card';
+import { ElementBadge } from '@/components/ElementBadge';
+import { useElementsStore } from '@/store/elements.store';
 
 export function ElementsPage() {
   const elements = useElementsStore((s) => s.data);
-  const [open, setOpen] = useState<string | null>(null);
+  const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <div className="p-6 mx-auto space-y-6 max-w-4xl">
+    <div className="p-6 max-w-4xl mx-auto space-y-6">
       <h1 className="text-3xl font-bold text-primary">Элементы</h1>
-
       <div className="space-y-3">
         {elements.map((el) => (
-          <Card className="p-4" key={el.id}>
+          <Card key={el.id} className="p-4 overflow-hidden">
             <button
-              className="flex gap-3 justify-between items-center w-full text-left"
-              onClick={() => setOpen(open === el.id ? null : el.id)}
               type="button"
+              onClick={() => setOpenId(openId === el.id ? null : el.id)}
+              className="w-full flex flex-wrap items-center justify-between gap-3 text-left"
             >
-              <div className="flex gap-3 items-center">
-                <ElementBadge color={el.color} name={el.name} size="md" />
+              <div className="flex items-center gap-3">
+                <ElementBadge name={el.name} color={el.color} size="md" />
                 <span className="text-sm text-tertiary">{el.id}</span>
               </div>
-
-              <div className="flex gap-3 text-sm text-secondary">
+              <div className="flex gap-4 text-sm text-secondary">
                 <span>Анимо: <strong className="text-primary">{el.aniimo_count}</strong></span>
                 <span>Строения: <strong className="text-primary">{el.facility_count}</strong></span>
               </div>
             </button>
 
-            {open === el.id && (
-              <div className="grid gap-4 mt-4 md:grid-cols-2">
+            {openId === el.id && (
+              <div className="mt-4 pt-4 border-t border-secondary grid gap-6 md:grid-cols-2 animate-fadeIn">
                 <div>
-                  <h3 className="mb-2 text-sm font-semibold text-primary uppercase">Анимо</h3>
+                  <h3 className="text-xs font-bold text-tertiary uppercase mb-2">Анимо с этим элементом</h3>
                   {el.aniimos.length === 0 ? (
                     <p className="text-sm text-tertiary">Нет</p>
                   ) : (
-                    <ul className="space-y-1 text-sm text-secondary">
+                    <ul className="space-y-1.5 text-sm text-secondary">
                       {el.aniimos.map((a) => (
-                        <li key={`${a.no}:${a.form_id}`}>
-                          <a className="hover:underline" href={`#/aniimos/${a.no}-${a.form_id}`}>
+                        <li key={`${a.no}:${a.form_id}`} className="flex justify-between">
+                          <a href={`#/aniimos/${a.no}-${a.form_id}`} className="hover:underline text-brand-600">
                             #{a.no} {a.name} ({a.form_id})
                           </a>
-                          {" "}
                           <span className="text-tertiary">ур.{a.level}</span>
                         </li>
                       ))}
                     </ul>
                   )}
                 </div>
-
                 <div>
-                  <h3 className="mb-2 text-sm font-semibold text-primary uppercase">Строения</h3>
+                  <h3 className="text-xs font-bold text-tertiary uppercase mb-2">Требуется на строениях</h3>
                   {el.facilities.length === 0 ? (
-                    <p className="text-tertiary text-sm">Нет</p>
+                    <p className="text-sm text-tertiary">Нет</p>
                   ) : (
-                    <ul className="space-y-1 text-sm text-secondary">
+                    <ul className="space-y-2 text-sm text-secondary">
                       {el.facilities.map((f) => (
                         <li key={f.facility_id}>
-                          <span className="text-primary">{f.facility_name}</span>
-                          <span className="text-tertiary"> · {f.copies} коп.</span>
-                          {" "}
-                          {f.modes.map((m) => (
-                            <span className="text-tertiary" key={m.mode_id}>
-                              {m.mode_name} (ур.{m.required_ability_level})
-                            </span>
-                          ))}
+                          <div className="text-primary font-medium">{f.facility_name}
+                            <span className="text-tertiary text-xs">({f.copies} коп.)</span></div>
+                          <div className="text-xs text-tertiary">
+                            {f.modes.map((m) => `${m.mode_name}: ур.${m.required_ability_level}`).join(' · ')}
+                          </div>
                         </li>
                       ))}
                     </ul>
@@ -81,4 +74,3 @@ export function ElementsPage() {
     </div>
   );
 }
-

@@ -1,4 +1,4 @@
-import type { ElementId } from "../enums/elements.ts";
+import type { ElementId } from '../enums/elements.ts';
 
 export interface Element {
   id: ElementId;

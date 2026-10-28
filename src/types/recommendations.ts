@@ -1,14 +1,13 @@
-import type { FacilityId } from "./facility.ts";
-import type { PartialPersonality } from "./personality.ts";
-import type { PersonalitySide } from "../constants/personality-labels.ts";
-import type { AniimoNo } from "../enums/aniimos.ts";
-import type { FamilyId } from "../enums/families.ts";
-import type { FormId } from "../enums/forms.ts";
-import type { HomeAbilityId } from "../enums/home-abilities.ts";
-import type { StageId } from "../enums/stages.ts";
+import type { PartialPersonality } from './personality.ts';
+import type { AniimoNo } from '../enums/aniimos.ts'
+import type { FamilyId } from '../enums/families.ts'
+import type { FormId } from '../enums/forms.ts';
+import type { HomeAbilityId } from '../enums/home-abilities.ts';
+import type { StageId } from '../enums/stages.ts';
 
-export type Priority = "high" | "medium" | "low";
-export type Axis = "EI" | "SN" | "TF" | "JP";
+export type Priority = 'high' | 'medium' | 'low';
+export type Axis = 'EI' | 'SN' | 'TF' | 'JP';
+export type PersonalitySide = 'E' | 'I' | 'S' | 'N' | 'T' | 'F' | 'J' | 'P';
 
 export interface TraitVote {
   side: string;
@@ -19,7 +18,7 @@ export type FormTraitProfile = Partial<Record<Axis, TraitVote[]>>;
 export type SideScores = Partial<Record<PersonalitySide, number>>;
 
 export interface FacilityCoverage {
-  facility_id: FacilityId;
+  facility_id: string;
   facility_name: string;
   copies: number;
   mode_id: string;

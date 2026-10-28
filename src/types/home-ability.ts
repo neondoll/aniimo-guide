@@ -1,4 +1,4 @@
-import type { HomeAbilityId } from "../enums/home-abilities.ts";
+import type { HomeAbilityId } from '../enums/home-abilities.ts';
 
 export interface HomeAbility {
   id: HomeAbilityId;

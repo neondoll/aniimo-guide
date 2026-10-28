@@ -1,19 +1,22 @@
-import type { PartialPersonality } from "./personality.ts";
-import type { FacilityCategory } from "../enums/facilities.ts";
-import type { FamilyId } from "../enums/families.ts";
-import type { HomeAbilityId } from "../enums/home-abilities.ts";
+import type { PartialPersonality } from './personality.ts';
+import type { FamilyId } from '../enums/families.ts'
+import type { HomeAbilityId } from '../enums/home-abilities.ts';
+
+export type FacilityCategory =
+  | 'material_production'
+  | 'material_processing'
+  | 'item_production'
+  | 'utility'
+  | 'aniimo_objects';
 
 export interface FacilityMode {
   id: string;
   name: string;
-  /** Уровень способности, необходимый для 100% скорости в этом режиме. */
   required_ability_level: number;
 }
 
-export type FacilityId = string;
-
 export interface Facility {
-  id: FacilityId;
+  id: string;
   name: string;
   description?: string;
   category: FacilityCategory;
@@ -21,6 +24,6 @@ export interface Facility {
   requires_abilities: HomeAbilityId[];
   requires_families: FamilyId[];
   preferred_personality?: PartialPersonality;
-  modes: FacilityMode[];
+  modes?: FacilityMode[];
   is_speed_capped?: boolean;
 }

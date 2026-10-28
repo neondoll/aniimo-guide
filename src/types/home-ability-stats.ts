@@ -1,7 +1,6 @@
-import type { FacilityId } from "./facility";
-import type { AniimoNo } from "../enums/aniimos";
-import type { FormId } from '../enums/forms';
-import type { HomeAbilityId } from '../enums/home-abilities';
+import type { AniimoNo } from '../enums/aniimos.ts'
+import type { FormId } from '../enums/forms.ts';
+import type { HomeAbilityId } from '../enums/home-abilities.ts';
 
 export interface HomeAbilityAniimoRef {
   no: AniimoNo;
@@ -11,7 +10,7 @@ export interface HomeAbilityAniimoRef {
 }
 
 export interface HomeAbilityFacilityRef {
-  facility_id: FacilityId;
+  facility_id: string;
   facility_name: string;
   copies: number;
   modes: Array<{ mode_id: string; mode_name: string; required_ability_level: number }>;

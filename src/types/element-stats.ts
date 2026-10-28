@@ -1,7 +1,6 @@
-import type { FacilityId } from "./facility";
-import type { AniimoNo } from "../enums/aniimos";
-import type { ElementId } from '../enums/elements';
-import type { FormId } from '../enums/forms';
+import type { AniimoNo } from '../enums/aniimos.ts'
+import type { ElementId } from '../enums/elements.ts';
+import type { FormId } from '../enums/forms.ts';
 
 export interface ElementAniimoRef {
   no: AniimoNo;
@@ -11,7 +10,7 @@ export interface ElementAniimoRef {
 }
 
 export interface ElementFacilityRef {
-  facility_id: FacilityId;
+  facility_id: string;
   facility_name: string;
   copies: number;
   modes: Array<{ mode_id: string; mode_name: string; required_ability_level: number }>;
@@ -21,11 +20,8 @@ export interface ElementWithStats {
   id: ElementId;
   name: string;
   color: string;
-  /** Количество анимо-форм, у которых есть этот элемент. */
   aniimo_count: number;
-  /** Список ссылок для детальной страницы. */
   aniimos: ElementAniimoRef[];
-  /** Строения, где этот элемент фигурирует в способностях. */
   facility_count: number;
   facilities: ElementFacilityRef[];
 }
