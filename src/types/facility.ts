@@ -1,27 +1,29 @@
-import type { PartialPersonality } from "./personality.ts";
-import type { FacilityCategory } from "../enums/facilities.ts";
-import type { FamilyId } from "../enums/families.ts";
-import type { HomeAbilityId } from "../enums/home-abilities.ts";
+import type { PartialPersonality } from './personality.ts';
+import type { FamilyId } from '../enums/families.ts'
+import type { HomeAbilityId } from '../enums/home-abilities.ts';
 
-export type Dedication =
-  | "dedicated"   // анимо закреплён, 1 на копию
-  | "flexible"    // анимо переключается между строениями
-  | "shared"      // анимо приходит и уходит
-  | "none";       // анимо не нужен
+export type FacilityCategory =
+  | 'material_production'
+  | 'material_processing'
+  | 'item_production'
+  | 'utility'
+  | 'aniimo_objects';
+
+export interface FacilityMode {
+  id: string;
+  name: string;
+  required_ability_level: number;
+}
 
 export interface Facility {
-  id: FacilityId;
+  id: string;
   name: string;
   description?: string;
   category: FacilityCategory;
+  copies: number;
   requires_abilities: HomeAbilityId[];
   requires_families: FamilyId[];
-  required_ability_level: number;
   preferred_personality?: PartialPersonality;
+  modes?: FacilityMode[];
   is_speed_capped?: boolean;
-  copies: number;
-  dedication: Dedication;
-  // image?: string;
 }
-
-export type FacilityId = string;

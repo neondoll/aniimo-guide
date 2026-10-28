@@ -1,27 +1,19 @@
-import type { PartialPersonality } from "./personality.ts";
-import type { AniimoNo } from "../enums/aniimos.ts";
-import type { ElementId } from "../enums/elements.ts";
-import type { FamilyId } from "../enums/families.ts";
-import type { FormId } from "../enums/forms.ts";
-import type { HomeAbilityId } from "../enums/home-abilities.ts";
+import type { PartialPersonality } from './personality.ts';
+import type { AniimoNo } from '../enums/aniimos.ts'
+import type { ElementId } from '../enums/elements.ts';
+import type { FamilyId } from '../enums/families.ts'
+import type { FormId } from '../enums/forms.ts';
+import type { HomeAbilityId } from '../enums/home-abilities.ts';
+import type { StageId } from '../enums/stages.ts';
 
-export interface Aniimo {
-  no: AniimoNo;
-  name: string;
-  family_id: FamilyId;
-  forms: AniimoForm[];
+export interface ElementAssignment {
+  id: ElementId;
+  level: number;
 }
 
-export interface AniimoForm {
-  form_id: FormId;
-  element_ids: ElementId[];
-  home_abilities: HomeAbilityAssignment[];
-  fixed_personality?: PartialPersonality;
-  evolves_to: EvolutionEdge[];
-  is_final: boolean;
-  season?: number;
-  image?: string;
-  unique_group?: string;  // 'starter' | 'shop_ritmos' | undefined
+export interface HomeAbilityAssignment {
+  id: HomeAbilityId;
+  level: number;
 }
 
 export interface EvolutionEdge {
@@ -30,7 +22,21 @@ export interface EvolutionEdge {
   requires_personality?: PartialPersonality;
 }
 
-export interface HomeAbilityAssignment {
-  id: HomeAbilityId;
-  level: number;
+export interface AniimoForm {
+  stage?: StageId;
+  form_id: FormId;
+  elements: ElementAssignment[];
+  home_abilities: HomeAbilityAssignment[];
+  fixed_personality?: PartialPersonality;
+  evolves_to: EvolutionEdge[];
+  is_final: boolean;
+  season?: number;
+  image?: string;
+}
+
+export interface Aniimo {
+  no: AniimoNo;
+  name: string;
+  family_id: FamilyId;
+  forms: AniimoForm[];
 }

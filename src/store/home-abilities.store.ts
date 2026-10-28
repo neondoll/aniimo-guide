@@ -1,8 +1,8 @@
-import { createDataStore } from "./createDataStore";
-import type { HomeAbility } from "../types/home-ability";
+import { createDataStore } from './createDataStore';
+import type { HomeAbilityWithStats } from '../types/home-ability-stats';
 
-export const useHomeAbilitiesStore = createDataStore<HomeAbility[]>({
-  name: "home-abilities",
-  url: "data/home-abilities.json",
+export const useHomeAbilitiesStore = createDataStore<HomeAbilityWithStats[]>({
+  name: 'home-abilities',
+  url: 'data/home-abilities.json',
   initialData: [],
 });
