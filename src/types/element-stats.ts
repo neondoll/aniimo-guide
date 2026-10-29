@@ -7,6 +7,7 @@ export interface ElementAniimoRef {
   name: string;
   form_id: FormId;
   level: number;
+  element_colors: string[];
 }
 
 export interface ElementFacilityRef {

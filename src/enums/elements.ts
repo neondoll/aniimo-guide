@@ -9,16 +9,5 @@ export const ElementIds = {
   /* Вода */ Water: "water",
   /* Ветер */ Wind: "wind",
 } as const;
-export const ElementOrder: readonly ElementId[] = [
-  ElementIds.Ice,
-  ElementIds.Water,
-  ElementIds.Lightning,
-  ElementIds.Fire,
-  ElementIds.Grass,
-  ElementIds.Earth,
-  ElementIds.Wind,
-  ElementIds.Dark,
-  ElementIds.Light,
-];
 
 export type ElementId = (typeof ElementIds)[keyof typeof ElementIds];

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AniimoAvatar } from '@/components/AniimoAvatar.tsx'
 import { Badge } from '@/components/base/badges/badges';
 import { Card } from '@/components/Card';
 import { ElementBadge } from '@/components/ElementBadge';
@@ -39,39 +40,44 @@ export function AniimosPage() {
   }, [aniimos]);
 
   return (
-    <div className="p-6 space-y-10 max-w-6xl mx-auto">
+    <div className="p-6 mx-auto space-y-10 max-w-6xl">
       <h1 className="text-3xl font-bold text-primary">Анимо</h1>
 
       {byFamily.map(([familyId, members]) => {
         const family = familyById.get(familyId);
+
         return (
           <section key={familyId}>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex gap-3 items-center mb-4">
               <h2 className="text-xl font-semibold text-primary">{family?.name ?? familyId}</h2>
               <Badge color="gray" size="sm">#{familyId} · {members.length} вид(ов)</Badge>
             </div>
 
-            <div className="grid gap-4 md:grid-cols-2">
+            <div className="grid gap-4 items-start md:grid-cols-2">
               {members.map((a) => (
-                <Card key={a.no} className="overflow-hidden">
+                <Card className="overflow-hidden divide-y divide-secondary" key={a.no}>
                   {a.forms.map((f) => {
                     const formInfo = formById.get(f.form_id);
-                    const mainElement = elementById.get(f.elements[0]?.id);
+                    const colors = f.elements
+                      .map((el) => elementById.get(el.id)?.color)
+                      .filter((c): c is string => !!c);
 
                     return (
                       <Link
+                        className="block relative p-4 transition-colors hover:bg-secondary/20"
                         key={f.form_id}
                         to={`/aniimos/${a.no}-${f.form_id}`}
-                        className="block relative border-b border-secondary last:border-b-0 hover:bg-secondary/20 transition-colors p-4"
                       >
                         <div
-                          className="absolute left-0 top-0 bottom-0 w-1"
-                          style={{ backgroundColor: mainElement?.color ?? '#ccc' }}
+                          className="absolute top-0 bottom-0 left-0 w-1"
+                          style={{ backgroundColor: elementById.get(f.elements[0]?.id)?.color ?? '#ccc' }}
                         />
 
-                        <div className="flex items-start justify-between gap-4">
-                          <div className="space-y-2">
-                            <div className="flex items-baseline gap-2 flex-wrap">
+                        <div className="flex gap-4 items-start">
+                          <AniimoAvatar colors={colors} name={a.name} size="md" />
+
+                          <div className="flex-1 space-y-2 min-w-0">
+                            <div className="flex flex-wrap gap-2 items-baseline">
                               <h3 className="text-lg font-bold text-primary">#{a.no} {a.name}</h3>
                               <span className="text-sm font-medium text-tertiary">({formInfo?.name ?? f.form_id})</span>
                               {f.is_final && <Badge color="success" size="sm">Финал</Badge>}
@@ -83,10 +89,10 @@ export function AniimosPage() {
                             <div className="flex flex-wrap gap-1.5">
                               {f.elements.map((el) => (
                                 <ElementBadge
-                                  key={el.id}
-                                  name={elementById.get(el.id)?.name ?? el.id}
                                   color={elementById.get(el.id)?.color}
+                                  key={el.id}
                                   level={el.level}
+                                  name={elementById.get(el.id)?.name ?? el.id}
                                 />
                               ))}
                             </div>
@@ -94,10 +100,10 @@ export function AniimosPage() {
                             <div className="flex flex-wrap gap-1.5">
                               {f.home_abilities.map((ha) => (
                                 <ElementBadge
-                                  key={ha.id}
-                                  name={abilityById.get(ha.id)?.name ?? ha.id}
                                   color={abilityById.get(ha.id)?.color}
+                                  key={ha.id}
                                   level={ha.level}
+                                  name={abilityById.get(ha.id)?.name ?? ha.id}
                                 />
                               ))}
                             </div>

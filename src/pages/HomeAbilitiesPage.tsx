@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { AniimoAvatar } from '@/components/AniimoAvatar';
 import { Card } from '@/components/Card';
 import { ElementBadge } from '@/components/ElementBadge';
 import { useHomeAbilitiesStore } from '@/store/home-abilities.store';
@@ -9,20 +10,22 @@ export function HomeAbilitiesPage() {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <div className="p-6 max-w-4xl mx-auto space-y-6">
+    <div className="p-6 mx-auto space-y-6 max-w-4xl">
       <h1 className="text-3xl font-bold text-primary">Способности дома</h1>
+
       <div className="space-y-3">
         {abilities.map((ab) => (
-          <Card key={ab.id} className="p-4 overflow-hidden">
+          <Card className="overflow-hidden p-4" key={ab.id}>
             <button
-              type="button"
+              className="flex flex-wrap gap-3 justify-between items-center w-full text-left"
               onClick={() => setOpenId(openId === ab.id ? null : ab.id)}
-              className="w-full flex flex-wrap items-center justify-between gap-3 text-left"
+              type="button"
             >
-              <div className="flex items-center gap-3">
-                <ElementBadge name={ab.name} color={ab.color} size="md" />
+              <div className="flex gap-3 items-center">
+                <ElementBadge color={ab.color} name={ab.name} size="md" />
                 <span className="text-sm text-tertiary">{ab.id}</span>
               </div>
+
               <div className="flex gap-4 text-sm text-secondary">
                 <span>Анимо: <strong className="text-primary">{ab.aniimo_count}</strong></span>
                 <span>Строения: <strong className="text-primary">{ab.facility_count}</strong></span>
@@ -30,34 +33,47 @@ export function HomeAbilitiesPage() {
             </button>
 
             {openId === ab.id && (
-              <div className="mt-4 pt-4 border-t border-secondary grid gap-6 md:grid-cols-2 animate-fadeIn">
+              <div className="grid gap-6 pt-4 mt-4 border-t border-secondary md:grid-cols-2">
                 <div>
-                  <h3 className="text-xs font-bold text-tertiary uppercase mb-2">Анимо со способностью</h3>
+                  <h3 className="mb-2 text-xs font-bold text-tertiary uppercase">Анимо со способностью</h3>
+
                   {ab.aniimos.length === 0 ? (
                     <p className="text-sm text-tertiary">Нет</p>
                   ) : (
                     <ul className="space-y-1.5 text-sm text-secondary">
                       {ab.aniimos.map((a) => (
-                        <li key={`${a.no}:${a.form_id}`} className="flex justify-between">
-                          <a href={`#/aniimos/${a.no}-${a.form_id}`} className="hover:underline text-brand-600">
-                            #{a.no} {a.name} ({a.form_id})
-                          </a>
-                          <span className="text-tertiary">ур.{a.level}</span>
+                        <li className="flex gap-2 justify-between items-center" key={`${a.no}:${a.form_id}`}>
+                          <div className="flex gap-2 items-center min-w-0">
+                            <AniimoAvatar colors={a.element_colors} name={a.name} size="sm" />
+
+                            <a
+                              className="text-brand-600 truncate hover:underline"
+                              href={`#/aniimos/${a.no}-${a.form_id}`}
+                            >
+                              #{a.no} {a.name} ({a.form_id})
+                            </a>
+                          </div>
+
+                          <span className="shrink-0 text-tertiary">ур.{a.level}</span>
                         </li>
                       ))}
                     </ul>
                   )}
                 </div>
+
                 <div>
-                  <h3 className="text-xs font-bold text-tertiary uppercase mb-2">Требуется на строениях</h3>
+                  <h3 className="mb-2 text-xs font-bold text-tertiary uppercase">Требуется на строениях</h3>
+
                   {ab.facilities.length === 0 ? (
                     <p className="text-sm text-tertiary">Нет</p>
                   ) : (
                     <ul className="space-y-2 text-sm text-secondary">
                       {ab.facilities.map((f) => (
                         <li key={f.facility_id}>
-                          <div className="text-primary font-medium">{f.facility_name}
-                            <span className="text-tertiary text-xs">({f.copies} коп.)</span></div>
+                          <div className="text-primary font-medium">
+                            {f.facility_name} <span className="text-xs text-tertiary">({f.copies} коп.)</span>
+                          </div>
+
                           <div className="text-xs text-tertiary">
                             {f.modes.map((m) => `${m.mode_name}: ур.${m.required_ability_level}`).join(' · ')}
                           </div>
