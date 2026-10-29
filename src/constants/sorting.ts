@@ -1,5 +1,5 @@
 import { type ElementId, ElementIds } from '../enums/elements.ts';
-import { type HomeAbilityId, HomeAbilityIds } from '../enums/home-abilities.ts';
+import { type HomelandAbilityId, HomelandAbilityIds } from '../enums/homeland-abilities.ts';
 
 export const ELEMENT_ORDER: readonly ElementId[] = [
   ElementIds.Ice,
@@ -13,20 +13,11 @@ export const ELEMENT_ORDER: readonly ElementId[] = [
   ElementIds.Light,
 ];
 
-export const HOME_ABILITY_ORDER: readonly HomeAbilityId[] = [
-  HomeAbilityIds.Ice,
-  HomeAbilityIds.Water,
-  HomeAbilityIds.Lightning,
-  HomeAbilityIds.Fire,
-  HomeAbilityIds.Grass,
-  HomeAbilityIds.Earth,
-  HomeAbilityIds.Wind,
-  HomeAbilityIds.Dark,
-  HomeAbilityIds.Light,
-  HomeAbilityIds.Hauling,
-  HomeAbilityIds.Artisanship,
-  HomeAbilityIds.Leisure,
-  HomeAbilityIds.Perfumery,
+export const HOME_ABILITY_ORDER: readonly HomelandAbilityId[] = [
+  HomelandAbilityIds.Hauling,
+  HomelandAbilityIds.Artisanship,
+  HomelandAbilityIds.Leisure,
+  HomelandAbilityIds.Perfumery,
 ];
 
 export function compareByOrder<T extends string>(order: readonly T[], a: T, b: T): number {

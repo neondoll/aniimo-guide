@@ -1,6 +1,6 @@
 import type { PartialPersonality } from './personality.ts';
-import type { FamilyId } from '../enums/families.ts'
-import type { HomeAbilityId } from '../enums/home-abilities.ts';
+import type { ElementId } from '../enums/elements.ts'
+import type { HomelandAbilityId } from '../enums/homeland-abilities.ts';
 
 export type FacilityCategory =
   | 'material_production'
@@ -21,8 +21,8 @@ export interface Facility {
   description?: string;
   category: FacilityCategory;
   copies: number;
-  requires_abilities: HomeAbilityId[];
-  requires_families: FamilyId[];
+  requires_abilities: Array<ElementId | HomelandAbilityId>;
+  requires_families: string[];
   preferred_personality?: PartialPersonality;
   modes?: FacilityMode[];
   is_speed_capped?: boolean;

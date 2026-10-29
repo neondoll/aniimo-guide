@@ -1,8 +1,8 @@
 import type { PartialPersonality } from './personality.ts';
-import type { AniimoNo } from '../enums/aniimos.ts'
-import type { FamilyId } from '../enums/families.ts'
+import type { ElementId } from '../enums/elements.ts'
 import type { FormId } from '../enums/forms.ts';
-import type { HomeAbilityId } from '../enums/home-abilities.ts';
+import type { HomelandAbilityId } from '../enums/homeland-abilities.ts';
+import type { RegionId } from '../enums/regions.ts'
 import type { StageId } from '../enums/stages.ts';
 
 export type Priority = 'high' | 'medium' | 'low';
@@ -23,7 +23,7 @@ export interface FacilityCoverage {
   copies: number;
   mode_id: string;
   mode_name: string;
-  covered_ability_ids: HomeAbilityId[];
+  covered_ability_ids: Array<ElementId | HomelandAbilityId>;
   required_ability_level: number;
   max_ability_level: number;
   is_speed_capped: boolean;
@@ -32,25 +32,27 @@ export interface FacilityCoverage {
 }
 
 export interface EvolutionBranch {
-  to_no: AniimoNo;
-  to_form_id: FormId;
+  to_no: string;
+  to_form: FormId;
+  to_region?: RegionId;
   target_traits: FormTraitProfile;
   target_side_scores: SideScores;
   requires_personality?: PartialPersonality;
 }
 
 export interface UpgradeSuggestion {
-  ability_id: HomeAbilityId;
+  ability_id: HomelandAbilityId;
   current_level: number;
-  better_forms: Array<{ no: AniimoNo; name: string; form_id: FormId; is_rare: boolean; level: number }>;
+  better_forms: Array<{ region: RegionId; no: string; name: string; form: FormId; is_rare: boolean; level: number }>;
 }
 
 export interface FormRecommendation {
   form_key: string;
-  no: AniimoNo;
+  region: RegionId;
+  no: string;
   name: string;
-  form_id: FormId;
-  family_id: FamilyId;
+  form: FormId;
+  family_id: string;
   is_final: boolean;
   is_rare: boolean;
   season?: number;

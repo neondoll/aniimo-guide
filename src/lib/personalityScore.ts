@@ -1,6 +1,6 @@
 import type { PersonalitySide } from '../constants/personality-labels'
-import type { AniimoNo } from "../enums/aniimos";
 import type { FormId } from "../enums/forms";
+import type { RegionId } from '../enums/regions'
 import type { PartialPersonality, Personality } from "../types/personality";
 import type { SideScores } from "../types/recommendations";
 
@@ -22,8 +22,9 @@ export function scoreEvolution(p: PartialPersonality, sideScores: SideScores): n
 }
 
 export interface BranchScore {
-  to_no: AniimoNo;
-  to_form_id: FormId;
+  to_no: string;
+  to_form: FormId;
+  to_region?: RegionId;
   score: number;
   recommended: boolean;
   /** Требования выполнены (или их нет вовсе). */
@@ -62,8 +63,9 @@ function checkRequirements(
 export function rankBranches(
   personality: PartialPersonality,
   branches: Array<{
-    to_no: AniimoNo;
-    to_form_id: FormId;
+    to_no: string;
+    to_form: FormId;
+    to_region?: RegionId;
     target_side_scores: SideScores;
     requires_personality?: PartialPersonality;
   }>,
@@ -73,7 +75,8 @@ export function rankBranches(
 
     return {
       to_no: b.to_no,
-      to_form_id: b.to_form_id,
+      to_form: b.to_form,
+      ...(b.to_region ? { to_region: b.to_region } : {}),
       score: available ? scoreEvolution(personality, b.target_side_scores) : 0,
       recommended: false,
       available,
