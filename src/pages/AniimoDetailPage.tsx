@@ -14,10 +14,13 @@ import { useAniimosStore } from '@/store/aniimos.store';
 import { useElementsStore } from '@/store/elements.store';
 import { useFamiliesStore } from '@/store/families.store';
 import { useFormsStore } from '@/store/forms.store';
-import { useHomeAbilitiesStore } from '@/store/home-abilities.store';
+import { useHomelandAbilitiesStore } from '@/store/homeland-abilities.store';
 import { useRecommendationsStore } from '@/store/recommendations.store';
 import type { Personality } from '@/types/personality';
 import { AniimoAvatar } from '@/components/AniimoAvatar.tsx'
+import type { Form } from '@/types/form.ts'
+import type { ElementId } from '@/enums/elements.ts'
+import type { HomelandAbilityId } from '@/enums/homeland-abilities.ts'
 
 function parseSlug(slug?: string) {
   if (!slug) return { no: '' };
@@ -28,39 +31,43 @@ function parseSlug(slug?: string) {
 }
 
 export function AniimoDetailPage() {
-  const { slug } = useParams<{ slug: string }>();
+  const { region, slug } = useParams<{ region: string; slug: string }>();
   const navigate = useNavigate();
 
   const aniimos = useAniimosStore((s) => s.data);
   const elements = useElementsStore((s) => s.data);
   const forms = useFormsStore((s) => s.data);
-  const abilities = useHomeAbilitiesStore((s) => s.data);
+  const abilities = useHomelandAbilitiesStore((s) => s.data);
   const families = useFamiliesStore((s) => s.data);
   const recommendations = useRecommendationsStore((s) => s.data.forms);
 
   const [personality, setPersonality] = useState<Partial<Personality>>({});
 
   const elementById = useMemo(() => new Map(elements.map((e) => [e.id, e])), [elements]);
-  const formById = useMemo(() => new Map(forms.map((f) => [f.id, f])), [forms]);
+  const formById = useMemo(() => {
+    const map = new Map<string, Form>();
+    for (const f of forms) map.set(f.id, f);
+    return map;
+  }, [forms]);
   const abilityById = useMemo(() => new Map(abilities.map((a) => [a.id, a])), [abilities]);
   const familyById = useMemo(() => new Map(families.map((f) => [f.id, f])), [families]);
   const aniimoByNo = useMemo(() => new Map(aniimos.map((a) => [a.no, a])), [aniimos]);
 
   const { no, formId: formFromUrl } = useMemo(() => parseSlug(slug), [slug]);
-  const aniimo = useMemo(() => aniimos.find((a) => a.no === no), [aniimos, no]);
+  const aniimo = useMemo(() => aniimos.find((a) => a.region === region && a.no === no), [aniimos, no, region]);
 
   const activeFormId = useMemo(() => {
     if (!aniimo) return '';
 
-    const ids = new Set(aniimo.forms.map((f) => f.form_id));
+    const ids = new Set(aniimo.forms.map((f) => f.form));
 
     if (formFromUrl && ids.has(formFromUrl as FormId)) return formFromUrl;
 
-    return aniimo.forms.find((f) => f.form_id === 'base')?.form_id ?? aniimo.forms[0]?.form_id ?? '';
+    return aniimo.forms.find((f) => f.form === 'basic')?.form ?? aniimo.forms[0]?.form ?? '';
   }, [aniimo, formFromUrl]);
 
   const handleTabChange = (id: string) => {
-    if (aniimo) navigate(`/aniimos/${aniimo.no}-${id}`, { replace: true });
+    if (aniimo) navigate(`/aniimos/${region}/${aniimo.no}-${id}`, { replace: true });
   };
 
   if (!aniimo) {
@@ -74,19 +81,19 @@ export function AniimoDetailPage() {
 
   const family = familyById.get(aniimo.family_id);
   const sortedForms = [...aniimo.forms].sort((x, y) =>
-    x.form_id === 'base' ? -1 : y.form_id === 'base' ? 1 : x.form_id.localeCompare(y.form_id),
+    x.form === 'basic' ? -1 : y.form === 'basic' ? 1 : x.form.localeCompare(y.form),
   );
 
   const tabs: TabItem[] = sortedForms.map((form) => {
-    const rec = recommendations[`${aniimo.no}:${form.form_id}`];
+    const rec = recommendations[`${region}:${aniimo.no}:${form.form}`];
     const branches = rec ? rankBranches(personality, rec.evolution_branches) : [];
-    const formName = formById.get(form.form_id)?.name ?? form.form_id;
+    const formName = formById.get(form.form)?.name ?? form.form;
     const colors = form.elements
       .map((el) => elementById.get(el.id)?.color)
       .filter((c): c is string => !!c);
 
     return {
-      id: form.form_id,
+      id: form.form,
       label: formName,
       // badge: form.is_final ? 'финал' : undefined,
       content: (
@@ -102,7 +109,7 @@ export function AniimoDetailPage() {
             <div className="flex flex-wrap gap-2 items-baseline">
               <h2 className="text-2xl font-bold text-primary">{formName}</h2>
               {form.is_final && <Badge color="success">Финал</Badge>}
-              {formById.get(form.form_id)?.is_rare && <Badge color="purple">Редкий</Badge>}
+              {formById.get(form.form)?.is_rare && <Badge color="purple">Редкий</Badge>}
               {form.season !== undefined && <Badge color="warning">Сезон {form.season}</Badge>}
               {form.stage && <Badge color="gray">{STAGE_LABELS[form.stage]}</Badge>}
             </div>
@@ -172,7 +179,7 @@ export function AniimoDetailPage() {
                     <span className="text-tertiary">·</span>
 
                     {m.covered_ability_ids.map((id) => {
-                      const ab = abilityById.get(id);
+                      const ab = elementById.get(id as ElementId) || abilityById.get(id as HomelandAbilityId);
 
                       return (
                         <ElementBadge color={ab?.color} key={id} level={m.max_ability_level} name={ab?.name ?? id} />
@@ -193,16 +200,19 @@ export function AniimoDetailPage() {
               <ul className="space-y-2">
                 {branches.map((b) => {
                   const target = aniimoByNo.get(b.to_no);
-                  const targetFormName = formById.get(b.to_form_id)?.name ?? b.to_form_id;
+                  const targetFormName = formById.get(b.to_form)?.name ?? b.to_form;
                   const locked = !b.available && !b.unknown;
 
                   return (
                     <li
                       className={`flex flex-wrap gap-2 items-center text-sm ${b.recommended ? 'font-bold text-emerald-700' : 'text-secondary'} ${locked ? 'opacity-50' : ''}`}
-                      key={`${b.to_no}:${b.to_form_id}`}
+                      key={`${b.to_no}:${b.to_form}`}
                     >
                       <span className="text-tertiary">{locked ? '🔒' : '→'}</span>
-                      <Link className="hover:underline" to={`/aniimos/${b.to_no}-${b.to_form_id}`}>
+                      <Link
+                        className="hover:underline"
+                        to={`/aniimos/${b.to_region ?? aniimo.region}/${b.to_no}-${b.to_form}`}
+                      >
                         #{b.to_no} {target?.name ?? b.to_no}
                       </Link>
                       <span>({targetFormName})</span>
@@ -231,9 +241,12 @@ export function AniimoDetailPage() {
                       <span className="text-tertiary">→ лучше:</span>
 
                       {u.better_forms.slice(0, 3).map((b, i) => (
-                        <span key={`${b.no}:${b.form_id}`}>
+                        <span key={`${b.no}:${b.form}`}>
                           {i > 0 && ', '}
-                          <Link className="text-brand-600 hover:underline" to={`/aniimos/${b.no}-${b.form_id}`}>
+                          <Link
+                            className="text-brand-600 hover:underline"
+                            to={`/aniimos/${b.region}/${b.no}-${b.form}`}
+                          >
                             #{b.no} {b.name}
                           </Link>
                           {' '}

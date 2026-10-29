@@ -42,15 +42,15 @@ export function ElementsPage() {
                   ) : (
                     <ul className="space-y-1.5 text-sm text-secondary">
                       {el.aniimos.map((a) => (
-                        <li className="flex gap-2 justify-between items-center" key={`${a.no}:${a.form_id}`}>
+                        <li className="flex gap-2 justify-between items-center" key={`${a.region}:${a.no}:${a.form}`}>
                           <div className="flex gap-2 items-center min-w-0">
                             <AniimoAvatar colors={a.element_colors} name={a.name} size="sm" />
 
                             <a
                               className="text-brand-600 truncate hover:underline"
-                              href={`#/aniimos/${a.no}-${a.form_id}`}
+                              href={`#/aniimos/${a.region}/${a.no}-${a.form}`}
                             >
-                              #{a.no} {a.name} ({a.form_id})
+                              #{a.no} {a.name} ({a.form})
                             </a>
                           </div>
 

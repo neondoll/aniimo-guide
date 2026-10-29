@@ -1,8 +1,8 @@
-import type { AniimoNo } from "../enums/aniimos.ts";
-import type { FamilyId } from "../enums/families.ts";
+import type { RegionId } from '../enums/regions.ts'
 
 export interface Family {
-  id: FamilyId;         // = no самого младшего
+  region: RegionId;
+  id: string;
   name: string;
-  member_nos: AniimoNo[];
+  member_nos: string[];
 }

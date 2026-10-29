@@ -5,15 +5,20 @@ import { Card } from '@/components/Card';
 import { ElementBadge } from '@/components/ElementBadge';
 import { useFacilitiesStore } from '@/store/facilities.store';
 import { useFamiliesStore } from '@/store/families.store';
-import { useHomeAbilitiesStore } from '@/store/home-abilities.store';
+import { useHomelandAbilitiesStore } from '@/store/homeland-abilities.store';
+import { useElementsStore } from '@/store/elements.store.ts'
+import type { HomelandAbilityId } from '@/enums/homeland-abilities.ts'
+import type { ElementId } from '@/enums/elements.ts'
 
 export function FacilitiesPage() {
+  const elements = useElementsStore((s) => s.data);
   const facilities = useFacilitiesStore((s) => s.data);
-  const abilities = useHomeAbilitiesStore((s) => s.data);
+  const abilities = useHomelandAbilitiesStore((s) => s.data);
   const families = useFamiliesStore((s) => s.data);
 
+  const elementById = useMemo(() => new Map(elements.map((e) => [e.id, e])), [elements]);
   const abilityById = useMemo(() => new Map(abilities.map((a) => [a.id, a])), [abilities]);
-  const familyById = useMemo(() => new Map(families.map((f) => [f.id, f])), [families]);
+  const familyByKey = useMemo(() => new Map(families.map((f) => [`${f.region}:${f.id}`, f])), [families]);
 
   return (
     <div className="p-6 max-w-4xl mx-auto">
@@ -31,7 +36,7 @@ export function FacilitiesPage() {
               {f.requires_abilities.length > 0 && (
                 <div className="flex flex-wrap gap-2 mt-3">
                   {f.requires_abilities.map((id) => {
-                    const ab = abilityById.get(id);
+                    const ab = elementById.get(id as ElementId) || abilityById.get(id as HomelandAbilityId);
                     return <ElementBadge key={id} name={ab?.name ?? id} color={ab?.color} />;
                   })}
                 </div>
@@ -52,8 +57,8 @@ export function FacilitiesPage() {
               {f.requires_families.length > 0 && (
                 <div className="flex flex-wrap gap-2 text-sm pt-2">
                   <span className="text-tertiary">Только семейства:</span>
-                  {f.requires_families.map((famId) => (
-                    <Badge key={famId} color="purple" size="sm">{familyById.get(famId)?.name ?? famId}</Badge>
+                  {f.requires_families.map((famKey) => (
+                    <Badge key={famKey} color="purple" size="sm">{familyByKey.get(famKey)?.name ?? famKey}</Badge>
                   ))}
                 </div>
               )}

@@ -3,8 +3,9 @@ import { useElementsStore } from "./elements.store";
 import { useFacilitiesStore } from "./facilities.store";
 import { useFamiliesStore } from "./families.store";
 import { useFormsStore } from "./forms.store";
-import { useHomeAbilitiesStore } from "./home-abilities.store";
+import { useHomelandAbilitiesStore } from "./homeland-abilities.store";
 import { useRecommendationsStore } from "./recommendations.store";
+import { useRegionsStore } from '@/store/regions.store.ts'
 
 const META_URL = `${import.meta.env.BASE_URL}data/meta.json`;
 const META_CACHE_KEY = "aniimo-guide:meta-generated";
@@ -40,8 +41,9 @@ export async function bootstrapData(): Promise<void> {
     useFacilitiesStore.getState().fetchData(isStale),
     useFamiliesStore.getState().fetchData(isStale),
     useFormsStore.getState().fetchData(isStale),
-    useHomeAbilitiesStore.getState().fetchData(isStale),
+    useHomelandAbilitiesStore.getState().fetchData(isStale),
     useRecommendationsStore.getState().fetchData(isStale),
+    useRegionsStore.getState().fetchData(isStale),
   ]);
 
   const anyError =
@@ -50,8 +52,9 @@ export async function bootstrapData(): Promise<void> {
     useFacilitiesStore.getState().error ||
     useFamiliesStore.getState().error ||
     useFormsStore.getState().error ||
-    useHomeAbilitiesStore.getState().error ||
-    useRecommendationsStore.getState().error;
+    useHomelandAbilitiesStore.getState().error ||
+    useRecommendationsStore.getState().error ||
+    useRegionsStore.getState().error;
 
   if (meta && !anyError) {
     localStorage.setItem(META_CACHE_KEY, meta.generatedAt);

@@ -1,9 +1,8 @@
 import type { PartialPersonality } from './personality.ts';
-import type { AniimoNo } from '../enums/aniimos.ts'
 import type { ElementId } from '../enums/elements.ts';
-import type { FamilyId } from '../enums/families.ts'
 import type { FormId } from '../enums/forms.ts';
-import type { HomeAbilityId } from '../enums/home-abilities.ts';
+import type { HomelandAbilityId } from '../enums/homeland-abilities.ts';
+import type { RegionId } from '../enums/regions.ts'
 import type { StageId } from '../enums/stages.ts';
 
 export interface ElementAssignment {
@@ -11,22 +10,24 @@ export interface ElementAssignment {
   level: number;
 }
 
-export interface HomeAbilityAssignment {
-  id: HomeAbilityId;
+export interface HomelandAbilityAssignment {
+  id: HomelandAbilityId;
   level: number;
 }
 
 export interface EvolutionEdge {
-  to_no: AniimoNo;
-  to_form_id: FormId;
+  to_no: string;
+  to_form: FormId;
+  to_region?: RegionId;
   requires_personality?: PartialPersonality;
 }
 
 export interface AniimoForm {
   stage?: StageId;
-  form_id: FormId;
+  form: FormId;
+  region?: RegionId;
   elements: ElementAssignment[];
-  home_abilities: HomeAbilityAssignment[];
+  home_abilities: HomelandAbilityAssignment[];
   fixed_personality?: PartialPersonality;
   evolves_to: EvolutionEdge[];
   is_final: boolean;
@@ -35,8 +36,9 @@ export interface AniimoForm {
 }
 
 export interface Aniimo {
-  no: AniimoNo;
+  region: RegionId;
+  no: string;
   name: string;
-  family_id: FamilyId;
+  family_id: string;
   forms: AniimoForm[];
 }

@@ -1,11 +1,12 @@
-import type { AniimoNo } from '../enums/aniimos.ts'
 import type { ElementId } from '../enums/elements.ts';
 import type { FormId } from '../enums/forms.ts';
+import type { RegionId } from '../enums/regions.ts'
 
 export interface ElementAniimoRef {
-  no: AniimoNo;
+  region: RegionId;
+  no: string;
   name: string;
-  form_id: FormId;
+  form: FormId;
   level: number;
   element_colors: string[];
 }

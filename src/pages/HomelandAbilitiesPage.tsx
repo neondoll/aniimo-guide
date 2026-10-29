@@ -3,10 +3,10 @@ import { useState } from 'react';
 import { AniimoAvatar } from '@/components/AniimoAvatar';
 import { Card } from '@/components/Card';
 import { ElementBadge } from '@/components/ElementBadge';
-import { useHomeAbilitiesStore } from '@/store/home-abilities.store';
+import { useHomelandAbilitiesStore } from '@/store/homeland-abilities.store';
 
-export function HomeAbilitiesPage() {
-  const abilities = useHomeAbilitiesStore((s) => s.data);
+export function HomelandAbilitiesPage() {
+  const abilities = useHomelandAbilitiesStore((s) => s.data);
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
@@ -42,15 +42,15 @@ export function HomeAbilitiesPage() {
                   ) : (
                     <ul className="space-y-1.5 text-sm text-secondary">
                       {ab.aniimos.map((a) => (
-                        <li className="flex gap-2 justify-between items-center" key={`${a.no}:${a.form_id}`}>
+                        <li className="flex gap-2 justify-between items-center" key={`${a.region}:${a.no}:${a.form}`}>
                           <div className="flex gap-2 items-center min-w-0">
                             <AniimoAvatar colors={a.element_colors} name={a.name} size="sm" />
 
                             <a
                               className="text-brand-600 truncate hover:underline"
-                              href={`#/aniimos/${a.no}-${a.form_id}`}
+                              href={`#/aniimos/${a.region}/${a.no}-${a.form}`}
                             >
-                              #{a.no} {a.name} ({a.form_id})
+                              #{a.no} {a.name} ({a.form})
                             </a>
                           </div>
 

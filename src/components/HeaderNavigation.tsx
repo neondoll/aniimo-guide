@@ -5,7 +5,7 @@ import { cx } from "@/utils/cx";
 const NAV_ITEMS = [
   { to: "/aniimos", label: "Анимо" },
   { to: "/elements", label: "Элементы" },
-  { to: "/home-abilities", label: "Способности" },
+  { to: "/homeland-abilities", label: "Способности" },
   { to: "/facilities", label: "Строения" },
   { to: "/tools/evolution", label: "Калькулятор", end: true },
   { to: "/about", label: "О сайте" },
