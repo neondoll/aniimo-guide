@@ -1,4 +1,4 @@
-import { elements } from "./elements.source.ts";
+import { elements } from './elements.source.ts'
 import { HomeAbilityIds } from "../src/enums/home-abilities.ts";
 import type { HomeAbility } from "../src/types/home-ability.ts";
 

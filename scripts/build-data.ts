@@ -351,90 +351,84 @@ function computeStats(mergedAniimos: Aniimo[], facilitiesList: Facility[]) {
     const modes = f.modes && f.modes.length > 0
       ? f.modes
       : [{ id: 'default', name: 'По умолчанию', required_ability_level: f.requires_abilities.length > 0 ? 1 : 0 }];
-
     return { ...f, resolved_modes: modes };
   });
 
+  const elementColorById = new Map(elements.map((e) => [e.id, e.color]));
+
+  // Элементы: считаем по form.elements
   const elementsWithStats: ElementWithStats[] = elements.map((el) => {
     const aniimosRef: ElementAniimoRef[] = [];
-
     for (const a of mergedAniimos) {
       for (const f of a.forms) {
         const match = f.elements.find((e) => e.id === el.id);
-
         if (match) {
-          aniimosRef.push({ no: a.no, name: a.name, form_id: f.form_id, level: match.level });
+          aniimosRef.push({
+            no: a.no,
+            name: a.name,
+            form_id: f.form_id,
+            level: match.level,
+            element_colors: f.elements
+              .map((e) => elementColorById.get(e.id))
+              .filter((c): c is string => !!c),
+          });
         }
       }
     }
 
     const facilitiesRef: ElementFacilityRef[] = [];
-
     for (const f of resolvedFacilities) {
       if (!f.requires_abilities.includes(el.id)) continue;
-
       facilitiesRef.push({
         facility_id: f.id,
         facility_name: f.name,
         copies: f.copies,
-        modes: f.resolved_modes.map((m) => ({
-          mode_id: m.id,
-          mode_name: m.name,
-          required_ability_level: m.required_ability_level,
-        })),
+        modes: f.resolved_modes.map((m) => ({ mode_id: m.id, mode_name: m.name, required_ability_level: m.required_ability_level })),
       });
     }
 
     return {
-      id: el.id,
-      name: el.name,
-      color: el.color,
-      aniimo_count: aniimosRef.length,
-      aniimos: aniimosRef,
-      facility_count: facilitiesRef.length,
-      facilities: facilitiesRef,
+      id: el.id, name: el.name, color: el.color,
+      aniimo_count: aniimosRef.length, aniimos: aniimosRef,
+      facility_count: facilitiesRef.length, facilities: facilitiesRef,
     };
   });
 
+  // Способности дома: считаем по form.home_abilities (только неэлементные)
   const homeAbilitiesWithStats: HomeAbilityWithStats[] = homeAbilities.map((ab) => {
     const aniimosRef: HomeAbilityAniimoRef[] = [];
-
     for (const a of mergedAniimos) {
       for (const f of a.forms) {
         const match = f.home_abilities.find((ha) => ha.id === ab.id);
-
         if (match) {
-          aniimosRef.push({ no: a.no, name: a.name, form_id: f.form_id, level: match.level });
+          aniimosRef.push({
+            no: a.no,
+            name: a.name,
+            form_id: f.form_id,
+            level: match.level,
+            element_colors: f.elements
+              .map((e) => elementColorById.get(e.id))
+              .filter((c): c is string => !!c),
+          });
         }
       }
     }
 
     const facilitiesRef: HomeAbilityFacilityRef[] = [];
-
     for (const f of resolvedFacilities) {
       if (!f.requires_abilities.includes(ab.id)) continue;
-
       facilitiesRef.push({
         facility_id: f.id,
         facility_name: f.name,
         copies: f.copies,
-        modes: f.resolved_modes.map((m) => ({
-          mode_id: m.id,
-          mode_name: m.name,
-          required_ability_level: m.required_ability_level,
-        })),
+        modes: f.resolved_modes.map((m) => ({ mode_id: m.id, mode_name: m.name, required_ability_level: m.required_ability_level })),
       });
     }
 
     return {
-      id: ab.id,
-      name: ab.name,
-      description: ab.description,
-      color: ab.color,
-      aniimo_count: aniimosRef.length,
-      aniimos: aniimosRef,
-      facility_count: facilitiesRef.length,
-      facilities: facilitiesRef,
+      id: ab.id, name: ab.name, description: ab.description, color: ab.color,
+      aniimo_count: aniimosRef.length, aniimos: aniimosRef,
+      facility_count: facilitiesRef.length, facilities: facilitiesRef,
     };
   });
 
