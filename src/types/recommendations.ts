@@ -21,6 +21,7 @@ export interface FacilityCoverage {
   facility_id: string;
   facility_name: string;
   copies: number;
+  estimated_aniimo_count: number;
   mode_id: string;
   mode_name: string;
   covered_ability_ids: Array<ElementId | HomelandAbilityId>;
@@ -41,7 +42,7 @@ export interface EvolutionBranch {
 }
 
 export interface UpgradeSuggestion {
-  ability_id: HomelandAbilityId;
+  ability_id: ElementId | HomelandAbilityId;
   current_level: number;
   better_forms: Array<{ region: RegionId; no: string; name: string; form: FormId; is_rare: boolean; level: number }>;
 }
@@ -64,6 +65,7 @@ export interface FormRecommendation {
   facility_matches: FacilityCoverage[];
   evolution_branches: EvolutionBranch[];
   upgrade_suggestions: UpgradeSuggestion[];
+  recommended_count: number;
 }
 
 export interface Recommendations {

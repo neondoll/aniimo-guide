@@ -21,6 +21,7 @@ export interface Facility {
   description?: string;
   category: FacilityCategory;
   copies: number;
+  estimated_aniimo_count?: number;
   requires_abilities: Array<ElementId | HomelandAbilityId>;
   requires_families: string[];
   preferred_personality?: PartialPersonality;

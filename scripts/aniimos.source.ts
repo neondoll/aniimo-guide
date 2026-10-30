@@ -127,21 +127,21 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 006 - Стелларис ───
   {
     aniimo: Aniimos.Stellarys,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Stellarys,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Rainfall,
     elements: [{ id: ElementIds.Dark, level: 3 }, { id: ElementIds.Water, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Stellarys,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Dark, level: 4 }, { id: ElementIds.Ice, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 4 }],
@@ -294,49 +294,49 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 012 - Ирисаль ───
   {
     aniimo: Aniimos.Irisal,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Irisal,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Highland,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Irisal,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Forest,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Irisal,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Grassland,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Irisal,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Grass, level: 4 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 4 }],
   },
   {
     aniimo: Aniimos.Irisal,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Plateau,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Irisal,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.MountainWoods,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
@@ -454,35 +454,35 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 018 - Турбо ───
   {
     aniimo: Aniimos.Turbo,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Wind, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Turbo,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Rainfall,
     elements: [{ id: ElementIds.Wind, level: 3 }, { id: ElementIds.Lightning, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Turbo,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Cloudmist,
     elements: [{ id: ElementIds.Wind, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Turbo,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Wind, level: 4 }, { id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 4 }],
   },
   {
     aniimo: Aniimos.Turbo,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Plateau,
     elements: [{ id: ElementIds.Wind, level: 3 }, { id: ElementIds.Ice, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
@@ -490,7 +490,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 019 - Дрипл ───
   {
     aniimo: Aniimos.Dreaple,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
@@ -513,21 +513,21 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 021 - Ведьмун ───
   {
     aniimo: Aniimos.Hexxin,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Dark, level: 2 }, { id: ElementIds.Grass, level: 1 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 2 }],
   },
   {
     aniimo: Aniimos.Hexxin,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Mountain,
     elements: [{ id: ElementIds.Dark, level: 2 }, { id: ElementIds.Grass, level: 1 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 2 }],
   },
   {
     aniimo: Aniimos.Hexxin,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Dark, level: 4 }, { id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
@@ -535,14 +535,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 022 - Топотун ───
   {
     aniimo: Aniimos.Tuckin,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Tuckin,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Mountain,
     elements: [{ id: ElementIds.Grass, level: 3 }, { id: ElementIds.Earth, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -579,28 +579,28 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 024 - Кустохват ───
   {
     aniimo: Aniimos.Shrubclaw,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Earth, level: 3 }, { id: ElementIds.Grass, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Shrubclaw,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Mudflat,
     elements: [{ id: ElementIds.Earth, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Shrubclaw,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Beach,
     elements: [{ id: ElementIds.Earth, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Shrubclaw,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Bay,
     elements: [{ id: ElementIds.Earth, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -608,7 +608,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 025 - Кристаллохват ───
   {
     aniimo: Aniimos.Geoclaw,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Ice, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -646,28 +646,28 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 027 - Пламерион ───
   {
     aniimo: Aniimos.Flamerion,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Fire, level: 3 }],
     home_abilities: [],
   },
   {
     aniimo: Aniimos.Flamerion,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Highland,
     elements: [{ id: ElementIds.Fire, level: 3 }],
     home_abilities: [],
   },
   {
     aniimo: Aniimos.Flamerion,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Forest,
     elements: [{ id: ElementIds.Fire, level: 3 }],
     home_abilities: [],
   },
   {
     aniimo: Aniimos.Flamerion,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Flowerfield,
     elements: [{ id: ElementIds.Fire, level: 3 }],
     home_abilities: [],
@@ -704,28 +704,28 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 029 - Миражекрыл ───
   {
     aniimo: Aniimos.Gracewing,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Wind, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Gracewing,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Flowerfield,
     elements: [{ id: ElementIds.Wind, level: 3 }, { id: ElementIds.Grass, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Gracewing,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Nighttime,
     elements: [{ id: ElementIds.Wind, level: 3 }, { id: ElementIds.Dark, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Gracewing,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.MountainWoods,
     elements: [{ id: ElementIds.Wind, level: 3 }, { id: ElementIds.Earth, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
@@ -733,7 +733,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 030 - Снокрыл ───
   {
     aniimo: Aniimos.Somniwing,
-    stage: StageIds.Nova,
+    stage: StageIds.Legendary,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Grass, level: 4 }, { id: ElementIds.Wind, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 4 }],
@@ -749,7 +749,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 032 - Эклу ───
   {
     aniimo: Aniimos.Eklue,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Wind, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -772,28 +772,28 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 034 - Шпагошип ───
   {
     aniimo: Aniimos.Thornblade,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Thornblade,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Thunderstorm,
     elements: [{ id: ElementIds.Grass, level: 3 }, { id: ElementIds.Lightning, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Thornblade,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Grass, level: 4 }, { id: ElementIds.Water, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
   },
   {
     aniimo: Aniimos.Thornblade,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Towerwood,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -801,7 +801,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 035 - Мироцвет ───
   {
     aniimo: Aniimos.Melloblum,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -809,7 +809,7 @@ export const aniimos: AniimoFormSource[] = [
   },
   {
     aniimo: Aniimos.Melloblum,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Grass, level: 4 }, { id: ElementIds.Light, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
@@ -848,28 +848,28 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 037 - Помагавк ───
   {
     aniimo: Aniimos.Pomawk,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Pomawk,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Snowfield,
     elements: [{ id: ElementIds.Grass, level: 3 }, { id: ElementIds.Ice, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Pomawk,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Highland,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Pomawk,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Flowerfield,
     elements: [{ id: ElementIds.Grass, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -885,7 +885,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 039 - Фрагрансье ───
   {
     aniimo: Aniimos.Fragrancier,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }, { id: HomelandAbilityIds.Perfumery, level: 3 }],
@@ -915,28 +915,28 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 041 - Игнитис ───
   {
     aniimo: Aniimos.Ignitis,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Ignitis,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Forest,
     elements: [{ id: ElementIds.Dark, level: 3 }, { id: ElementIds.Grass, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Ignitis,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Dark, level: 4 }, { id: ElementIds.Fire, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
   },
   {
     aniimo: Aniimos.Ignitis,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Highland,
     elements: [{ id: ElementIds.Dark, level: 3 }, { id: ElementIds.Fire, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -1012,21 +1012,21 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 046 - Разряд ───
   {
     aniimo: Aniimos.Blazen,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Lightning, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Blazen,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Lightning, level: 4 }, { id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
   },
   {
     aniimo: Aniimos.Blazen,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.MountainWoods,
     elements: [{ id: ElementIds.Lightning, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -1042,7 +1042,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 048 - Хвостобой ───
   {
     aniimo: Aniimos.Squashel,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Fire, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 2 }],
@@ -1172,21 +1172,21 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 057 - Валитл ───
   {
     aniimo: Aniimos.Waleetle,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Earth, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Waleetle,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Snowfield,
     elements: [{ id: ElementIds.Earth, level: 3 }, { id: ElementIds.Ice, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Waleetle,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Earth, level: 4 }, { id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 4 }],
@@ -1195,14 +1195,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 058 - Камнюс ───
   {
     aniimo: Aniimos.Bouldus,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Earth, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Bouldus,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Snowfield,
     elements: [{ id: ElementIds.Earth, level: 3 }, { id: ElementIds.Ice, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -1218,14 +1218,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 060 - Фенмейн ───
   {
     aniimo: Aniimos.Fenmane,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Lightning, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Fenmane,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Lightning, level: 4 }, { id: ElementIds.Light, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }, { id: HomelandAbilityIds.Artisanship, level: 4 }],
@@ -1255,28 +1255,28 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 062 - Крутут ───
   {
     aniimo: Aniimos.Pawney,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Pawney,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Snowfield,
     elements: [{ id: ElementIds.Dark, level: 3 }, { id: ElementIds.Ice, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Pawney,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.MountainWoods,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Pawney,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Dark, level: 4 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 4 }],
@@ -1284,21 +1284,21 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 063 - Робкут ───
   {
     aniimo: Aniimos.Rookey,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Rookey,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Snowfield,
     elements: [{ id: ElementIds.Dark, level: 3 }, { id: ElementIds.Ice, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Rookey,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.MountainWoods,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -1375,14 +1375,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 069 - Грызля ───
   {
     aniimo: Aniimos.Grizbo,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Earth, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Grizbo,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Earth, level: 4 }, { id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 4 }],
@@ -1445,7 +1445,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 076 - Байлит ───
   {
     aniimo: Aniimos.Bailite,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Earth, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -1499,7 +1499,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 081 - Эрлат ───
   {
     aniimo: Aniimos.Erlath,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Water, level: 3 }],
     home_abilities: [],
@@ -1530,14 +1530,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 002 - Коралис ───
   {
     aniimo: Aniimos.Coraliz,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Earth, level: 1 }, { id: ElementIds.Water, level: 1 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 1 }],
   },
   {
     aniimo: Aniimos.Coraliz,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Rainfall,
     elements: [{ id: ElementIds.Earth, level: 1 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 1 }],
@@ -1553,7 +1553,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 004 - Гипноу ───
   {
     aniimo: Aniimos.Mesmerowl,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Wind, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -1576,14 +1576,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 006 - Капелька ───
   {
     aniimo: Aniimos.Dewple,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Water, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Dewple,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Waterfall,
     elements: [{ id: ElementIds.Water, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -1599,14 +1599,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 008 - Кошмарик ───
   {
     aniimo: Aniimos.Pouchwisp,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Pouchwisp,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Dark, level: 4 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 4 }],
@@ -1623,21 +1623,21 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 010 - Милашечка ───
   {
     aniimo: Aniimos.Glameep,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Grass, level: 3 }, { id: ElementIds.Water, level: 2 }],
     home_abilities: [],
   },
   {
     aniimo: Aniimos.Glameep,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Tempest,
     elements: [{ id: ElementIds.Grass, level: 3 }, { id: ElementIds.Wind, level: 2 }],
     home_abilities: [],
   },
   {
     aniimo: Aniimos.Glameep,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Grass, level: 4 }, { id: ElementIds.Dark, level: 3 }],
     home_abilities: [],
@@ -1654,14 +1654,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 012 - Гачапус ───
   {
     aniimo: Aniimos.Gachapus,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Water, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Gachapus,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Water, level: 4 }, { id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
@@ -1677,7 +1677,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 014 - Сладкоежка ───
   {
     aniimo: Aniimos.Sugarslime,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Ice, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }, { id: HomelandAbilityIds.Leisure, level: 3 }],
@@ -1685,14 +1685,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 015 - Сластена ───
   {
     aniimo: Aniimos.Sugartini,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Ice, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }, { id: HomelandAbilityIds.Leisure, level: 3 }],
   },
   {
     aniimo: Aniimos.Sugartini,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Ice, level: 4 }, { id: ElementIds.Water, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 4 }, { id: HomelandAbilityIds.Leisure, level: 4 }],
@@ -1708,14 +1708,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 017 - Лялия ───
   {
     aniimo: Aniimos.Scrubbit,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Water, level: 3 }],
     home_abilities: [],
   },
   {
     aniimo: Aniimos.Scrubbit,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Rainfall,
     elements: [{ id: ElementIds.Water, level: 3 }],
     home_abilities: [],
@@ -1731,7 +1731,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 019 - Крокоряга ───
   {
     aniimo: Aniimos.Crocobask,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Grass, level: 3 }, { id: ElementIds.Water, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -1747,7 +1747,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 021 - Шмелевяк ───
   {
     aniimo: Aniimos.Buffby,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Wind, level: 3 }],
     home_abilities: [],
@@ -1755,14 +1755,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 022 - Пчелонарх ───
   {
     aniimo: Aniimos.Royalby,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Wind, level: 3 }],
     home_abilities: [],
   },
   {
     aniimo: Aniimos.Royalby,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Wind, level: 4 }, { id: ElementIds.Light, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
@@ -1779,14 +1779,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 024 - Кругокусь ───
   {
     aniimo: Aniimos.Whirlbite,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Water, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Whirlbite,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Water, level: 4 }, { id: ElementIds.Dark, level: 3 }],
     home_abilities: [],
@@ -1802,21 +1802,21 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 026 - Джебстер ───
   {
     aniimo: Aniimos.Jabster,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Ice, level: 3 }, { id: ElementIds.Dark, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Jabster,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Ice, level: 4 }, { id: ElementIds.Lightning, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
   },
   {
     aniimo: Aniimos.Jabster,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Rainfall,
     elements: [{ id: ElementIds.Ice, level: 3 }, { id: ElementIds.Water, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -1839,21 +1839,21 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 028 - Волнопрыск ───
   {
     aniimo: Aniimos.Jeburst,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Water, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Jeburst,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Tempest,
     elements: [{ id: ElementIds.Water, level: 3 }, { id: ElementIds.Wind, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
   },
   {
     aniimo: Aniimos.Jeburst,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Water, level: 4 }, { id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 4 }],
@@ -1878,7 +1878,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 10001 - Ирисалис ───
   {
     aniimo: Aniimos.Irisalis,
-    stage: StageIds.Nova,
+    stage: StageIds.Legendary,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Grass, level: 4 }],
     home_abilities: [{ id: HomelandAbilityIds.Leisure, level: 4 }],
@@ -1887,7 +1887,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 10002 - Танцомон ───
   {
     aniimo: Aniimos.Dazmand,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Lightning, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -1896,7 +1896,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 10003 - Фульминтис ───
   {
     aniimo: Aniimos.Fulmintis,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Lightning, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -1904,7 +1904,7 @@ export const aniimos: AniimoFormSource[] = [
   },
   {
     aniimo: Aniimos.Fulmintis,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Lightning, level: 4 }, { id: ElementIds.Light, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
@@ -1913,7 +1913,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 10004 - Молнепрыг ───
   {
     aniimo: Aniimos.Hoptail,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Wind, level: 3 }, { id: ElementIds.Lightning, level: 2 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
@@ -1922,7 +1922,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 10006 - Гипнокрыл ───
   {
     aniimo: Aniimos.Hypnyto,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Wind, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Hauling, level: 3 }],
@@ -1930,7 +1930,7 @@ export const aniimos: AniimoFormSource[] = [
   },
   {
     aniimo: Aniimos.Hypnyto,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Wind, level: 4 }, { id: ElementIds.Light, level: 3 }],
     home_abilities: [],
@@ -1947,6 +1947,7 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 11001 - Дух дружбы ───
   {
     aniimo: Aniimos.Sparkelf,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Fire, level: 3 }],
     home_abilities: [],
@@ -1954,6 +1955,7 @@ export const aniimos: AniimoFormSource[] = [
   },
   {
     aniimo: Aniimos.Sparkelf,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Fire, level: 4 }],
     home_abilities: [],
