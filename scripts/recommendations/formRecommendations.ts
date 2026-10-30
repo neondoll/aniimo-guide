@@ -8,9 +8,7 @@ import type { HomelandAbilityId } from '../../src/enums/homeland-abilities.ts';
 import type { ElementId } from '../../src/enums/elements.ts'
 
 type Axis = 'EI' | 'SN' | 'TF' | 'JP';
-const AXIS_SIDES: Record<Axis, [string, string]> = {
-  EI: ['E', 'I'], SN: ['S', 'N'], TF: ['T', 'F'], JP: ['J', 'P'],
-};
+const AXIS_SIDES: Record<Axis, [string, string]> = { EI: ['E', 'I'], SN: ['S', 'N'], TF: ['T', 'F'], JP: ['J', 'P'] };
 
 function getAllAbilities(form: AniimoForm): Array<{ id: ElementId | HomelandAbilityId; level: number }> {
   return [
@@ -36,8 +34,12 @@ function buildFacilityMatches(form: AniimoForm, facilities: Facility[], familyId
       const covered = f.requires_abilities.filter((id) => (abilityMap.get(id) ?? 0) >= mode.required_ability_level);
       if (covered.length === 0) continue;
       matches.push({
-        facility_id: f.id, facility_name: f.name, copies: f.copies,
-        mode_id: mode.id, mode_name: mode.name,
+        facility_id: f.id,
+        facility_name: f.name,
+        copies: f.copies,
+        estimated_aniimo_count: f.estimated_aniimo_count ?? 0,
+        mode_id: mode.id,
+        mode_name: mode.name,
         covered_ability_ids: covered,
         required_ability_level: mode.required_ability_level,
         max_ability_level: Math.max(...covered.map((id) => abilityMap.get(id) ?? 0)),
@@ -49,6 +51,18 @@ function buildFacilityMatches(form: AniimoForm, facilities: Facility[], familyId
   }
   matches.sort((a, b) => a.facility_name.localeCompare(b.facility_name) || a.mode_name.localeCompare(b.mode_name));
   return matches;
+}
+
+function computeRecommendedCount(matches: FacilityCoverage[]): number {
+  // Считаем по каждому строению один раз (не дублируем по режимам)
+  const seen = new Set<string>();
+  let total = 0;
+  for (const m of matches) {
+    if (seen.has(m.facility_id)) continue;
+    seen.add(m.facility_id);
+    total += m.estimated_aniimo_count;
+  }
+  return total;
 }
 
 function computeFormTraits(form: AniimoForm, facilityMatches: FacilityCoverage[]): FormTraitProfile {
@@ -142,7 +156,9 @@ function computeUpgradeSuggestions(all: FormRecommendation[]): void {
 }
 
 export function computeRecommendations(
-  aniimos: Aniimo[], facilities: Facility[], rareFormIds: Set<string>,
+  aniimos: Aniimo[],
+  facilities: Facility[],
+  rareFormIds: Set<string>,
 ): Record<string, FormRecommendation> {
   const forms: Record<string, FormRecommendation> = {};
 
@@ -155,7 +171,7 @@ export function computeRecommendations(
 
       forms[key] = {
         form_key: key,
-        region: region,
+        region,
         no: a.no,
         name: a.name,
         form: form.form,
@@ -171,6 +187,7 @@ export function computeRecommendations(
         facility_matches: facilityMatches,
         evolution_branches: [],
         upgrade_suggestions: [],
+        recommended_count: computeRecommendedCount(facilityMatches),
       };
     }
   }

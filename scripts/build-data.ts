@@ -54,9 +54,8 @@ const AniimoSourceSchema = z.object({
   region: z.string().optional(), // override, если есть
   elements: z.array(AssignmentSchema).min(1),
   home_abilities: z.array(AssignmentSchema),
-  image: z.string().optional(),
   season: z.number().int().min(1).optional(),
-  stage: z.enum([StageIds.Lumin, StageIds.Gamma, StageIds.Nova]).optional(),
+  stage: z.enum([StageIds.Lumin, StageIds.Gamma, StageIds.Nova, StageIds.Legendary]).optional(),
   fixed_personality: z.any().optional(),
 });
 
@@ -66,12 +65,14 @@ const FacilityModeSchema = z.object({
   required_ability_level: z.number().int().min(0),
 });
 const FacilitySchema = z.object({
-  id: z.string(), name: z.string(), category: z.string(),
+  id: z.string(),
+  name: z.string(),
+  category: z.string(),
   copies: z.number().int().min(0),
+  estimated_aniimo_count: z.number().int().min(0).optional(),
   requires_abilities: z.array(z.string()),
   requires_families: z.array(z.string()),
   preferred_personality: z.any().optional(),
-  image: z.string().optional(),
   modes: z.array(FacilityModeSchema).optional(),
   is_speed_capped: z.boolean().optional(),
 });

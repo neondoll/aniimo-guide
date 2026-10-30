@@ -102,7 +102,6 @@ export function AniimoDetailPage() {
             {aniimo.name}
           </div>
 
-
           <div className="flex relative z-10 gap-3 items-center">
             <AniimoAvatar colors={colors} name={aniimo.name} size="lg" />
 
@@ -112,6 +111,7 @@ export function AniimoDetailPage() {
               {formById.get(form.form)?.is_rare && <Badge color="purple">Редкий</Badge>}
               {form.season !== undefined && <Badge color="warning">Сезон {form.season}</Badge>}
               {form.stage && <Badge color="gray">{STAGE_LABELS[form.stage]}</Badge>}
+              {rec && rec.recommended_count > 0 && (<Badge color="brand">{rec.recommended_count} копий</Badge>)}
             </div>
           </div>
 
@@ -173,7 +173,13 @@ export function AniimoDetailPage() {
                   >
                     <span className="font-medium text-primary">{m.facility_name}</span>
                     {m.mode_name !== 'По умолчанию' && <Badge color="sky" size="sm">{m.mode_name}</Badge>}
-                    <span className="text-xs text-tertiary">({m.copies} коп. · ур.{m.required_ability_level})</span>
+
+                    <span className="text-xs text-tertiary">
+                      ({m.copies} коп.
+                      {m.estimated_aniimo_count > 0 && ` · нужно ${m.estimated_aniimo_count} анимо`}
+                      {' · ур.'}{m.required_ability_level})
+                    </span>
+
                     {m.is_speed_capped && <Badge color="gray" size="sm">max</Badge>}
                     {m.preferred_personality && <PreferredPersonalityPills personality={m.preferred_personality} />}
                     <span className="text-tertiary">·</span>
@@ -233,7 +239,7 @@ export function AniimoDetailPage() {
             {rec && rec.upgrade_suggestions.length > 0 ? (
               <ul className="space-y-2 text-sm">
                 {rec.upgrade_suggestions.map((u) => {
-                  const ab = abilityById.get(u.ability_id);
+                  const ab = elementById.get(u.ability_id as ElementId) || abilityById.get(u.ability_id as HomelandAbilityId);
 
                   return (
                     <li className="flex flex-wrap gap-2 items-center" key={u.ability_id}>

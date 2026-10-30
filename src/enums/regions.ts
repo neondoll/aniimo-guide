@@ -8,8 +8,8 @@ export const RegionIds = {
 export type RegionId = (typeof RegionIds)[keyof typeof RegionIds];
 
 export const REGION_LABELS: Record<RegionId, string> = {
-  windy_plains: 'Ветреные равнины',
-  whisper_islands: 'Острова Шепотков',
-  seasonal: 'Сувениры 1-го сезона',
-  starter: 'Стартовые анимо',
+  [RegionIds.WindyPlains]: 'Ветреные равнины',
+  [RegionIds.WhisperIslands]: 'Острова Шепотков',
+  [RegionIds.Seasonal]: 'Сувениры 1-го сезона',
+  [RegionIds.Starter]: 'Стартовые анимо',
 };

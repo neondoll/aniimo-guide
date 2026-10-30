@@ -29,7 +29,13 @@ export function FacilitiesPage() {
             <div>
               <div className="flex items-start justify-between gap-2">
                 <div className="font-semibold text-primary text-lg">{f.name}</div>
-                {f.copies > 0 && <Badge color="gray" size="sm">{f.copies} коп.</Badge>}
+
+                <div className="flex flex-wrap gap-1.5 pt-2">
+                  {f.copies > 0 && <Badge color="gray" size="sm">{f.copies} коп.</Badge>}
+                  {f.estimated_aniimo_count !== undefined && (
+                    <Badge color="brand" size="sm">нужно ~{f.estimated_aniimo_count} анимо</Badge>
+                  )}
+                </div>
               </div>
               {f.description && <div className="text-sm text-secondary mt-1">{f.description}</div>}
 
