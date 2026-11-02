@@ -1862,14 +1862,14 @@ export const aniimos: AniimoFormSource[] = [
   // ─── 029 - Экрим ───
   {
     aniimo: Aniimos.Ekrim,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Basic,
     elements: [{ id: ElementIds.Dark, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 3 }],
   },
   {
     aniimo: Aniimos.Ekrim,
-    stage: StageIds.Gamma,
+    stage: StageIds.Nova,
     form: FormIds.Prismana,
     elements: [{ id: ElementIds.Dark, level: 4 }, { id: ElementIds.Fire, level: 3 }],
     home_abilities: [{ id: HomelandAbilityIds.Artisanship, level: 4 }],
