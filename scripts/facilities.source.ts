@@ -1,5 +1,5 @@
-import { Families, familyKey } from './families.refs.ts'
-import { ElementIds } from '../src/enums/elements.ts'
+import { Families, familyKey } from "./families.refs.ts";
+import { ElementIds } from "../src/enums/elements.ts";
 import { HomelandAbilityIds } from "../src/enums/homeland-abilities.ts";
 import type { Facility } from "../src/types/facility.ts";
 import type { PartialPersonality } from "../src/types/personality.ts";
@@ -17,8 +17,8 @@ export const facilities: Facility[] = [
     id: "farmland",
     name: "Пахотная земля",
     category: "material_production",
-    copies: 40,
-    estimated_aniimo_count: 5,
+    copies: 42,
+    estimated_aniimo_count: Math.ceil(42 / 8),
     requires_abilities: [ElementIds.Grass, ElementIds.Water, ElementIds.Earth, ElementIds.Dark],
     requires_families: [],
     modes: [{ id: "default", name: "По умолчанию", required_ability_level: 1 }],
@@ -27,8 +27,8 @@ export const facilities: Facility[] = [
     id: "woodland",
     name: "Лесной массив",
     category: "material_production",
-    copies: 20,
-    estimated_aniimo_count: 5,
+    copies: 21,
+    estimated_aniimo_count: Math.ceil(21 / 8),
     requires_abilities: [ElementIds.Grass, ElementIds.Water, ElementIds.Earth, ElementIds.Dark],
     requires_families: [],
     modes: [{ id: "default", name: "По умолчанию", required_ability_level: 1 }],
@@ -194,7 +194,7 @@ export const facilities: Facility[] = [
     name: "Столярный верстак",
     category: "material_processing",
     copies: 4,
-    estimated_aniimo_count: 2,
+    estimated_aniimo_count: 1,
     requires_abilities: [HomelandAbilityIds.Artisanship],
     requires_families: [],
     preferred_personality: PP.E,
@@ -205,7 +205,7 @@ export const facilities: Facility[] = [
     name: "Печь с дымоходом",
     category: "material_processing",
     copies: 4,
-    estimated_aniimo_count: 2,
+    estimated_aniimo_count: 1,
     requires_abilities: [ElementIds.Fire],
     requires_families: [],
     preferred_personality: PP.S,
