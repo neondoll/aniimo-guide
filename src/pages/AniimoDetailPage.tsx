@@ -203,7 +203,7 @@ export function AniimoDetailPage() {
               {form.is_final && <Badge color="success">Финал</Badge>}
               {formById.get(form.form)?.is_rare && <Badge color="purple">Редкий</Badge>}
               {form.season !== undefined && <Badge color="warning">Сезон {form.season}</Badge>}
-              {form.stage && <Badge color="gray">{STAGE_LABELS[form.stage]}</Badge>}
+              {aniimo.stage && <Badge color="gray">{STAGE_LABELS[aniimo.stage]}</Badge>}
               {rec && rec.recommended_count > 0 && (
                 <Badge color="brand">{rec.recommended_count} копий</Badge>
               )}

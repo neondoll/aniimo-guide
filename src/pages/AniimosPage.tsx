@@ -250,7 +250,7 @@ export function AniimosPage() {
                                 {f.is_final && <Badge color="success" size="sm">Финал</Badge>}
                                 {formInfo?.is_rare && <Badge color="purple" size="sm">Редкий</Badge>}
                                 {f.season !== undefined && <Badge color="warning" size="sm">Сезон {f.season}</Badge>}
-                                {f.stage && <Badge color="gray" size="sm">{STAGE_LABELS[f.stage]}</Badge>}
+                                {aniimo.stage && <Badge color="gray" size="sm">{STAGE_LABELS[aniimo.stage]}</Badge>}
                               </div>
 
                               {f.elements.length > 0 && (
