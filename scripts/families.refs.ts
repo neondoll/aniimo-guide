@@ -43,7 +43,7 @@ export const Families = {
     name: Aniimos.Nimbi.name,
     members: [Aniimos.Nimbi, Aniimos.Turbo, Aniimos.Dreaple],
   },
-  // Бормотун · Ведьмун · Топотун
+  // Бормотун · Ведунья · Топотун
   Hummin: {
     region: Aniimos.Hummin.region,
     id: Aniimos.Hummin.no,

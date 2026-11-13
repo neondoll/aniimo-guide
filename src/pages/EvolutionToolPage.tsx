@@ -11,6 +11,7 @@ import { useRecommendationsStore } from '@/store/recommendations.store';
 import { useRegionsStore } from '@/store/regions.store';
 import type { Personality } from '@/types/personality';
 import type { Form } from '@/types/form';
+import type { Aniimo } from '@/types/aniimo.ts'
 
 export function EvolutionToolPage() {
   const aniimos = useAniimosStore((s) => s.data);
@@ -53,6 +54,12 @@ export function EvolutionToolPage() {
     if (!rec) return [];
     return rankBranches(personality, rec.evolution_branches);
   }, [personality, recommendations, selectedNo, selectedForm, selectedRegion]);
+
+  const aniimoByRegionNo = useMemo(() => {
+    const map = new Map<string, Aniimo>();
+    for (const a of aniimos) map.set(`${a.region}:${a.no}`, a);
+    return map;
+  }, [aniimos]);
 
   return (
     <div className="p-6 max-w-3xl mx-auto space-y-6">
@@ -148,7 +155,7 @@ export function EvolutionToolPage() {
                       [axis]: personality[axis] === side ? undefined : side,
                     } as Partial<Personality>)
                   }
-                  className={`inline-flex h-7 min-w-[32px] items-center justify-center rounded-md px-2 text-sm font-medium transition-colors ${
+                  className={`inline-flex h-7 min-w-8 items-center justify-center rounded-md px-2 text-sm font-medium transition-colors ${
                     personality[axis] === side
                       ? 'bg-brand-600 text-white'
                       : 'text-secondary hover:bg-secondary/60'
@@ -166,31 +173,35 @@ export function EvolutionToolPage() {
           <Card className="p-5 space-y-3">
             <h2 className="font-semibold text-primary text-lg">Рекомендуемые эволюции</h2>
             <ul className="space-y-3">
-              {branches.map((b) => (
-                <li
-                  key={`${b.to_no}:${b.to_form}`}
-                  className={`flex flex-wrap items-center gap-2 text-sm ${
-                    !b.available && !b.unknown ? 'opacity-50' : ''
-                  }`}
-                >
-                  <span className="text-tertiary">{!b.available && !b.unknown ? '🔒' : '→'}</span>
-                  <Link
-                    to={`/aniimos/${b.to_region ?? selectedRegion}/${b.to_no}-${b.to_form}`}
-                    className={`hover:underline ${
-                      b.recommended ? 'font-bold text-emerald-700' : 'text-secondary'
+              {branches.map((b) => {
+                const targetRegion = b.to_region ?? selectedRegion;
+                const target = aniimoByRegionNo.get(`${targetRegion}:${b.to_no}`);
+                return (
+                  <li
+                    key={`${b.to_no}:${b.to_form}`}
+                    className={`flex flex-wrap items-center gap-2 text-sm ${
+                      !b.available && !b.unknown ? 'opacity-50' : ''
                     }`}
                   >
-                    #{b.to_no} ({formById.get(b.to_form)?.name ?? b.to_form})
-                  </Link>
-                  {b.requires_personality && (
-                    <RequiredPersonalityPills personality={b.requires_personality} />
-                  )}
-                  {b.recommended && <Badge color="success" size="sm">рекомендуется</Badge>}
-                  {!b.available && !b.unknown && (
-                    <span className="text-xs text-red-600">не подходит</span>
-                  )}
-                </li>
-              ))}
+                    <span className="text-tertiary">{!b.available && !b.unknown ? '🔒' : '→'}</span>
+                    <Link
+                      to={`/aniimos/${b.to_region ?? selectedRegion}/${b.to_no}-${b.to_form}`}
+                      className={`hover:underline ${
+                        b.recommended ? 'font-bold text-emerald-700' : 'text-secondary'
+                      }`}
+                    >
+                      #{b.to_no} {target?.name ?? b.to_no} ({formById.get(b.to_form)?.name ?? b.to_form})
+                    </Link>
+                    {b.requires_personality && (
+                      <RequiredPersonalityPills personality={b.requires_personality} />
+                    )}
+                    {b.recommended && <Badge color="success" size="sm">рекомендуется</Badge>}
+                    {!b.available && !b.unknown && (
+                      <span className="text-xs text-red-600">не подходит</span>
+                    )}
+                  </li>
+                )
+              })}
             </ul>
           </Card>
         )}

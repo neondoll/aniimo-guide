@@ -55,7 +55,7 @@ export const evolutions: EvolutionSource[] = [
   { from: Aniimos.Nimbi, from_form: FormIds.Rainfall, to: Aniimos.Turbo, to_form: FormIds.Rainfall },
   { from: Aniimos.Nimbi, from_form: FormIds.Cloudmist, to: Aniimos.Turbo, to_form: FormIds.Cloudmist },
   { from: Aniimos.Nimbi, from_form: FormIds.Plateau, to: Aniimos.Turbo, to_form: FormIds.Plateau },
-  // Бормотун → Ведьмун | Топотун
+  // Бормотун → Ведунья | Топотун
   { from: Aniimos.Hummin, from_form: FormIds.Basic, to: Aniimos.Hexxin, to_form: FormIds.Basic },
   { from: Aniimos.Hummin, from_form: FormIds.Basic, to: Aniimos.Tuckin, to_form: FormIds.Basic },
   { from: Aniimos.Hummin, from_form: FormIds.Mountain, to: Aniimos.Hexxin, to_form: FormIds.Mountain },

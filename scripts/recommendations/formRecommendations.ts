@@ -179,7 +179,7 @@ export function computeRecommendations(
         is_final: form.is_final,
         is_rare: isRare,
         ...(form.season !== undefined ? { season: form.season } : {}),
-        ...(form.stage ? { stage: form.stage } : {}),
+        ...(a.stage ? { stage: a.stage } : {}),
         ...(form.image ? { image: form.image } : {}),
         ...(form.fixed_personality ? { fixed_personality: form.fixed_personality } : {}),
         traits: computeFormTraits(form, facilityMatches),

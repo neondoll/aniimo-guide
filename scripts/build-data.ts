@@ -46,6 +46,7 @@ const AniimoRefSchema = z.object({
   region: z.string(),
   no: z.string(),
   name: z.string().min(1),
+  stage: z.enum([StageIds.Lumin, StageIds.Gamma, StageIds.Nova, StageIds.Legendary]).optional(),
 });
 
 const AniimoSourceSchema = z.object({
@@ -55,7 +56,6 @@ const AniimoSourceSchema = z.object({
   elements: z.array(AssignmentSchema).min(1),
   home_abilities: z.array(AssignmentSchema),
   season: z.number().int().min(1).optional(),
-  stage: z.enum([StageIds.Lumin, StageIds.Gamma, StageIds.Nova, StageIds.Legendary]).optional(),
   fixed_personality: z.any().optional(),
 });
 
@@ -156,6 +156,7 @@ function mergeAniimos(
         no: row.aniimo.no,
         region: row.aniimo.region,
         name: row.aniimo.name,
+        ...(row.aniimo.stage ? { stage: row.aniimo.stage } : {}),
         family_id,
         forms: [],
       };
@@ -175,7 +176,6 @@ function mergeAniimos(
       is_final: evolves_to.length === 0,
       ...(row.image ? { image: row.image } : {}),
       ...(row.season !== undefined ? { season: row.season } : {}),
-      ...(row.stage ? { stage: row.stage } : {}),
       ...(row.fixed_personality ? { fixed_personality: row.fixed_personality } : {}),
     });
   }

@@ -23,7 +23,6 @@ export interface EvolutionEdge {
 }
 
 export interface AniimoForm {
-  stage?: StageId;
   form: FormId;
   region?: RegionId;
   elements: ElementAssignment[];
@@ -39,6 +38,7 @@ export interface Aniimo {
   region: RegionId;
   no: string;
   name: string;
+  stage?: StageId;
   family_id: string;
   forms: AniimoForm[];
 }
